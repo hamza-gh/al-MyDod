@@ -1,0 +1,51 @@
+@font-face{
+  font-family: mypolice;
+  src: url('../font/NDLOGOSREGULARITALIC.ttf');
+}
+ /* Dropdown Button */
+.dropbtn {
+  font-family: mypolice;
+  background-color: #4caf4f00;
+  color: #2B2D3B;
+  padding: 16px;
+  font-size: 11px;
+  border: none;
+  font-weight: bold;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  
+  
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px #2B2D3B;
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: #2B2D3B;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-family: mypolice;
+  font-size: 8px;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: #00000000;color: rgb(0, 0, 0);} 

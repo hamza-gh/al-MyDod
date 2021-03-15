@@ -1,0 +1,203 @@
+/* Copy this code in your css file. */
+
+html,body
+{
+    width: 500px;
+    margin: auto;
+}
+.container
+{
+    width: 500px;
+    margin: 20px auto;
+}
+
+.preview
+{
+    padding: 10px;
+    position: relative;
+}
+
+.preview i
+{
+    color: white;
+    font-size: 35px;
+    transform: translate(50px,130px);
+}
+
+.preview-img
+{
+    border-radius: 100%;
+    box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.7);
+}
+
+.browse-button
+{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    position: absolute; /* Tweak the position property if the element seems to be unfit */
+    top: 10px;
+    left: 132px;
+    background: linear-gradient(180deg, transparent, black);
+    opacity: 0;
+    transition: 0.3s ease;
+}
+
+.browse-button:hover
+{
+    opacity: 1;
+}
+
+.browse-input
+{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    transform: translate(-1px,-26px);
+    opacity: 0;
+}
+
+.form-group
+{
+    width:  400px;
+    margin: 50px auto;
+}
+
+.form-group input
+{
+    transition: 0.3s linear
+    ;
+}
+
+.form-group input:focus
+{
+    border: 1px solid crimson;
+    box-shadow: 0 0 0 0;
+}
+
+.Error
+{
+    color: crimson;
+    font-size: 13px;
+}
+
+.Back
+{
+    font-size: 25px;
+}
+body {
+    font-family: sans-serif;
+    background-color: #eeeeee;
+  }
+  
+  .file-upload {
+    background-color: #ffffff;
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .file-upload-btn {
+    width: 100%;
+    margin: 0;
+    color: #fff;
+    background: #1FB264;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #15824B;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  
+  .file-upload-btn:hover {
+    background: #1AA059;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+  }
+  
+  .file-upload-btn:active {
+    border: 0;
+    transition: all .2s ease;
+  }
+  
+  .file-upload-content {
+    display: none;
+    text-align: center;
+  }
+  
+  .file-upload-input {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    outline: none;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  .image-upload-wrap {
+    margin-top: 20px;
+    border: 4px dashed #000000;
+    position: relative;
+  }
+  
+  .image-dropping,
+  .image-upload-wrap:hover {
+    background-color: #1FB264;
+    border: 4px dashed #ffffff;
+  }
+  
+  .image-title-wrap {
+    padding: 0 15px 15px 15px;
+    color: #222;
+  }
+  
+  .drag-text {
+    text-align: center;
+  }
+  
+  .drag-text h3 {
+    font-weight: 100;
+    text-transform: uppercase;
+    color: #000000;
+    padding: 60px 0;
+  }
+  
+  .file-upload-image {
+    max-height: 200px;
+    max-width: 200px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .remove-image {
+    width: 200px;
+    margin: 0;
+    color: #fff;
+    background: #cd4535;
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+    border-bottom: 4px solid #b02818;
+    transition: all .2s ease;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  
+  .remove-image:hover {
+    background: #c13b2a;
+    color: #ffffff;
+    transition: all .2s ease;
+    cursor: pointer;
+  }
+  
+  .remove-image:active {
+    border: 0;
+    transition: all .2s ease;
+  }
