@@ -40,6 +40,7 @@
       <th scope="col"style="text-align: center;">Nom Rapport</th>
       <th scope="col"style="text-align: center;">Date de Creation</th>
       <th scope="col"  >&nbsp;&nbsp;Etat</th>
+      <th scope="col" style="text-align:center;"  >Action</th>
 
   </thead>
   <tbody>
@@ -54,7 +55,7 @@
       @else 
       <td style="text-align: center;">Mis à jour</td>
       @endif
-      <td style="text-align: center;">{{$i->nom_rapport}}</td>
+      <td style="text-align: center;">{{$i->nom_pr}}</td>
       <td style="text-align: center;">{{$i->created_at}}</td>
 
       
@@ -74,17 +75,17 @@
 
       <td style="text-align: center;">
          
-            <form action="/liste_ano_maj/{{$i->id}}" method="post" >
+            <form action="/liste_au_ano_maj/{{$i->id}}" method="post" >
                  
-           @if($i->etat=='Clos')
+           @if($i->etat=='Clos' || $i->etat=='En cours')
            
-           <a class="btn btn-primary" href="/liste_ano_maj/{{$i->id}}/details_ano_maj">Details</a>
+           <a class="btn btn-primary" href="/liste_au_ano_maj/{{$i->id}}/details_au_ano_maj">Details</a>
 
             @else
-            <a class="btn btn-primary" href="/liste_ano_maj/{{$i->id}}/details_ano_maj">Details</a>
+            <a class="btn btn-primary" href="/liste_au_ano_maj/{{$i->id}}/details_au_ano_maj">Details</a>
 
             
-            <a href="/liste_ano_maj/{{$i->id}}/editer_ano_maj" class="btn btn-light" style="color:black">Editer</a>
+            <a href="/liste_au_ano_maj/{{$i->id}}/editer_au_ano_maj" class="btn btn-light" style="color:black">Editer</a>
          
 
             

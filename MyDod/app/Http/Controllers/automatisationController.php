@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Au_proc;
 use App\Models\Au_anomalie_maj;
@@ -25,7 +25,7 @@ class automatisationController extends Controller
          
                $l =DB::table('au_procs')->where('email_user',$request->user()->email)->get();
               
-               return view('liste_process_rpa' , ['ic' => $listincident]);
+               return view('EB.Automatisation.liste_process_rpa' , ['ic' => $l]);
 
                
                
@@ -68,14 +68,15 @@ class automatisationController extends Controller
    public function rpa_edit($id)
    {
      $ic = Au_proc::find($id);
-     return view ('editer_process_rpa',['ic'=>$ic]);
+     return view ('EB.Automatisation.editer_process_rpa',['i'=>$ic]);
 
    }
    
    public function rpa_update(Request $request,$id)
    {
     $inc = Au_proc::find($id);
-
+    if(auth()->user()->etat=='user'){
+      
     $inc->Objectif = $request->input('Objectif');
     $inc->Processus = $request->input('Processus');
     $inc->Processus_etp = $request->input('Processus_etp');
@@ -90,7 +91,17 @@ class automatisationController extends Controller
     session()->flash('update','Bien Modifier');
 
     return redirect('/liste_process_rpa');
+   }
 
+    if(auth()->user()->etat=='admin')
+    {
+   
+    $inc->etat = $request->input('etat');
+    $inc->affectation = $request->input('affectation');
+    
+    $inc->save();
+      return redirect ('/liste_total');
+    }
    }
   public function rpa_destroy(Request $request,$id)
   {
@@ -105,10 +116,10 @@ class automatisationController extends Controller
 
   }
 
-  public function rpa_etails($id)
+  public function rpa_details($id)
    {
      $ic = Au_proc::find($id);
-     return view ('details_process_rpa',['ic'=>$ic]);
+     return view ('EB.Automatisation.details_process_rpa',['i'=>$ic]);
 
    }
 
@@ -121,7 +132,7 @@ class automatisationController extends Controller
              
                    $l =DB::table('au_anomalie_majs')->where('email_user',$request->user()->email)->get();
                   
-                   return view('liste_au_ano_maj' , ['ic' => $listincident]);
+                   return view('EB.Automatisation.liste_au_ano_maj' , ['ic' => $l]);
     
                    
                    
@@ -143,13 +154,13 @@ class automatisationController extends Controller
          
            if($request->input('m')=='Mis à Jour RPA')
            {
-             $inc->titre = 'm';
+             $inc->titre = 'Mis à jour';
              session()->flash('aj','Mis à Jour Bien Ajouter');
            }
            
            if($request->input('a')=='Ajouter une Anomalie RPA')
            {
-             $inc->titre = 'a';
+             $inc->titre = 'Anomalie';
              session()->flash('aj','Anomalie(RPA) Bien Ajouter');
            }
            
@@ -161,13 +172,15 @@ class automatisationController extends Controller
            
     
           return redirect('/au_ano_maj');
-    
+
+            
+        
        }
        
        public function rpa_am_edit($id)
        {
          $ic = Au_anomalie_maj::find($id);
-         return view ('editer_au_ano_maj',['ic'=>$ic]);
+         return view ('EB.Automatisation.editer_au_ano_maj',['inc'=>$ic]);
     
        }
        
@@ -175,8 +188,9 @@ class automatisationController extends Controller
        {
         $inc = Au_anomalie_maj::find($id);
     
-        $inc->nom_rapport = $request->input('nom_rapport');
-           $inc->description = $request->input('description');
+        if(auth()->user()->etat=='user'){
+        $inc->nom_pr = $request->input('nom_pr');
+        $inc->Descriptif = $request->input('Descriptif');
     
         $inc->save();
     
@@ -184,7 +198,17 @@ class automatisationController extends Controller
         session()->flash('update','Anomalie(RPA) Bien Modifier');
     
         return redirect('/liste_au_ano_maj');
-    
+       }
+
+        if(auth()->user()->etat=='admin')
+        {
+      
+        $inc->etat = $request->input('etat');
+        $inc->affectation = $request->input('affectation');
+        
+        $inc->save();
+          return redirect ('/liste_total');
+          }    
        }
       public function rpa_am_destroy(Request $request,$id)
       {
@@ -202,7 +226,7 @@ class automatisationController extends Controller
       public function rpa_am_details($id)
        {
          $ic = Au_anomalie_maj::find($id);
-         return view ('details_au_ano_maj',['ic'=>$ic]);
+         return view ('EB.Automatisation.details_au_ano_maj',['inc'=>$ic]);
     
        }
 

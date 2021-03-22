@@ -43,16 +43,19 @@
         
     letter-spacing: 0.1em;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 25px;
+    height: 150px;
     font-weight: 200px;
-    line-height: 45px;
+    line-height: 35px;
+    vertical-align: auto;
     max-width: 100%;
     position: relative;
     text-decoration: none;
     text-transform: uppercase;
     width: 100%;
+    text-align: center;
 
-    border-radius: 20%;
+ 
     
     }
     .btn:hover {
@@ -67,6 +70,7 @@
     overflow: hidden;
     position: relative;
     transition: all 0.3s ease-in-out;
+    
     }
     .effect:hover {
     border: 4px solid #666;
@@ -120,8 +124,8 @@
                           @if(Auth::user()->etat=='user')
                            <!--user part -->
                            <div class="containers" style="display: inline-flex;">
-        <a href="/liste_incident" class="btn effect " style="margin-right: 40px;"><span> Incident </span></a>
-        <a href="/home_eb" class="btn effect"style="margin-right: 40px;"><span> Faire une Demande  </span></a>
+        <a href="/liste_incident" class="btn effect " style="margin-right: 40px;"><span> <br> Incident </span></a>
+        <a href="/home_eb" class="btn effect"style="margin-right: 40px;"><span> Faire <br> une <br> Demande  </span></a>
         <a href="/ConsulatationEB" class="btn effect"style="margin-right: 40px;"><span> Consulter mes Demandes </span></a>
         </div>
 
@@ -130,7 +134,12 @@
 
                                     @if(Auth::user()->etat=='admin')
                                     <!-- admin part -->
-                                   
+                                    <h1 style="text-align: center; font-weight: bolder;"> Admin</h1>
+                                    <div class="containers" style="display: inline-flex;">
+                                        <a href="/ms_liste" class="btn effect " style="margin-right: 40px;"><span><br> Mes demande </span></a>
+                                        
+                                        <a href="/auth" class="btn effect"style="margin-right: 40px;"><span><br> Creer un user </span></a>
+                                        </div>
 
                                     @endif
                     

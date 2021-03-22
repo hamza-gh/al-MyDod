@@ -41,7 +41,8 @@ class SharepointController extends Controller
         
     $inc->email_user = $request->user()->email;
     $inc->Description = $request->input('Description');
- 
+
+    
     
     $inc->save();
     
@@ -51,7 +52,41 @@ class SharepointController extends Controller
      
 
    }
-   
+
+   public function edit($id)
+   {
+     $ic = Sh_droit::find($id);
+     return view ('EB.sharepoint.editer_l_d_droit',['i'=>$ic]);
+
+   }
+
+   public function update(Request $request,$id){
+    $ic = Sh_droit::find($id);
+    if(auth()->user()->etat=='user'){
+         
+          $inc->Description = $request->input('Description');
+          $inc->save();
+
+           //flash message
+          session()->flash('update','Bien Modifier');
+
+          return redirect('/l_d_droit');
+        }
+        
+     if(auth()->user()->etat=='admin')
+        {
+       
+        $inc->etat = $request->input('etat');
+        $inc->affectation = $request->input('affectation');
+        
+        $inc->save();
+          return redirect ('/liste_total');
+        }
+
+      
+   }
+
+
   public function destroy(Request $request,$id)
   {
     $inc = Sh_droit::find($id);
@@ -63,6 +98,13 @@ class SharepointController extends Controller
 
     return redirect('/l_d_droit');
   }
+
+  public function details($id)
+   {
+     $ic = Sh_droit::find($id);
+     return view ('EB.Automatisation.details_l_d_droit',['i'=>$ic]);
+
+   }
 
   //crud pour liste creation de la demande
 
@@ -108,13 +150,40 @@ class SharepointController extends Controller
  
  public function c_edit($id)
  {
-   
+  
+  $ic = Sh_l_droit::find($id);
+  return view ('EB.sharepoint.editer_ll_d_droit',['i'=>$ic]);
 
  }
  
- public function c_update(Request $request,$id)
- {
-  
+
+   public function c_update(Request $request,$id)
+   {
+    $ic = Sh_l_droit::find($id);
+    if(auth()->user()->etat=='user'){
+         
+    
+      $inc->objet = $request->input('objet');
+      $inc->Description = $request->input('Description');
+      
+          $inc->save();
+
+           //flash message
+          session()->flash('update','Bien Modifier');
+
+          return redirect('/l_d_droit');
+        }
+        
+     if(auth()->user()->etat=='admin')
+        {
+       
+        $inc->etat = $request->input('etat');
+        $inc->affectation = $request->input('affectation');
+        
+        $inc->save();
+          return redirect ('/liste_total');
+        }
+
  }
 public function c_destroy(Request $request,$id)
 {

@@ -62,7 +62,21 @@
             </div>
            
 
-
+            <label style="font-weight: bolder;">Etat :</label>
+                    &nbsp;&nbsp;
+           
+                        
+                        @if($ic->etat=='Nouveau')
+             <label style="color: green;text-align: center;font-weight: bolder;font-size: 20px; " >{{$ic->etat}}</label>
+             @endif
+       
+             @if($ic->etat=='Clos')
+             <label style="color: red; text-align: center;font-weight: bolder;font-size: 20px;" >{{$ic->etat}}</label>
+             @endif
+       
+             @if($ic->etat=='En cours')
+             <label style="color: orange; text-align: center;font-weight: bolder;font-size: 20px ">{{$ic->etat}}</label>
+             @endif
             
           
         </form>

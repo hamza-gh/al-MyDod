@@ -82,7 +82,7 @@
 </style>
 <body><br><br>
 
-    <div class="container" style=" width: 600px;margin-left: 0px;">
+   
         
       <h1 style="font-size: 30px; font-weight: bolder; color: red; margin-left: 350px;">Bi</h1>
        <br>
@@ -90,19 +90,26 @@
            
         <nav class="nav nav-tabs " style="width: 800px;">
             
-            <a class="nav-item nav-link topnav" href="#p1" data-toggle="tab" style="font-size: 16px; font-weight: bolder; " >Business Intelligence</a>
-            <a class="nav-item nav-link topnav" href="#p2" data-toggle="tab" style="font-size: 16px; margin-left: 100px; font-weight: bolder;" >SAP Buisiness Objects</a>
-            <a class="nav-item nav-link topnav" href="#p2" data-toggle="tab" style="font-size: 16px; margin-left: 100px; font-weight: bolder;" >Analyse & Extraction</a>
+            <a class="nav-item nav-link topnav" href="#bi1" data-toggle="tab" style="font-size: 16px; font-weight: bolder; " >Business Intelligence</a>
+            <a class="nav-item nav-link topnav" href="#bi2" data-toggle="tab" style="font-size: 16px; margin-left: 100px; font-weight: bolder;" >SAP Buisiness Objects</a>
+            <a class="nav-item nav-link topnav" href="#bi3" data-toggle="tab" style="font-size: 16px; margin-left: 100px; font-weight: bolder;" >Analyse & Extraction</a>
         
           </nav>
           <div class="tab-content" >
             
-            <div class="tab-pane" id="p1" style="background-color: transparent;">
-              <a href="/ConsulatationEB-list-bi-rapport">liste du bi</a>
+            <div class="tab-pane" id="bi1" style="background-color: transparent;">
+              <a href="/liste_bi_rapports">liste rapport bi</a><br>
+              <a href="/liste_ano_maj">liste des anomalie  & maj bi</a>
 
             </div>
-            <div class="tab-pane" id="p2" style="background-color: transparent;">
-                <br>
+            <div class="tab-pane" id="bi2" style="background-color: transparent;">
+               <a href="/liste_bo_rap">liste rapport BO</a><br>
+              <a href="/liste_bo_r">liste des Modifications & Replanifications</a>
+              
+            </div>
+            <div class="tab-pane" id="bi3" style="background-color: transparent;">
+               <a href="/liste_analyse">liste d'Analyses</a><br>
+              <a href="/liste_extraction">liste des Extractions</a>
               
             </div>
           </div>
@@ -111,9 +118,67 @@
   </div>
  </div>
 </div>
-            <br>
+            <br><br><br>
             
-        ..
+            <h1 style="font-size: 30px; font-weight: bolder; color: red; margin-left: 260px;">Automatisation</h1>
+       <br>
+           
+           
+        <nav class="nav nav-tabs " style="width: 500px; margin-left: 200px;" >
+            
+            <a class="nav-item nav-link topnav" href="#au1" data-toggle="tab" style="font-size: 16px; font-weight: bolder; " >RPA</a>
+            <a class="nav-item nav-link topnav" href="#au2" data-toggle="tab" style="font-size: 16px; margin-left: 100px; font-weight: bolder;" >Devéloppement & Design</a>
+
+        
+          </nav>
+          <div class="tab-content" style="width: 500px; margin-left: 100px;">
+            
+            <div class="tab-pane" id="au1" style="background-color: transparent;">
+              <a href="/liste_process_rpa">liste Process RPA</a><br>
+              <a href="/liste_au_ano_maj">liste des Anomalies & MAJs RPA</a>
+
+            </div>
+            <div class="tab-pane" id="au2" style="background-color: transparent;">
+
+              
+              
+            </div> 
+            
+          </div>
+         
+        </div>
+        
+  </div>
+ </div>
+ 
+</div>
+        
+<br><br><br>
+<h1 style="font-size: 30px; font-weight: bolder; color: red; margin-left: 350px;">Share point</h1>
+       
+           
+           
+        <nav class="nav nav-tabs " style="width: 500px; margin-left: 200px;" >
+            
+            <a class="nav-item nav-link topnav" href="#sh1" data-toggle="tab" style="font-size: 16px; font-weight: bolder; " >Sharepoint</a>
+          
+        
+          </nav>
+          <div class="tab-content" >
+            
+            <div class="tab-pane " id="sh1" style="background-color: transparent;" >
+              <a href="/l_d_droit">Liste des demandes de droit</a><br>
+              <a href="/ll_d_droit">Liste Des Droit</a>
+
+            </div>
+            
+           
+          </div>
+        </div>
+        
+  </div>
+ </div>
+</div>
 
     </div>
   </body>

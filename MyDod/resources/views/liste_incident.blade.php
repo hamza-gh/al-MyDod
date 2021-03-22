@@ -60,7 +60,7 @@
       <td style="color: green; ">{{$i->etat}}</td>
       @endif
 
-      @if($i->etat=='clos')
+      @if($i->etat=='Clos')
       <td style="color: red;">{{$i->etat}}</td>
       @endif
 

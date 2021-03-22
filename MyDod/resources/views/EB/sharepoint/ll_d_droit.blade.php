@@ -1,4 +1,5 @@
-
+@extends('layouts.app')
+@section('content')
 <link rel="stylesheet" href="{{asset('assets\css\bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets\css\theme.css')}}">
     <script src="{{asset('assets\resources\js\bootstrap.min.js')}}"></script>
@@ -24,14 +25,12 @@
         
     <div class="col-md-10">
     <div class ="row">
-    <div>
-        
-        <a href="/dd_droit" class="btn btn-success" style=" margin-left: 759px;" >+ Nouvelle liste demande de droit </a>
-         </div>
-         
-     
+    
+      <h1 style="text-align: center; color: black; font-weight: bolder; text-align: center; margin-left: 400px;"> Liste des Droit</h1><br><br><br>
 <table class="table table-striped" >
+
   <thead>
+   
     <tr>
       <th scope="col"></th>
       
@@ -75,3 +74,4 @@
 </body>
 </html>
 
+@endsection

@@ -13,13 +13,12 @@
     <title>Business Intelligence</title>
 </head>
 <body>
-         
-<div class="container">
 
+<div class="container">
   <form class="form-inline my-2 my-lg-0" >
   
   </form>
-      <h1 style="text-align: center; color: black; font-weight: bolder;"> Liste des Anomalie et MAJ</h1>
+      <h1 style="text-align: center; color: black; font-weight: bolder;"> Liste Process RPA</h1>
       
      @include('partieflash.flash')
         
@@ -27,7 +26,7 @@
     <div class ="row">
     <div>
         
-        <a href="/ConsulatationEB" class="btn btn-success" style="background-color: black;" > <  </a>
+        <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
        </div>
          
      
@@ -36,10 +35,10 @@
     <tr>
       <th scope="col"></th>
       
-      <th scope="col" style="text-align: center;max-width:10px;" >Titre</th>
-      <th scope="col"style="text-align: center;">Nom Rapport</th>
-      <th scope="col"style="text-align: center;">Date de Creation</th>
-      <th scope="col"  >&nbsp;&nbsp;Etat</th>
+      <th scope="col" style="text-align: center;" >Objectif de votre Besoin</th>
+      <th scope="col" style="text-align: center;">Date de Creation</th>
+      <th scope="col" style="margin-left: 60px;">Etat</th>
+      <th scope="col" style="text-align: center;">Action</th>
 
   </thead>
   <tbody>
@@ -49,12 +48,7 @@
     @foreach($ic as $i)
       <th scope="row"></th>
       
-        @if($i->titre=='Anomalie')
-      <td style="text-align: center;">Anomalie</td>
-      @else 
-      <td style="text-align: center;">Mis à jour</td>
-      @endif
-      <td style="text-align: center;">{{$i->nom_rapport}}</td>
+      <td style="text-align: center;">{{$i->Objectif}}</td>
       <td style="text-align: center;">{{$i->created_at}}</td>
 
       
@@ -74,17 +68,17 @@
 
       <td style="text-align: center;">
          
-            <form action="/liste_ano_maj/{{$i->id}}" method="post" >
+            <form action="/liste_process_rpa/{{$i->id}}" method="post" >
                  
-           @if($i->etat=='Clos')
+           @if($i->etat=='Clos' || $i->etat=='En cours')
            
-           <a class="btn btn-primary" href="/liste_ano_maj/{{$i->id}}/details_ano_maj">Details</a>
+           <a class="btn btn-primary" href="liste_process_rpa/{{$i->id}}/details_process_rpa">Details</a>
 
             @else
-            <a class="btn btn-primary" href="/liste_ano_maj/{{$i->id}}/details_ano_maj">Details</a>
+            <a class="btn btn-primary" href="liste_process_rpa/{{$i->id}}/details_process_rpa">Details</a>
 
             
-            <a href="/liste_ano_maj/{{$i->id}}/editer_ano_maj" class="btn btn-light" style="color:black">Editer</a>
+            <a href="/liste_process_rpa/{{$i->id}}/editer_process_rpa" class="btn btn-light" style="color:black">Editer</a>
          
 
             

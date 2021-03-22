@@ -12,12 +12,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Bo modification</title>
+    <title>Analyse</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
  
 </head>
 <body>
-<div style="color: #2B2D3B; font-size: 13px; font-weight: bolder; margin-left: 800px;">Bo > Buisiness Objects > Analyse</div>
+
     <div class="container" style=" width: 600px;margin-left: 200px;">
         
     <form class="signup" action="{{ url('/analyse')}}" method="post" enctype="multipart/form-data">

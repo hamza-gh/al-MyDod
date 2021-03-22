@@ -19,6 +19,9 @@ route::get('/login',function(){
     return view('auth.login');
 });
 
+route::get('/auth',function(){
+    return view('auth.register');
+});
 route:: get('/',[App\Http\Controllers\CompteController::class, 'con']);
 
 Route::get('/ConsulatationEB', function () {
@@ -102,27 +105,34 @@ route::get('/ano_maj',function()
     return view ('EB.BI.bisiness_in.ano_maj');
 },['middleware' => 'auth']);
 
-Route::get('/ConsulatationEB-list-bi-rapport', function () {
+Route::get('/liste_bi_rapports', function () {
     return view('EB.BI.bisiness_in.liste_bi_rapports');
+});
+Route::get('/liste_ano_maj', function () {
+    return view('EB.BI.bisiness_in.liste_ano_maj');
 });
 
                      //-*rapport
-//Route::get('/nv_rap',[App\Http\Controllers\biController::class, 'bi_index'],['middleware' => 'auth']);
+Route::get('/liste_bi_rapports',[App\Http\Controllers\biController::class, 'bi_index'],['middleware' => 'auth']);
 Route::post('/nv_rap',[App\Http\Controllers\biController::class, 'bi_store'],['middleware' => 'auth']);
-//Route::get('/nv_rap/{id}/editer_incident',[App\Http\Controllers\biController::class, 'bi_edit'],['middleware' => 'auth']);
-//Route::put('/nv_rap/{id}',[App\Http\Controllers\biController::class, 'bi_update'],['middleware' => 'auth']);
-//Route::delete('/nv_rap/{id}',[App\Http\Controllers\biController::class, 'bi_destroy'],['middleware' => 'auth']);
+Route::get('/liste_bi_rapports/{id}/editer_bi_rapports',[App\Http\Controllers\biController::class, 'bi_edit'],['middleware' => 'auth']);
+Route::put('/liste_bi_rapports/{id}',[App\Http\Controllers\biController::class, 'bi_update'],['middleware' => 'auth']);
+Route::delete('/liste_bi_rapports/{id}',[App\Http\Controllers\biController::class, 'bi_destroy'],['middleware' => 'auth']);
 
+Route::get('/liste_bi_rapports/{id}/details_bi_rapports',[App\Http\Controllers\biController::class, 'bi_details'],['middleware' => 'auth']);
+             
+// download file
 route::get('/d',[App\Http\Controllers\biController::class, 'dw'],['middleware' => 'auth'])->name('dw');
 
 
                                
                      //-* anomalie & mis a jour
-//Route::get('/ano_maj',[App\Http\Controllers\biController::class, 'bi_m_index'],['middleware' => 'auth']);
-Route::post('/ano_maj',[App\Http\Controllers\biController::class, 'bi_m_store'],['middleware' => 'auth']);
-//Route::get('/ano_maj/{id}/editer_incident',[App\Http\Controllers\biController::class, 'bi_m_edit'],['middleware' => 'auth']);
-//Route::put('/ano_maj/{id}',[App\Http\Controllers\biController::class, 'bi_m_update'],['middleware' => 'auth']);
-//Route::delete('/ano_maj/{id}',[App\Http\Controllers\biController::class, 'bi_m_destroy'],['middleware' => 'auth']);
+Route::get('/liste_ano_maj',[App\Http\Controllers\biController::class, 'bi_am_index'],['middleware' => 'auth']);
+Route::post('/ano_maj',[App\Http\Controllers\biController::class, 'bi_am_store'],['middleware' => 'auth']);
+Route::get('/liste_ano_maj/{id}/editer_ano_maj',[App\Http\Controllers\biController::class, 'bi_am_edit'],['middleware' => 'auth']);
+Route::put('/liste_ano_maj/{id}',[App\Http\Controllers\biController::class, 'bi_am_update'],['middleware' => 'auth']);
+Route::delete('/liste_ano_maj/{id}',[App\Http\Controllers\biController::class, 'bi_am_destroy'],['middleware' => 'auth']);
+Route::get('/liste_ano_maj/{id}/details_ano_maj',[App\Http\Controllers\biController::class, 'bi_am_details'],['middleware' => 'auth']);
 
 
             //* BO
@@ -140,22 +150,23 @@ route :: get('/bo_m_r',function(){
     return view ('EB.BI.BO.bo_m_r');
 },['middleware' => 'auth']);
 
-            //* nv rapport
+            //* nv rapport BO
 
-//Route::get('/bo_r',[App\Http\Controllers\biController::class, 'bo_r_index'],['middleware' => 'auth']);
+Route::get('/liste_bo_rap',[App\Http\Controllers\biController::class, 'bo_r_index'],['middleware' => 'auth']);
 Route::post('/bo_r',[App\Http\Controllers\biController::class, 'bo_r_store'],['middleware' => 'auth']);
-//Route::get('/bo_r/{id}/editer_incident',[App\Http\Controllers\biController::class, 'bo_r_edit'],['middleware' => 'auth']);
-//Route::put('/bo_r/{id}',[App\Http\Controllers\biController::class, 'bo_r_update'],['middleware' => 'auth']);
-//Route::delete('/bo_r/{id}',[App\Http\Controllers\biController::class, 'bo_r_destroy'],['middleware' => 'auth']);
+Route::get('/liste_bo_rap/{id}/editer_bo_rap',[App\Http\Controllers\biController::class, 'bo_r_edit'],['middleware' => 'auth']);
+Route::put('/liste_bo_rap/{id}',[App\Http\Controllers\biController::class, 'bo_r_update'],['middleware' => 'auth']);
+Route::delete('/liste_bo_rap/{id}',[App\Http\Controllers\biController::class, 'bo_r_destroy'],['middleware' => 'auth']);
+Route::get('/liste_bo_rap/{id}/details_bo_rap',[App\Http\Controllers\biController::class, 'bo_r_details'],['middleware' => 'auth']);
 
             //*modification
 
-//Route::get('/bo_m_r',[App\Http\Controllers\biController::class, 'bo_mp_index'],['middleware' => 'auth']);
+Route::get('/liste_bo_r',[App\Http\Controllers\biController::class, 'bo_mp_index'],['middleware' => 'auth']);
 Route::post('/bo_m_r',[App\Http\Controllers\biController::class, 'bo_mp_store'],['middleware' => 'auth']);
-//Route::get('/bo_m_r/{id}/editer_incident',[App\Http\Controllers\biController::class, 'bo_mp_edit'],['middleware' => 'auth']);
-//Route::put('/bo_m_r/{id}',[App\Http\Controllers\biController::class, 'bo_mp_update'],['middleware' => 'auth']);
-//Route::delete('/bo_m_r/{id}',[App\Http\Controllers\biController::class, 'bo_mp_destroy'],['middleware' => 'auth']);     
-
+Route::get('/liste_bo_r/{id}/editer_bo_r',[App\Http\Controllers\biController::class, 'bo_mp_edit'],['middleware' => 'auth']);
+Route::put('/liste_bo_r/{id}',[App\Http\Controllers\biController::class, 'bo_mp_update'],['middleware' => 'auth']);
+Route::delete('/liste_bo_r/{id}',[App\Http\Controllers\biController::class, 'bo_mp_destroy'],['middleware' => 'auth']);     
+Route::get('/liste_bo_r/{id}/details_bo_r',[App\Http\Controllers\biController::class, 'bo_mp_details'],['middleware' => 'auth']);
 
 
 
@@ -173,21 +184,21 @@ route :: get('/extraction',function(){
 },['middleware' => 'auth']);
                  //*-analyse
 
-//Route::get('/analyse',[App\Http\Controllers\biController::class, 'analyse_index'],['middleware' => 'auth']);
+Route::get('/liste_analyse',[App\Http\Controllers\biController::class, 'analyse_index'],['middleware' => 'auth']);
 Route::post('/analyse',[App\Http\Controllers\biController::class, 'analyse_store'],['middleware' => 'auth']);
-//Route::get('/analyse/{id}/editer_incident',[App\Http\Controllers\biController::class, 'analyse_edit'],['middleware' => 'auth']);
-//Route::put('/analyse/{id}',[App\Http\Controllers\biController::class, 'analyse_update'],['middleware' => 'auth']);
-//Route::delete('/analyse/{id}',[App\Http\Controllers\biController::class, 'analyse_destroy'],['middleware' => 'auth']);
+Route::get('/liste_analyse/{id}/editer_analyse',[App\Http\Controllers\biController::class, 'analyse_edit'],['middleware' => 'auth']);
+Route::put('/liste_analyse/{id}',[App\Http\Controllers\biController::class, 'analyse_update'],['middleware' => 'auth']);
+Route::delete('/liste_analyse/{id}',[App\Http\Controllers\biController::class, 'analyse_destroy'],['middleware' => 'auth']);
+Route::get('/liste_analyse/{id}/details_analyse',[App\Http\Controllers\biController::class, 'analyse_details'],['middleware' => 'auth']);
+
 
                     //*- extraction
-//Route::get('/ano_maj',[App\Http\Controllers\biController::class, 'extr_index'],['middleware' => 'auth']);
+Route::get('/liste_extraction',[App\Http\Controllers\biController::class, 'extr_index'],['middleware' => 'auth']);
 Route::post('/extraction',[App\Http\Controllers\biController::class, 'extr_store'],['middleware' => 'auth']);
-//Route::get('/ano_maj/{id}/editer_incident',[App\Http\Controllers\biController::class, 'extr_edit'],['middleware' => 'auth']);
-//Route::put('/ano_maj/{id}',[App\Http\Controllers\biController::class, 'extr_update']);
-//Route::delete('/ano_maj/{id}',[App\Http\Controllers\biController::class, 'extr_destroy'],['middleware' => 'auth']);
-
-
-
+Route::get('/liste_extraction/{id}/editer_extraction',[App\Http\Controllers\biController::class, 'extr_edit'],['middleware' => 'auth']);
+Route::put('/liste_extraction/{id}',[App\Http\Controllers\biController::class, 'extr_update']);
+Route::delete('/liste_extraction/{id}',[App\Http\Controllers\biController::class, 'extr_destroy'],['middleware' => 'auth']);
+Route::get('/liste_extraction/{id}/details_extraction',[App\Http\Controllers\biController::class, 'extr_details'],['middleware' => 'auth']);
 
 
 
@@ -207,19 +218,22 @@ route :: get('/process_rpa',function(){
 
 
         //* RPA
-//Route::get('/process_rpa',[App\Http\Controllers\automatisationController::class, 'rpa_index'],['middleware' => 'auth']);
+Route::get('/liste_process_rpa',[App\Http\Controllers\automatisationController::class, 'rpa_index'],['middleware' => 'auth']);
 Route::post('/process_rpa',[App\Http\Controllers\automatisationController::class, 'rpa_store'],['middleware' => 'auth']);
-//Route::get('/process_rpa/{id}/editer_incident',[App\Http\Controllers\automatisationController::class, 'rpa_edit'],['middleware' => 'auth']);
-//Route::put('/process_rpa/{id}',[App\Http\Controllers\automatisationController::class, 'rpa_update'],['middleware' => 'auth']);
-//Route::delete('/process_rpa/{id}',[App\Http\Controllers\automatisationController::class, 'rpa_destroy'],['middleware' => 'auth']);
+Route::get('/liste_process_rpa/{id}/editer_process_rpa',[App\Http\Controllers\automatisationController::class, 'rpa_edit'],['middleware' => 'auth']);
+Route::put('/liste_process_rpa/{id}',[App\Http\Controllers\automatisationController::class, 'rpa_update'],['middleware' => 'auth']);
+Route::delete('/liste_process_rpa/{id}',[App\Http\Controllers\automatisationController::class, 'rpa_destroy'],['middleware' => 'auth']);
+Route::get('/liste_process_rpa/{id}/details_process_rpa',[App\Http\Controllers\automatisationController::class, 'rpa_details'],['middleware' => 'auth']);
+
 
         //* anomalie & MAJ RPA
 
-//Route::get('/au_ano_maj',[App\Http\Controllers\automatisationController::class, 'rpa_am_index'],['middleware' => 'auth']);
+Route::get('/liste_au_ano_maj',[App\Http\Controllers\automatisationController::class, 'rpa_am_index'],['middleware' => 'auth']);
 Route::post('/au_ano_maj',[App\Http\Controllers\automatisationController::class, 'rpa_am_store'],['middleware' => 'auth']);
-//Route::get('/au_ano_maj/{id}/editer_incident',[App\Http\Controllers\automatisationController::class, 'rpa_am_edit'],['middleware' => 'auth']);
-//Route::put('/au_ano_maj/{id}',[App\Http\Controllers\automatisationController::class, 'rpa_am_update'],['middleware' => 'auth']);
-//Route::delete('/au_ano_maj/{id}',[App\Http\Controllers\automatisationController::class, 'rpa_am_destroy'],['middleware' => 'auth']);
+Route::get('/liste_au_ano_maj/{id}/editer_au_ano_maj',[App\Http\Controllers\automatisationController::class, 'rpa_am_edit'],['middleware' => 'auth']);
+Route::put('/liste_au_ano_maj/{id}',[App\Http\Controllers\automatisationController::class, 'rpa_am_update'],['middleware' => 'auth']);
+Route::delete('/liste_au_ano_maj/{id}',[App\Http\Controllers\automatisationController::class, 'rpa_am_destroy'],['middleware' => 'auth']);
+Route::get('/liste_au_ano_maj/{id}/details_au_ano_maj',[App\Http\Controllers\automatisationController::class, 'rpa_am_details'],['middleware' => 'auth']);
 
 
 
@@ -233,6 +247,9 @@ Route::post('/au_ano_maj',[App\Http\Controllers\automatisationController::class,
 
 
 
+Route::get('/liste_total',[App\Http\Controllers\adminController::class, 'm_demande'],['middleware' => 'auth']);
+
+Route::get('/ms_liste',[App\Http\Controllers\adminController::class, 'demande'],['middleware' => 'auth']);
 
 
 
@@ -240,22 +257,20 @@ Route::post('/au_ano_maj',[App\Http\Controllers\automatisationController::class,
 
 
 
-
-
-// file download
 
     
 
 //route pour login et registre
 Auth::routes();
 
+Route::post('/auth', [App\Http\Controllers\CompteController::class, 'auth'],['middleware' => 'auth']);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'],['middleware' => 'auth']);
 
 
 // blade t && index et redirect to /t is for testing
 //Route::get('/t',[App\Http\Controllers\incidentController::class, 'in'],['middleware' => 'auth']);
 route::get('/t',function(){
-    return view ('t');
+   return view ('t');
 },['middleware' => 'auth']);
 
 route::get('/i',function(){

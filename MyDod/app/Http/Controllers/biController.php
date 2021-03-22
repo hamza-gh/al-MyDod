@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\DB;
+use Illuminate\Foundation\Auth;
 use Illuminate\Http\Request;
 use App\Models\Bi_rapport;
 use App\Models\Bo_maj_replan;
@@ -25,17 +26,17 @@ class biController extends Controller
    
    
   //Business intelligence
-    public function bi_index(Request $request)
-    {
-         
-               $l =DB::table('bi_rapports')->where('email_user',$request->user()->email)->get();
-              
-               return view('liste_bi_rapports' , ['ic' => $listincident]);
+      public function bi_index(Request $request)
+      {
+          
+                $l =DB::table('bi_rapports')->where('email_user',$request->user()->email)->get();
+                
+                return view('EB.BI.bisiness_in.liste_bi_rapports' , ['ic' => $l]);
 
-               
-               
+                
+                
 
-    }
+      }
 
     public function bi_create()
     {
@@ -64,6 +65,7 @@ class biController extends Controller
        $inc->save();
        
        session()->flash('aj','Bien Ajouter');
+       
 
       return redirect('/home');
 
@@ -72,7 +74,7 @@ class biController extends Controller
    public function bi_edit($id)
    {
      $ic = Bi_rapport::find($id);
-     return view ('editer_nv_rap',['ic'=>$ic]);
+     return view ('EB.BI.bisiness_in.editer_nv_rap',['inc'=>$ic]);
 
    }
    
@@ -80,6 +82,9 @@ class biController extends Controller
    {
     $inc = Bi_rapport::find($id);
 
+    
+    if(Auth()->user()->etat=='user')
+    {
     $inc->objet = $request->input('objet');
     $inc->nom_rapport = $request->input('nom_rapport');
     $inc->technologie = $request->input('technologie');
@@ -87,13 +92,24 @@ class biController extends Controller
     $inc->cycle_de_vie = $request->input('cycle_de_vie');
     $inc->utilisateurs = $request->input('utilisateurs');
     $inc->planification = $request->input('planification');
-
+    
     $inc->save();
 
     //flash message
     session()->flash('update','Bien Modifier');
 
     return redirect('/liste_bi_rapports');
+    
+    }
+        if(auth()->user()->etat=='admin')
+          {
+         
+          $inc->etat = $request->input('etat');
+          $inc->affectation = $request->input('affectation');
+          
+          $inc->save();
+            return redirect ('/liste_total');
+          }
 
    }
   public function bi_destroy(Request $request,$id)
@@ -112,7 +128,7 @@ class biController extends Controller
   public function bi_details($id)
    {
      $ic = Bi_rapport::find($id);
-     return view ('details_bi_rapports',['ic'=>$ic]);
+     return view ('EB.BI.bisiness_in.details_bi_rapports',['inc'=>$ic]);
 
    }
 
@@ -132,7 +148,7 @@ class biController extends Controller
              
                    $l =DB::table('bi_anomalie_majs')->where('email_user',$request->user()->email)->get();
                   
-                   return view('liste_ano_maj' , ['ic' => $listincident]);
+                   return view('EB.BI.bisiness_in.liste_ano_maj' , ['ic' => $l]);
     
                    
                    
@@ -144,48 +160,54 @@ class biController extends Controller
             
         }
     
-       public function bi_m_store(Request $request)
+       public function bi_am_store(Request $request)
        {
         
             $inc = new Bi_anomalie_maj();
+             
            
-           $inc->nom_rapport = $request->input('nom_rapport');
-           $inc->description = $request->input('description');
-           if($request->input('m')=='Mis à Jour')
-           {
-             $inc->titre = 'm';
-             session()->flash('aj','Mis à Jour Bien Ajouter');
-           }
-           if($request->input('anomalie')=='Ajouter une Anomalie')
-           {
-             $inc->titre = 'a';
-             session()->flash('aj','Anomalie Bien Ajouter');
-           }
+                $inc->nom_rapport = $request->input('nom_rapport');
+                $inc->description = $request->input('description');
+                if($request->input('m')=='Mis à Jour')
+                {
+                  $inc->titre = 'Mis à jour';
+                  session()->flash('aj','Mis à Jour Bien Ajouter');
+                }
+                if($request->input('anomalie')=='Ajouter une Anomalie')
+                {
+                  $inc->titre = 'Anomalie';
+                  session()->flash('aj','Anomalie Bien Ajouter');
+                } 
+               $inc->email_user = $request->user()->email;
+           
+              $inc->save();
+              return redirect('/ano_maj');
+            
            
        
-           $inc->email_user = $request->user()->email;
+         
            
-           $inc->save();
-           
+ 
            
     
-          return redirect('/ano_maj');
+         
     
        }
        
        public function bi_am_edit($id)
        {
-         $ic = Bi_anomalie_maj::find($id);
-         return view ('editer_ano_maj',['ic'=>$ic]);
+         $inc = Bi_anomalie_maj::find($id);
+         return view ('EB.BI.bisiness_in.editer_ano_maj',['inc'=>$inc]);
     
        }
        
        public function bi_am_update(Request $request,$id)
        {
         $inc = Bi_anomalie_maj::find($id);
-    
+        if(auth()->user()->etat=='user')
+        {
         $inc->nom_rapport = $request->input('nom_rapport');
-           $inc->description = $request->input('description');
+        $inc->description = $request->input('description');
     
         $inc->save();
     
@@ -193,7 +215,16 @@ class biController extends Controller
         session()->flash('update','Bien Modifier');
     
         return redirect('/liste_ano_maj');
-    
+       }
+        if(auth()->user()->etat=='admin')
+        {
+       
+        $inc->etat = $request->input('etat');
+        $inc->affectation = $request->input('affectation');
+        
+        $inc->save();
+          return redirect ('/liste_total');
+        }
        }
       public function bi_am_destroy(Request $request,$id)
       {
@@ -211,7 +242,7 @@ class biController extends Controller
       public function bi_am_details($id)
        {
          $ic = Bi_anomalie_maj::find($id);
-         return view ('details_ano_maj',['ic'=>$ic]);
+         return view ('EB.BI.bisiness_in.details_ano_maj',['inc'=>$ic]);
     
        }
 
@@ -220,13 +251,15 @@ class biController extends Controller
 
    //BO
 
+
+
        //*nouveau Rapport
    public function bo_r_index(Request $request)
    {
         
               $l =DB::table('bo_rapports')->where('email_user',$request->user()->email)->get();
              
-              return view('liste_bo_rap' , ['ic' => $listincident]);
+              return view('EB.BI.BO.liste_bo_rap' , ['ic' => $l]);
 
               
               
@@ -261,13 +294,13 @@ class biController extends Controller
       session()->flash('aj','Rapport Bien Ajouter');
 
      return redirect('/bo_r');
-
+    
   }
   
   public function bo_r_edit($id)
   {
     $ic = Bo_rapport::find($id);
-    return view ('editer_bo_rap',['ic'=>$ic]);
+    return view ('EB.BI.BO.editer_bo_rap',['inc'=>$ic]);
 
   }
   
@@ -275,9 +308,16 @@ class biController extends Controller
   {
    $inc = Bo_rapport::find($id);
 
-   $inc->objet = $request->input('objet');
-   $inc->Description = $request->input('Description');
-   $inc->criticité = $request->input('criticite');
+   if(auth()->user()->etat=='user')
+   {
+   $inc->object = $request->input('object');
+   $inc->n_rapport = $request->input('n_rapport');
+   $inc->univers = $request->input('univers');
+   $inc->c_extraires = $request->input('c_extraires');
+   $inc->filtres = $request->input('filtres');
+   $inc->liste_d = $request->input('liste_d');
+   $inc->planification = $request->input('planification');
+   $inc->serveur = $request->input('serveur');
 
    $inc->save();
 
@@ -285,6 +325,16 @@ class biController extends Controller
    session()->flash('update','Bien Modifier');
 
    return redirect('/liste_bo_rap');
+  }
+   if(auth()->user()->etat=='admin')
+           {
+          
+           $inc->etat = $request->input('etat');
+           $inc->affectation = $request->input('affectation');
+           
+           $inc->save();
+             return redirect ('/liste_total');
+           }
 
   }
 
@@ -304,7 +354,7 @@ class biController extends Controller
  public function bo_r_details($id)
   {
     $ic = Bo_rapport::find($id);
-    return view ('details_bo_rap',['ic'=>$ic]);
+    return view ('EB.BI.BO.details_bo_rap',['inc'=>$ic]);
 
   }
 
@@ -313,9 +363,10 @@ class biController extends Controller
             public function bo_mp_index(Request $request)
             {
                  
-                       $l =DB::table('bo_maj_replans')->where('email_user',$request->user()->email)->get();
+                       $x =DB::table('bo_maj_replans')->where('email_user',$request->user()->email)->get();
                       
-                       return view('liste_bo_r' , ['ic' => $listincident]);
+                       return view('EB.BI.BO.liste_bo_r' , ['ic' => $x]);
+                      
          
                        
                        
@@ -340,12 +391,12 @@ class biController extends Controller
                 
                 if($request->input('m')=='Ajouter une Modification')
                 {
-                  $inc->titre = 'm';
+                  $inc->titre = 'Mis à jour';
                   session()->flash('aj','Mis à Jour Bien Ajouter');
                 }
                 if($request->input('p')=='Ajouter Planification')
                 {
-                  $inc->titre = 'p';
+                  $inc->titre = 'Planification';
                   session()->flash('aj','Anomalie Bien Ajouter');
                 }
                
@@ -362,17 +413,18 @@ class biController extends Controller
            public function bo_mp_edit($id)
            {
              $ic = Bo_maj_replan::find($id);
-             return view ('editer_bo_r',['ic'=>$ic]);
+             return view ('EB.BI.BO.editer_bo_r',['inc'=>$ic]);
          
            }
            
            public function bo_mp_update(Request $request,$id)
            {
             $inc = Bo_maj_replan::find($id);
-         
-            $inc->objet = $request->input('objet');
-            $inc->Description = $request->input('Description');
-            $inc->criticité = $request->input('criticite');
+         if(auth()->user()->etat=='user')
+         {
+            $inc->n_rapport = $request->input('n_rapport');
+            $inc->chemin = $request->input('chemin');
+            $inc->description = $request->input('description');
          
             $inc->save();
          
@@ -380,7 +432,16 @@ class biController extends Controller
             session()->flash('update','Bien Modifier');
          
             return redirect('/liste_bo_r');
-         
+           }
+            if(auth()->user()->etat=='admin')
+            {
+           
+            $inc->etat = $request->input('etat');
+            $inc->affectation = $request->input('affectation');
+            
+            $inc->save();
+              return redirect ('/liste_total');
+            }
            }
          
           public function bo_mp_destroy(Request $request,$id)
@@ -399,7 +460,7 @@ class biController extends Controller
           public function bo_mp_details($id)
            {
              $ic = Bo_maj_replan::find($id);
-             return view ('details_bo_r',['ic'=>$ic]);
+             return view ('EB.BI.BO.details_bo_r',['inc'=>$ic]);
          
            }
 
@@ -415,7 +476,7 @@ class biController extends Controller
        
              $l =DB::table('ae_analyses')->where('email_user',$request->user()->email)->get();
             
-             return view('liste_analyse' , ['ic' => $listincident]);
+             return view('EB.BI.An_ext.liste_analyse' , ['ic' => $l]);
 
              
              
@@ -452,14 +513,16 @@ class biController extends Controller
  public function analyse_edit($id)
  {
    $ic = Ae_analyse::find($id);
-   return view ('editer_analyse',['ic'=>$ic]);
+   return view ('EB.BI.An_ext.editer_analyse',['inc'=>$ic]);
 
  }
  
  public function analyse_update(Request $request,$id)
  {
   $inc = Ae_analyse::find($id);
-
+  
+  if(auth()->user()->etat=='user')
+  {
   $inc->projet = $request->input('projet');
   $inc->typologie = $request->input('typologie');
   $inc->Descriptif = $request->input('Descriptif');
@@ -470,7 +533,17 @@ class biController extends Controller
   session()->flash('update','Bien Modifier');
 
   return redirect('/liste_analyse');
-
+  }
+  
+  if(auth()->user()->etat=='admin')
+  {
+ 
+  $inc->etat = $request->input('etat');
+  $inc->affectation = $request->input('affectation');
+  
+  $inc->save();
+    return redirect ('/liste_total');
+  }
  }
 
 
@@ -490,7 +563,7 @@ public function analyse_destroy(Request $request,$id)
 public function analyse_details($id)
  {
    $ic = Ae_analyse::find($id);
-   return view ('details_analyse',['ic'=>$ic]);
+   return view ('EB.BI.An_ext.details_analyse',['inc'=>$ic]);
 
  }
             
@@ -501,10 +574,10 @@ public function analyse_details($id)
       
             $l =DB::table('ae_extractions')->where('email_user',$request->user()->email)->get();
            
-            return view('liste_extraction' , ['ic' => $listincident]);
+            return view('EB.BI.An_ext.liste_extraction' , ['ic' => $l]);
 
             
-            
+          
 
  }
 
@@ -536,14 +609,15 @@ public function extr_store(Request $request)
 public function extr_edit($id)
 {
   $ic = Ae_extraction::find($id);
-  return view ('editer_extraction',['ic'=>$ic]);
+  return view ('EB.BI.An_ext.editer_extraction',['inc'=>$ic]);
 
 }
 
-public function extr_pdate(Request $request,$id)
+public function extr_update(Request $request,$id)
 {
  $inc = Ae_extraction::find($id);
 
+ if(auth()->user()->etat=='user'){
  $inc->Type_d = $request->input('Type_d');
  $inc->Source_d = $request->input('Source_d');
  $inc->Descriptif = $request->input('Descriptif');
@@ -554,6 +628,17 @@ public function extr_pdate(Request $request,$id)
  session()->flash('update','Bien Modifier');
 
  return redirect('/liste_extraction');
+    }
+
+    if(auth()->user()->etat=='admin')
+  {
+ 
+  $inc->etat = $request->input('etat');
+  $inc->affectation = $request->input('affectation');
+  
+  $inc->save();
+    return redirect ('/liste_total');
+  }
 
 }
 
@@ -574,7 +659,7 @@ public function extr_destroy(Request $request,$id)
 public function extr_details($id)
 {
   $ic = Ae_extraction::find($id);
-  return view ('details_extraction',['ic'=>$ic]);
+  return view ('EB.BI.An_ext.details_extraction',['inc'=>$ic]);
 
 }
 

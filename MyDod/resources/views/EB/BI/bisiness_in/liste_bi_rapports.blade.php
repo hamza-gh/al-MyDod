@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="{{asset('assets\css\bootstrap.min.css')}}">
+@include('layouts.app')
+  <link rel="stylesheet" href="{{asset('assets\css\bootstrap.min.css')}}">
 <link rel="stylesheet" href="{{asset('assets\css\login.css')}}">
     <script src="{{asset('assets\resources\js\bootstrap.min.js')}}"></script>
     <script src="{{asset('assets\resources\js\jquery-3.5.1.min.js')}}"></script>
@@ -9,24 +10,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>liste incident</title>
+    <title>Business Intelligence</title>
 </head>
 <body>
-         
+
 <div class="container">
   <form class="form-inline my-2 my-lg-0" >
   
   </form>
-
-      @include('partieflash.flash')
-     
+      <h1 style="text-align: center; color: black; font-weight: bolder;"> Liste des rapports BI</h1>
+      
+     @include('partieflash.flash')
         
     <div class="col-md-12">
     <div class ="row">
     <div>
         
-        <a href="/nv_rap" class="btn btn-success" style=" margin-left: 759px;" >+  </a>
-         </div>
+        <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
+       </div>
          
      
 <table class="table table-striped" >
@@ -34,10 +35,10 @@
     <tr>
       <th scope="col"></th>
       
-      <th scope="col" style="text-align: center;max-width:10px;" >Objet du besoin</th>
-      <th scope="col"style="text-align: center;">nom_rapport</th>
-      <th scope="col"style="text-align: center;">technologie</th>
-      <th scope="col" style="text-align: center;">Etat</th>
+      <th scope="col" style="text-align: center;max-width:10px;" >Objet</th>
+      <th scope="col"style="text-align: center;">Nom Rapport:</th>
+      <th scope="col"style="text-align: center;">Technologie</th>
+      <th scope="col" style="margin-left: 60px;">Etat</th>
       <th scope="col" style="text-align: center;">Action</th>
 
   </thead>
@@ -48,45 +49,54 @@
     @foreach($ic as $i)
       <th scope="row"></th>
       
-      <td>{{$i->objet}}</td>
-      <td>{{$i->nom_rapport}}</td>
-      <td>{{$i->technologie}}</td>
+      <td style="text-align: center;">{{$i->objet}}</td>
+      <td style="text-align: center;">{{$i->nom_rapport}}</td>
+      <td style="text-align: center;">{{$i->technologie}}</td>
 
       
       @if($i->etat=='Nouveau')
-      <td style="color: green; ">{{$i->etat}}</td>
+      <td style="color: green; " style="text-align: center;">{{$i->etat}}</td>
       @endif
 
-      @if($i->etat=='clos')
-      <td style="color: red;">{{$i->etat}}</td>
+      @if($i->etat=='Clos')
+      <td style="color: red;" style="text-align: center;">{{$i->etat}}</td>
       @endif
 
       @if($i->etat=='En cours')
-      <td style="color: orange;">{{$i->etat}}</td>
+      <td style="color: orange;" style="text-align: center;">{{$i->etat}}</td>
       @endif
 
       
 
-      <td>
-            
+      <td style="text-align: center;">
+         
+            <form action="/liste_bi_rapports/{{$i->id}}" method="post" >
+                 
+           @if($i->etat=='Clos' || $i->etat=='En cours')
            
-            <form action="/ConsulatationEB-list-bi-rapport/{{$i->id}}" method="post">
+           <a class="btn btn-primary" href="liste_bi_rapports/{{$i->id}}/details_bi_rapports">Details</a>
 
-            <a class="btn btn-primary" href="liste_incident/{{$i->id}}/details_incident">Details</a>
+            @else
+            <a class="btn btn-primary" href="liste_bi_rapports/{{$i->id}}/details_bi_rapports">Details</a>
 
             
-            <a href="/ConsulatationEB-list-bi-rapport/{{$i->id}}/editer_incident" class="btn btn-light" style="color:black">Editer</a>
-           
+            <a href="/liste_bi_rapports/{{$i->id}}/editer_bi_rapports" class="btn btn-light" style="color:black">Editer</a>
+         
 
             
 
 
             {{csrf_field()}}
             {{ method_field('DELETE' )}}
-            <button type="submit" class="btn btn-danger">Supprimer</button>
-            
+            <button type="submit" class="btn btn-danger" >Supprimer</button>
+              </div> 
+
+           
+
+           @endif
             </form>
       </td>
+      
       
     </tr>
     @endforeach

@@ -40,13 +40,17 @@
                         
 
                         <a href="/home" class="dropbtn" style="text-decoration: none;">Home</a>
-                        <a href="#" class="dropbtn" style="text-decoration: none;">Contact us</a>                                                                  
+                        @auth
+                        @if(Auth::user()->etat=='admin')
+                      <a href="/liste_total" class="dropbtn" style="text-decoration: none;">Consultation</a>    
+                         @endif        
+                         @endauth                                               
                      <div class="dropdown">
                      
                     <button class="dropbtn ">{{ Auth::user()->name }}</button>
                     <div class="dropdown-content">
                         <a href="#">profil</a>
-                        <a href="#">Link 2</a>
+                      <!--  <a href="#">Link 2</a>-->
                         <a href="/deconnexion">Deconnexion</a>
                     </div>
                     
