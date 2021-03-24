@@ -42,7 +42,35 @@
                         <a href="/home" class="dropbtn" style="text-decoration: none;">Home</a>
                         @auth
                         @if(Auth::user()->etat=='admin')
-                      <a href="/liste_total" class="dropbtn" style="text-decoration: none;">Consultation</a>    
+
+                        <div class="dropdown">
+                        <button class="dropbtn ">Consultation</button>
+                        <div class="dropdown-content">
+                        <a href="/in_list" style="font-weight: bolder;">Incident</a>
+                      <!--  <a href="#">Link 2</a>-->
+                        <a href="/liste_total" style="font-weight: bolder;">Expression de Besoin</a>
+                    </div>
+                    <div>
+            
+                                                        
+                                
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                 document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                    @csrf
+                </form>
+            </div>
+        </li>
+   
+</ul>
+</div>
+
+                        
                          @endif        
                          @endauth                                               
                      <div class="dropdown">
@@ -50,7 +78,7 @@
                     <button class="dropbtn ">{{ Auth::user()->name }}</button>
                     <div class="dropdown-content">
                         <a href="#">profil</a>
-                      <!--  <a href="#">Link 2</a>-->
+                         <!--  <a href="#">Link 2</a>-->
                         <a href="/deconnexion">Deconnexion</a>
                     </div>
                     

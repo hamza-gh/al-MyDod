@@ -43,8 +43,9 @@
                         <div class="form-group">
             
                         <br>
-                @if($inc->etat=='Nouveau' && Auth::user()->etat=='user')
-            <label style="font-weight: bolder;">Etat :</label>
+                        @if(Auth::user()->etat=='user')
+            @if($inc->etat=='Nouveau')
+                <label style="font-weight: bolder;">Etat :</label>
                     &nbsp;&nbsp;
            
                         
@@ -59,81 +60,128 @@
        
              @if($inc->etat=='En cours')
              <label style="font-weight: bolder;">Etat :</label>
-                    &nbsp;&nbsp;  <label style="color: orange; text-align: center;font-weight: bolder;font-size: 20px ">{{$inc->etat}}</label>
+                    &nbsp;&nbsp;<label style="color: orange; text-align: center;font-weight: bolder;font-size: 20px ">{{$inc->etat}}</label>
+             @endif
              @endif
 
-             <br>
+                    @if(Auth::user()->etat=='admin')
+                    @if($inc->etat=='Nouveau')
+                    
+              
+                    <br>
+        <label>Affectater à :</label>
+        <select name="affectation" id="" style="text-align: center; width: auto; height: 35px; background-color: white; font-weight: bolder;
+         border: 2px solid black;">
+                    <option>{{$inc->affectation}}</option>
+                    <option>moh@gmail.com</option>
+                    <option >mohammed.echaib@alten.com</option>
+                    <option>mounaim.benmoussa@alten.com</option>
+                    <option>iman.zubeiri@alten.com</option>
+                    <option>yahia.ouadhdhafe@alten.com</option>
+                    <option>afaf.assemar@alten.com</option>
+                    
+        </select>
+            
+    <br><br>
+    
+    <label>Etat :</label>
+    <select name="etat" id="" style="text-align: center; width: auto; height: 35px; background-color: white; font-weight: bolder;
+     border: 2px solid black; margin-left: 60px;">
+                @if($inc->etat=='Nouveau')
+            
+                <option style="color: green;" >{{$inc->etat}}</option>
+                <option style="color: orange;">En cours</option>
+                   <option style="color: red" >Clos</option>
+                @endif
+          
+                @if($inc->etat=='Clos')
+                       
+                       <option style="color: red;" >{{$inc->etat}}</option>
+                       <option style="color: green;">Nouveau</option>
+                       <option style="color: orange;">En cours</option>
+                @endif
+          
+                @if($inc->etat=='En cours')
+               
+                      <option style="color: orange;">{{$inc->etat}}</option>
+                      <option style="color: green;">Nouveau</option>
+                      <option style="color: red" >Clos</option>
+                @endif
+    </select>
+    
+    
+          </div>
+        </div>
+
+      
     
 
-                    @if(Auth::user()->etat=='admin')
+        <br>
+        {{ csrf_field() }}
+    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+        <input class="btn btn-primary btn-block" type="submit" value="Editer" />
+    </div>
+            @endif
 
-        @if($inc->etat=='Nouveau')
-
+        @if ($inc->etat=='En cours')
+        
+        <input type="label" name="affectation" id="" value="{{$inc->affectation}}" style="visibility: hidden; width: 0px;height: 0px;">
         <label>Affectater à :</label>
-                <select name="affectation" id="" style="text-align: center; width: auto; height: 35px; background-color: white; font-weight: bolder;
-                 border: 2px solid black;">
-                            <option>{{$inc->affectation}}</option>
-                            <option >hamza@gmail.com</option>
-                            <option >ayoub@gmail.com</option>
-                </select>
-                    
+        <select name="" id="" disabled style="text-align: center; width: auto; height: 35px; background-color: white; font-weight: bolder;
+         border: 2px solid black;">
+                      <option>{{$inc->affectation}}</option>
+                     
+                   
+        </select>
             <br><br>
+            <label>Date d'échéance :</label>
+            <input type="date" name="date_echeance"  value="{{$inc->date_echeance}}">
+    <br><br>
+    
+    <label>Etat :</label>
+    <select name="etat" id="" style="text-align: center; width: auto; height: 35px; background-color: white; font-weight: bolder;
+     border: 2px solid black; margin-left: 60px; " >
+                @if($inc->etat=='Nouveau')
             
-            <label>Etat :</label>
-            <select name="etat" id="" style="text-align: center; width: auto; height: 35px; background-color: white; font-weight: bolder;
-             border: 2px solid black; margin-left: 60px;">
-                        <option>{{$inc->etat}}</option>
-                        
-                        <option style="color: orange;">En cours</option>
-                        <option style="color: red" >Clos</option>
-            </select>
-                  </div>
-                </div>
-
-              
+             <option style="color: green;" >{{$inc->etat}}</option>
+             <option style="color: orange;">En cours</option>
+                <option style="color: red" >Clos</option>
+             @endif
+       
+             @if($inc->etat=='Clos')
+                    
+                    <option style="color: red;" >{{$inc->etat}}</option>
+                    <option style="color: green;">Nouveau</option>
+                    <option style="color: orange;">En cours</option>
+             @endif
+       
+             @if($inc->etat=='En cours')
             
+                   <option style="color: orange;">{{$inc->etat}}</option>
+                   <option style="color: green;">Nouveau</option>
+                   <option style="color: red" >Clos</option>
+             @endif
 
-                <br>
-                {{ csrf_field() }}
-            <div class="form-group" style=" width: 400px;margin-left: 550px;">
-                <input class="btn btn-primary btn-block" type="submit" value="Editer" />
-            </div>
-                    @endif
-
-                @if ($inc->etat=='En cours')
+               
                 
-                <label>Affectater à :</label>
-                <select name="affectation" id="" disabled style="text-align: center; width: auto; height: 35px; background-color: white; font-weight: bolder;
-                 border: 2px solid black;">
-                            <option>{{$inc->affectation}}</option>
-                           
-                </select>
-                    
-            <br><br>
-            
-            <label>Etat :</label>
-            <select name="etat" id="" style="text-align: center; width: auto; height: 35px; background-color: white; font-weight: bolder;
-             border: 2px solid black; margin-left: 60px;color:red; color:red;" >
-                        
-                    
-                        <option style="color: red" >Clos</option>
-            </select>
-                  </div>
-                </div>
+    </select>
+          </div>
+        </div>
 
-              
-            
-
-                <br>
-                {{ csrf_field() }}
-            <div class="form-group" style=" width: 400px;margin-left: 550px;">
-                <input class="btn btn-primary btn-block" type="submit" value="Editer" />
-            </div>
-                     @endif
-                @endif
       
-  
-                    </form>
+    
+
+        <br>
+        {{ csrf_field() }}
+    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+        <input class="btn btn-primary btn-block" type="submit" value="Editer" />
+    </div>
+             @endif
+                    
+                @endif
+
+      
+</form>
                 </div>
             
                 

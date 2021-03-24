@@ -56,13 +56,15 @@ class SharepointController extends Controller
    public function edit($id)
    {
      $ic = Sh_droit::find($id);
-     return view ('EB.sharepoint.editer_l_d_droit',['i'=>$ic]);
+     return view ('EB.sharepoint.editer_l_d_droit',['inc'=>$ic]);
 
    }
 
    public function update(Request $request,$id){
-    $ic = Sh_droit::find($id);
-    if(auth()->user()->etat=='user'){
+   
+    $inc = Sh_droit::find($id);
+      
+      if(auth()->user()->etat=='user'){
          
           $inc->Description = $request->input('Description');
           $inc->save();
@@ -73,11 +75,12 @@ class SharepointController extends Controller
           return redirect('/l_d_droit');
         }
         
-     if(auth()->user()->etat=='admin')
+       if(auth()->user()->etat=='admin')
         {
        
         $inc->etat = $request->input('etat');
         $inc->affectation = $request->input('affectation');
+        $inc->date_echeance = $request->input('date_echeance');
         
         $inc->save();
           return redirect ('/liste_total');
@@ -102,7 +105,7 @@ class SharepointController extends Controller
   public function details($id)
    {
      $ic = Sh_droit::find($id);
-     return view ('EB.Automatisation.details_l_d_droit',['i'=>$ic]);
+     return view ('EB.sharepoint.details_l_d_droit',['inc'=>$ic]);
 
    }
 
@@ -152,14 +155,14 @@ class SharepointController extends Controller
  {
   
   $ic = Sh_l_droit::find($id);
-  return view ('EB.sharepoint.editer_ll_d_droit',['i'=>$ic]);
+  return view ('EB.sharepoint.editer_ll_d_droit',['inc'=>$ic]);
 
  }
  
 
    public function c_update(Request $request,$id)
    {
-    $ic = Sh_l_droit::find($id);
+    $inc = Sh_l_droit::find($id);
     if(auth()->user()->etat=='user'){
          
     
@@ -171,7 +174,7 @@ class SharepointController extends Controller
            //flash message
           session()->flash('update','Bien Modifier');
 
-          return redirect('/l_d_droit');
+          return redirect('/ll_d_droit');
         }
         
      if(auth()->user()->etat=='admin')
@@ -179,7 +182,7 @@ class SharepointController extends Controller
        
         $inc->etat = $request->input('etat');
         $inc->affectation = $request->input('affectation');
-        
+        $inc->date_echeance = $request->input('date_echeance');
         $inc->save();
           return redirect ('/liste_total');
         }
@@ -198,6 +201,12 @@ public function c_destroy(Request $request,$id)
 }
 
 
+public function c_details($id)
+{
+  $ic = Sh_l_droit::find($id);
+  return view ('EB.sharepoint.details_ll_d_droit',['inc'=>$ic]);
+
+}
 
 }
 

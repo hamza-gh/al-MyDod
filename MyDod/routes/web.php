@@ -67,23 +67,28 @@ route::get('/home_eb',function()
 
 //partie sharepoint demande_droit partie admin et user
 //Demande droit
-Route::get('/l_d_droit',[App\Http\Controllers\SharepointController::class, 'index'],['middleware' => 'auth']);
-Route::post('/l_d_droit',[App\Http\Controllers\SharepointController::class, 'store'],['middleware' => 'auth']);
-Route::delete('/l_d_droit/{id}',[App\Http\Controllers\SharepointController::class, 'destroy'],['middleware' => 'auth']);
-route::get('/d_droit',function(){
+route::get('/d_droit',function()
+{
     return view ('EB.sharepoint.d_droit');
 },['middleware' => 'auth']);
+Route::get('/l_d_droit',[App\Http\Controllers\SharepointController::class, 'index'],['middleware' => 'auth']);
+Route::post('/l_d_droit',[App\Http\Controllers\SharepointController::class, 'store'],['middleware' => 'auth']);
+Route::get('/l_d_droit/{id}/editer_l_d_droit',[App\Http\Controllers\SharepointController::class, 'edit'],['middleware' => 'auth']);
+Route::put('/l_d_droit/{id}',[App\Http\Controllers\SharepointController::class, 'update'],['middleware' => 'auth']);
+Route::delete('/l_d_droit/{id}',[App\Http\Controllers\SharepointController::class, 'destroy'],['middleware' => 'auth']);
+Route::get('/l_d_droit/{id}/details_l_d_droit',[App\Http\Controllers\SharepointController::class, 'details'],['middleware' => 'auth']);
 
 
-//creation liste demande droit
+//Creation liste demande droit
 Route::get('/ll_d_droit',[App\Http\Controllers\SharepointController::class, 'c_index'],['middleware' => 'auth']);
-//Route:: get('/create',[App\Http\Controllers\SharepointController::class, 'c_create'],['middleware' => 'auth']);
 Route::post('/ll_d_droit',[App\Http\Controllers\SharepointController::class, 'c_store'],['middleware' => 'auth']);
-//Route::get('/ll_d_droit/{id}/editer_incident',[App\Http\Controllers\SharepointController::class, 'c_edit'],['middleware' => 'auth']);
-//Route::put('/ll_d_droit/{id}',[App\Http\Controllers\SharepointController::class, 'c_update'],['middleware' => 'auth']);
+Route::get('/ll_d_droit/{id}/editer_ll_d_droit',[App\Http\Controllers\SharepointController::class, 'c_edit'],['middleware' => 'auth']);
+Route::put('/ll_d_droit/{id}',[App\Http\Controllers\SharepointController::class, 'c_update'],['middleware' => 'auth']);
 Route::delete('/ll_d_droit/{id}',[App\Http\Controllers\SharepointController::class, 'c_destroy'],['middleware' => 'auth']);
+Route::get('/ll_d_droit/{id}/details_ll_d_droit',[App\Http\Controllers\SharepointController::class, 'c_details'],['middleware' => 'auth']);
 
-route::get('/dd_droit',function(){
+route::get('/dd_droit',function()
+{
     return view ('EB.sharepoint.dd_droit');
 },['middleware' => 'auth']);
 
@@ -250,6 +255,9 @@ Route::get('/liste_au_ano_maj/{id}/details_au_ano_maj',[App\Http\Controllers\aut
 Route::get('/liste_total',[App\Http\Controllers\adminController::class, 'm_demande'],['middleware' => 'auth']);
 
 Route::get('/ms_liste',[App\Http\Controllers\adminController::class, 'demande'],['middleware' => 'auth']);
+
+// incident
+Route::get('/in_list',[App\Http\Controllers\adminController::class, 'in_demande'],['middleware' => 'auth']);
 
 
 

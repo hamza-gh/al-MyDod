@@ -68,6 +68,8 @@ class incidentController extends Controller
    {
     $inc = incident::find($id);
 
+    if(Auth()->user()->etat=='user')
+    {
     $inc->objet = $request->input('objet');
     $inc->Description = $request->input('Description');
     $inc->criticité = $request->input('criticite');
@@ -78,6 +80,20 @@ class incidentController extends Controller
     session()->flash('update','Bien Modifier');
 
     return redirect('/liste_incident');
+  }
+  if(auth()->user()->etat=='admin')
+          {
+         
+          $inc->etat = $request->input('etat');
+          
+          $inc->affectation = $request->input('affectation');
+
+          $inc->date_echeance = $request->input('date_echeance');
+          
+          $inc->save();
+            return redirect ('/in_list');
+          }
+
 
    }
   public function destroy(Request $request,$id)
@@ -96,7 +112,7 @@ class incidentController extends Controller
   public function details($id)
    {
      $ic = incident::find($id);
-     return view ('details_incident',['ic'=>$ic]);
+     return view ('details_incident',['inc'=>$ic]);
 
    }
 }

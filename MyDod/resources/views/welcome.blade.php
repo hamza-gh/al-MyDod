@@ -70,6 +70,7 @@
     overflow: hidden;
     position: relative;
     transition: all 0.3s ease-in-out;
+    border-radius: 30px;
     
     }
     .effect:hover {

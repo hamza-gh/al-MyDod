@@ -98,6 +98,7 @@ class automatisationController extends Controller
    
     $inc->etat = $request->input('etat');
     $inc->affectation = $request->input('affectation');
+    $inc->date_echeance = $request->input('date_echeance');
     
     $inc->save();
       return redirect ('/liste_total');
@@ -205,6 +206,7 @@ class automatisationController extends Controller
       
         $inc->etat = $request->input('etat');
         $inc->affectation = $request->input('affectation');
+        $inc->date_echeance = $request->input('date_echeance');
         
         $inc->save();
           return redirect ('/liste_total');

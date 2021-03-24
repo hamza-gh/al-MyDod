@@ -10,52 +10,46 @@
                 <meta charset="UTF-8">
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>editer une anomalie ou mis ajour</title>
+                <title>Details {{$inc->titre}}</title>
                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
+    
+    <style>
+        label{
+            font-weight: bolder;
+        }
+    </style>
 
-<style>
-    label{
-        font-weight: bolder;
-    }
-</style>
             </head>
             <body>
 
-            <h1 style="text-align: center; color: black; font-weight: bolder;"> {{$inc->titre}}</h1>
+            <h1 style="text-align: center; color: black; font-weight: bolder;"> Details  </h1>
+            
             <div class="form-group" style=" width: 600px;margin-left: 500px;" >
-            <div>
-            <p class="h2"style="margin-left: 170px;"> Details Analyse </p>
-        <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
-       </div>
-       <form class="signup" action="/liste_analyse/{{$inc->id}}" method="post" enctype="multipart/form-data">
-        <input type="hidden" name="_method" value=PUT>
-        <input type="hidden" name="_method" value=PUT>
-       <br>
-       
-       @include('partieflash.flash')
-           <div class="form-group">
-           
+                <div>
+        
+                    <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
+                   </div>
+                   <form class="signup" action="/ll_d_droit/{{$inc->id}}" method="post" enctype="multipart/form-data">
+                    
+                    <input type="hidden" name="_method" value=PUT><br>
                   
-           <label>Projet :</label><br>
-                <input class="form-control"  type="text" name="projet"
-                disabled required placeholder="Entrer Nom Projet" value="{{$inc->projet}}"/>
-                <span class="Error"></span>
-            </div>
-
-              
-               <label>Typologie :</label>
-               <input class="form-control"  type="text" 
-               disabled name="typologie" required placeholder="Entrer Typologie" value="{{$inc->typologie}}"/><br><br>
-               <span class="Error"></span>
-
-               <div class="form-group">
-                <label>Descriptif d'analyse :</label><br>
-                <textarea rows="5" cols="100" name="Descriptif"  
-                class ="form-control" required placeholder="Entrer Descriptif" disabled>{{$inc->Descriptif}}</textarea>
-                <span class="Error"></span>
-                <br><br>
-                @if(Auth::user()->etat=='user')
+                    <label>Objet:</label>
+                    <h style="font-size: 13px; font-weight: bolder; margin-left: 310px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
+                    <div class="form-group">
+            
+        
+            <input class="form-control"  type="text" name="objet" disabled required placeholder="Entrer votre Objet" value="{{$inc->objet}}" style="text-align: left;"/>
+            <span class="Error"></span>
+        </div>
+                </div>
+                
+                <div class="form-group" style=" width: 600px;margin-left: 500px;">
+                    <label style="font-weight: bolder;">Description :</label>
+                    <textarea style="height: 300px; width: 100%;"  name="Description"   class ="form-control" required placeholder="Entrer Description:" disabled>{{$inc->Description}}</textarea>
+                    <span class="Error"></span>
+                   
+                    @if(Auth::user()->etat=='user')
             @if($inc->etat=='Nouveau')
                 <label style="font-weight: bolder;">Etat :</label>
                     &nbsp;&nbsp;
@@ -194,21 +188,15 @@
 
       
 </form>
-            </div>
-           </div>
-           </div>
+                  </div>
+                  
+                </div>
+               
+                    
+                
+      
 
-         
-         
-
-
-       
- </div>
-</div>
-
-
-           
-         
+          
             </div>
 
             </body>

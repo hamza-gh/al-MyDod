@@ -1,5 +1,5 @@
-@include('layouts.app')
-
+@extends('layouts.app')
+@section('content')
 <link rel="stylesheet" href="{{asset('assets\css\bootstrap.min.css')}}">
     <script src="{{asset('assets\resources\js\bootstrap.min.js')}}"></script>
     <script src="{{asset('assets\resources\js\jquery-3.5.1.min.js')}}"></script>
@@ -19,7 +19,11 @@
 <div class="container"  style="width: 800px;">
     <div class="col-md-12">
     <div class ="row">
-
+<style>
+    label{
+        font-weight: bolder;
+    }
+</style>
 
 
 <head>
@@ -31,14 +35,16 @@
 </head>
 <body>
     <div >
-      
+        <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a><br>
         
       <br>
-
+      <form class="signup" action="/liste_incident/{{$inc->id}}" method="Post"  >
+        
+        <input type="hidden" name="_method" value=PUT>
             <div class="form-group">
-            
+        
                 <label >Objet :</label>
-                <label class="form-control">{{$ic->objet}}<label>
+                <label class="form-control">{{$inc->objet}}<label>
                 <span class="Error"></span>
             </div>
             
@@ -46,43 +52,165 @@
             <div class="form-group">
                 <label>Description :</label>
                
-                <textarea readonly rows="3"  cols="100" name="Description" class ="form-control"  required placeholder="Description">{{$ic->Description}}</textarea>
+                <textarea readonly rows="3"  cols="100" name="Description" class ="form-control"  required placeholder="Description">{{$inc->Description}}</textarea>
                 <span class="Error"></span>
             </div>
             <div class="form-group">
                 <label>Criticité :</label>
-                <label class="form-control"> {{$ic->criticité}}</label>
+                <label class="form-control"> {{$inc->criticité}}</label>
                 <span class="Error"></span>
             </div>
             <div class="form-group">
             
                 <label >Date de Cration :</label>
-                <label class="form-control">{{$ic->created_at}}<label>
+                <label class="form-control">{{$inc->created_at}}<label>
                 <span class="Error"></span>
             </div>
            
 
-            <label style="font-weight: bolder;">Etat :</label>
+           
+                   
+            @if(Auth::user()->etat=='user')
+            @if($inc->etat=='Nouveau')
+                <label style="font-weight: bolder;">Etat :</label>
                     &nbsp;&nbsp;
            
                         
-                        @if($ic->etat=='Nouveau')
-             <label style="color: green;text-align: center;font-weight: bolder;font-size: 20px; " >{{$ic->etat}}</label>
+                        
+             <label style="color: green;text-align: center;font-weight: bolder;font-size: 20px; " >{{$inc->etat}}</label>
              @endif
        
-             @if($ic->etat=='Clos')
-             <label style="color: red; text-align: center;font-weight: bolder;font-size: 20px;" >{{$ic->etat}}</label>
+             @if($inc->etat=='Clos')
+             <label style="font-weight: bolder;">Etat :</label>
+                    &nbsp;&nbsp;<label style="color: red; text-align: center;font-weight: bolder;font-size: 20px;" >{{$inc->etat}}</label>
              @endif
        
-             @if($ic->etat=='En cours')
-             <label style="color: orange; text-align: center;font-weight: bolder;font-size: 20px ">{{$ic->etat}}</label>
+             @if($inc->etat=='En cours')
+             <label style="font-weight: bolder;">Etat :</label>
+                    &nbsp;&nbsp;<label style="color: orange; text-align: center;font-weight: bolder;font-size: 20px ">{{$inc->etat}}</label>
              @endif
+             @endif
+
+                    @if(Auth::user()->etat=='admin')
+                    @if($inc->etat=='Nouveau')
+                    
+              
+                    <br>
+        <label>Affectater à :</label>
+        <select name="affectation" id="" style="text-align: center; width: auto; height: 35px; background-color: white; font-weight: bolder;
+         border: 2px solid black;">
+                    <option>{{$inc->affectation}}</option>
+                    <option>moh@gmail.com</option>
+                    <option >mohammed.echaib@alten.com</option>
+                    <option>mounaim.benmoussa@alten.com</option>
+                    <option>iman.zubeiri@alten.com</option>
+                    <option>yahia.ouadhdhafe@alten.com</option>
+                    <option>afaf.assemar@alten.com</option>
+                    
+        </select>
             
+    <br><br>
+    
+    <label>Etat :</label>
+    <select name="etat" id="" style="text-align: center; width: auto; height: 35px; background-color: white; font-weight: bolder;
+     border: 2px solid black; margin-left: 60px;">
+                @if($inc->etat=='Nouveau')
+            
+                <option style="color: green;" >{{$inc->etat}}</option>
+                <option style="color: orange;">En cours</option>
+                   <option style="color: red" >Clos</option>
+                @endif
           
-        </form>
+                @if($inc->etat=='Clos')
+                       
+                       <option style="color: red;" >{{$inc->etat}}</option>
+                       <option style="color: green;">Nouveau</option>
+                       <option style="color: orange;">En cours</option>
+                @endif
+          
+                @if($inc->etat=='En cours')
+               
+                      <option style="color: orange;">{{$inc->etat}}</option>
+                      <option style="color: green;">Nouveau</option>
+                      <option style="color: red" >Clos</option>
+                @endif
+    </select>
+    
+    
+          </div>
+        </div>
+
+      
+    
+
+        <br>
+        {{ csrf_field() }}
+    <div class="form-group" style=" width: 400px;margin-left: 150px;">
+        <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
-  </body>
-</html>
+            @endif
+
+        @if ($inc->etat=='En cours')
+        
+        <input type="label" name="affectation" id="" value="{{$inc->affectation}}" style="visibility: hidden; width: 0px;height: 0px;">
+        <label>Affectater à :</label>
+        <select name="" id="" disabled style="text-align: center; width: auto; height: 35px; background-color: white; font-weight: bolder;
+         border: 2px solid black;">
+                      <option>{{$inc->affectation}}</option>
+                     
+                   
+        </select>
+            <br><br>
+            <label>Date d'échéance :</label>
+            <input type="date" name="date_echeance"  value="{{$inc->date_echeance}}">
+    <br><br>
+    
+    <label>Etat :</label>
+    <select name="etat" id="" style="text-align: center; width: auto; height: 35px; background-color: white; font-weight: bolder;
+     border: 2px solid black; margin-left: 60px; " >
+                @if($inc->etat=='Nouveau')
+            
+             <option style="color: green;" >{{$inc->etat}}</option>
+             <option style="color: orange;">En cours</option>
+                <option style="color: red" >Clos</option>
+             @endif
+       
+             @if($inc->etat=='Clos')
+                    
+                    <option style="color: red;" >{{$inc->etat}}</option>
+                    <option style="color: green;">Nouveau</option>
+                    <option style="color: orange;">En cours</option>
+             @endif
+       
+             @if($inc->etat=='En cours')
+            
+                   <option style="color: orange;">{{$inc->etat}}</option>
+                   <option style="color: green;">Nouveau</option>
+                   <option style="color: red" >Clos</option>
+             @endif
+
+               
+                
+    </select>
+          </div>
+        </div>
+
+      
+    
+
+        <br>
+        {{ csrf_field() }}
+    <div class="form-group" style=" width: 400px;margin-left: 140px;">
+        <input class="btn btn-primary btn-block" type="submit" value="Editer" />
+    </div>
+             @endif
+                    
+                @endif
+
+      
+</form>
+    </div>
+
 
     
     </div>
@@ -92,3 +220,5 @@
     
 </body>
 </html>
+
+@endsection

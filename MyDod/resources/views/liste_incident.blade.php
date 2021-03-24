@@ -13,10 +13,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>liste incident</title>
+    <style>
+      td{
+        font-weight:normal;
+         
+      }
+      th{
+        font-size: 20px;
+      }
+    </style>
 </head>
 <body>
          
-<div class="container">
+<div class="container" >
   <form class="form-inline my-2 my-lg-0" >
   
   </form>
@@ -32,7 +41,7 @@
          </div>
          
      
-<table class="table table-striped" >
+<table class="table table-striped" style="text-align: center;">
   <thead>
     <tr>
       <th scope="col"></th>
@@ -75,9 +84,11 @@
            
             <form action="/liste_incident/{{$i->id}}" method="post">
 
+            @if($i->etat=='Clos' || $i->etat=='En cours')
             <a class="btn btn-primary" href="liste_incident/{{$i->id}}/details_incident">Details</a>
 
-            
+            @else
+            <a class="btn btn-primary" href="liste_incident/{{$i->id}}/details_incident">Details</a>
             <a href="liste_incident/{{$i->id}}/editer_incident" class="btn btn-light" style="color:black">Editer</a>
            
 
@@ -87,7 +98,7 @@
             {{csrf_field()}}
             {{ method_field('DELETE' )}}
             <button type="submit" class="btn btn-danger">Supprimer</button>
-            
+            @endif
             </form>
       </td>
       
