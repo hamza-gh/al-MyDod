@@ -35,39 +35,14 @@
             margin-right: 20px;
 
         }
+        td{
+            font-weight:bolder;
+          
+        }
 
        
    </style>
 
-   <script>
-       function changestatus()
-       {
-           var status=document.getElementById("status");
-      
-           if(status.value=="nv")
-           {
-            document.getElementById("t11").style.visibility="visible";
-            document.getElementById("t21").style.visibility="hidden";
-            document.getElementById("t31").style.visibility="hidden";
-
-            
-           } 
-          
-           if(status.value=="ec"){
-
-            document.getElementById("t21").style.visibility="visible";
-            document.getElementById("t11").style.visibility="hidden";
-            document.getElementById("t31").style.visibility="hidden";
-           }
-
-           if(status.value=="cl"){
-            document.getElementById("t31").style.visibility="visible";
-            document.getElementById("t11").style.visibility="hidden";
-            document.getElementById("t21").style.visibility="hidden";
-           }
-         
-       }
-   </script>
 </head>
 
 <div>
@@ -1249,6 +1224,36 @@
 
 
 </body>
+
+<script>
+       function changestatus()
+       {
+           var status=document.getElementById("status");
+      
+           if(status.value=="nv")
+           {
+            document.getElementById("t11").style.visibility="visible";
+            document.getElementById("t21").style.visibility="hidden";
+            document.getElementById("t31").style.visibility="hidden";
+
+            
+           } 
+          
+           if(status.value=="ec"){
+
+            document.getElementById("t21").style.visibility="visible";
+            document.getElementById("t11").style.visibility="hidden";
+            document.getElementById("t31").style.visibility="hidden";
+           }
+
+           if(status.value=="cl"){
+            document.getElementById("t31").style.visibility="visible";
+            document.getElementById("t11").style.visibility="hidden";
+            document.getElementById("t21").style.visibility="hidden";
+           }
+         
+       }
+   </script>
 </html>
 
 @endsection

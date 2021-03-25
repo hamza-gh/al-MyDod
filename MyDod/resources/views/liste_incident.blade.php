@@ -94,11 +94,14 @@
            
 
             
+            <button onclick="myFunction()">Suprimmer</button>
+            
 
-
+            <dialog id="myDialog">
             {{csrf_field()}}
             {{ method_field('DELETE' )}}
             <button type="submit" class="btn btn-danger">Supprimer</button>
+            </dialog>
             @endif
             </form>
       </td>
@@ -108,8 +111,15 @@
   </tbody>
 </table>
 </div>
-</div></div>
+</div>
+</div>
 </body>
+<script>
+function myFunction() { 
+
+  document.getElementById("myDialog").showModal(); 
+} 
+</script>
 </html>
 
 @endsection

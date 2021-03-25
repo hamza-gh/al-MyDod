@@ -23,6 +23,7 @@
     <div id="app" style="left: 200px;">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" >
             <div class="container" >
+              
                 <a href ="/home" style="text-decoration: none;" class="logo" style="font-size: 80px;" >
                    My DoD
                 </a>

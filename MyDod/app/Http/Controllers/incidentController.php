@@ -51,7 +51,7 @@ class incidentController extends Controller
        
        $inc->save();
        
-       session()->flash('aj','Bien Ajouter');
+       session()->flash('aj','Votre incident a été bien inséré, un retour vous sera communiqué dans les plus bref délais (ASAP)');
 
       return redirect('/liste_incident');
 
@@ -77,7 +77,7 @@ class incidentController extends Controller
     $inc->save();
 
     //flash message
-    session()->flash('update','Bien Modifier');
+    session()->flash('update','L incident a été bien modifié');
 
     return redirect('/liste_incident');
   }

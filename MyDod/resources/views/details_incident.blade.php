@@ -21,7 +21,8 @@
     <div class ="row">
 <style>
     label{
-        font-weight: bolder;
+        font-weight:bolder;
+        font-size: 20px;
     }
 </style>
 
