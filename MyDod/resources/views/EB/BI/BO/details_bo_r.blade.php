@@ -37,17 +37,15 @@
                 <input class="form-control"  type="text" name="n_rapport" 
                 required placeholder="Entrer votre Objet" value="{{$inc->n_rapport}}" disabled/>
                 <span class="Error"></span>
-                <label>Chemin d'accès :</label>
-                <input class="form-control"  type="text" name="chemin"
-                 required placeholder="Entrer votre Objet" value="{{$inc->chemin}}" style="width: 500px;" disabled/>
-                <span class="Error"></span>
+              
+                
             </div>
            
             
             </div>
                 
                 <div class="form-group" style=" width: 600px;margin-left: 500px;">
-                    <label style="font-weight: bolder;">Description:<a style="color: red;">*</a></label>
+                    <label style="font-weight: bolder;">Description :</label>
                     <textarea rows="8" cols="100" name="description"   class ="form-control"
                      required placeholder="Entrer Description:" disabled>{{$inc->description}} </textarea>
                     <span class="Error"></span>
@@ -63,11 +61,19 @@
              @endif
        
              @if($inc->etat=='Clos')
+             <br>
+                        <label> Date d'échéance : {{$inc->date_echeance}}</label> 
+                        
+                        <br>
              <label style="font-weight: bolder;">Etat :</label>
                     &nbsp;&nbsp;<label style="color: red; text-align: center;font-weight: bolder;font-size: 20px;" >{{$inc->etat}}</label>
              @endif
        
              @if($inc->etat=='En cours')
+             <br>
+                        <label> Date d'échéance : {{$inc->date_echeance}}</label> 
+                        
+                        <br>
              <label style="font-weight: bolder;">Etat :</label>
                     &nbsp;&nbsp;<label style="color: orange; text-align: center;font-weight: bolder;font-size: 20px ">{{$inc->etat}}</label>
              @endif

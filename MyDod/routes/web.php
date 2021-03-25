@@ -127,7 +127,7 @@ Route::delete('/liste_bi_rapports/{id}',[App\Http\Controllers\biController::clas
 Route::get('/liste_bi_rapports/{id}/details_bi_rapports',[App\Http\Controllers\biController::class, 'bi_details'],['middleware' => 'auth']);
              
 // download file
-route::get('/d',[App\Http\Controllers\biController::class, 'dw'],['middleware' => 'auth'])->name('dw');
+route::get('/cahier_charge_bi',[App\Http\Controllers\biController::class, 'dw'],['middleware' => 'auth'])->name('cahier_charge_bi');
 
 
                                

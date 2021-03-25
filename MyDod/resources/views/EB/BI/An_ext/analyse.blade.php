@@ -14,7 +14,11 @@
     <meta charset="UTF-8">
     <title>Analyse</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
- 
+    <style>
+        label{
+            font-weight: bolder;
+        }
+    </style>
 </head>
 <body>
 
@@ -58,7 +62,7 @@
            <br>
            {{ csrf_field() }}
            <div class="form-group" style=" width: 400px;margin-left: 600px;">
-               <input class="btn btn-primary btn-block" type="submit" value="create Analyse"/>
+               <input class="btn btn-primary btn-block" type="submit" value="Soumettre"/>
            </div>
        </form>
     </div>

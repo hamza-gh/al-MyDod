@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>liste de demande droit</title>
+    <title>liste SP</title>
 </head>
 <body>
          
@@ -26,7 +26,7 @@
     <div class="col-md-10">
     <div class ="row">
     
-      <h1 style="text-align: center; color: black; font-weight: bolder; text-align: center; margin-left: 400px;"> Liste des Droit</h1><br><br><br>
+      <h1 style="text-align: center; color: black; font-weight: bolder; text-align: center; margin-left: 400px;"> Listes SP</h1><br><br><br>
 <table class="table table-striped" style="text-align: center;">
 
   <thead>
@@ -34,8 +34,8 @@
     <tr>
       <th scope="col"></th>
       
-      <th scope="col">Objet</th>
-      <th scope="col">Description</th>
+      <th scope="col">Nom de la liste</th>
+      <th scope="col">Utilisateurs</th>
       <th scope="col">Date de Creation</th>
       <th scope="col">Etat</th>
       <th scope="col">Action</th>
@@ -49,8 +49,8 @@
     @foreach($ic as $i)
       <th scope="row"></th>
       
-      <td>{{$i->objet}}</td>
-      <td>{{$i->Description}}</td>
+      <td>{{$i->nom_l}}</td>
+      <td>{{$i->utilisateur}}</td>
 
       <td>{{$i->created_at}}</td>
 

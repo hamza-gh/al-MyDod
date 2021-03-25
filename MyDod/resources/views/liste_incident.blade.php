@@ -36,8 +36,9 @@
     <div class="col-md-12">
     <div class ="row">
     <div>
-        
-        <a href="/c_incident" class="btn btn-success" style=" margin-left: 759px;" >+ Nouveau Incident </a>
+      <h1 style="color: black; font-weight: bold; text-align: center;">Liste des Incidents</h1>
+    <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
+        <a href="/c_incident" class="btn btn-success" style=" margin-left: 944px;" >+ Nouveau Incident </a>
          </div>
          
      

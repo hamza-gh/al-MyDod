@@ -32,17 +32,17 @@
                     <input type="hidden" name="_method" value=PUT>
 
                     
-                       <label>Objet:</label>
+                       <label>Nom de la liste :</label>
                     <h style="font-size: 13px; font-weight: bolder; margin-left: 310px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
                     <div class="form-group">
             
         
-            <input class="form-control"  type="text" name="objet" required placeholder="Entrer votre Objet" value="{{$inc->objet}}" style="text-align: left;"/>
+            <input class="form-control"  type="text" name="nom_l" required placeholder="Entrer votre Nom de la liste" value="{{$inc->nom_l}}" style="text-align: left;"/>
             <span class="Error"></span>
         </div>
 
-        <br> <label style="font-weight: bolder;">Description:</label>
-        <textarea rows="5" cols="100" name="Description" class ="form-control" required placeholder="Description">{{$inc->Description}}</textarea>
+        <br> <label style="font-weight: bolder;">Utilisateurs :</label>
+        <textarea rows="5" cols="100" name="utilisateur" class ="form-control" required placeholder="Utilisateurs">{{$inc->utilisateur}}</textarea>
                     <span class="Error"></span>
                 </div>
                 

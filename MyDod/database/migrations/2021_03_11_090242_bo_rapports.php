@@ -22,7 +22,7 @@ class BoRapports extends Migration
             $table->string('filtres');
             $table->string('liste_d');
             $table->string('planification');
-            $table->string('serveur');
+           
 
 
             $table->string('email_user')->notnull();

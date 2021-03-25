@@ -74,7 +74,7 @@
          
             <form action="/liste_analyse/{{$i->id}}" method="post" >
                  
-           @if($i->etat=='Clos')
+           @if($i->etat=='Clos'|| $i->etat=='En cours')
            
            <a class="btn btn-primary" href="/liste_extraction/{{$i->id}}/details_extraction">Details</a>
 

@@ -20,8 +20,19 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <style>
-    
+
+
+        label{
+            
+            font-weight: bolder;
+        }
+
+
 .topnav {
+
+ 
+    
+   
     padding: 6px 8px 6px 16px;
     
     font-size: 20px;
@@ -84,7 +95,7 @@
                 
                 {{ csrf_field() }}
             <div class="form-group" style=" width: 400px;margin-left: 70px;">
-                <input class="btn btn-primary btn-block" type="submit" value="Ajouter une Anomalie" name="anomalie"/>
+                <input class="btn btn-primary btn-block" type="submit" value="Soumettre" name="anomalie"/>
             </div>
 </form>
             </div>
@@ -105,7 +116,7 @@
                 </div>
                 {{ csrf_field() }}
             <div class="form-group" style=" width: 400px;margin-left: 70px;">
-                <input class=" btn-primary btn-block" type="submit" value="Mis à Jour" name="m"/>
+                <input class=" btn-primary btn-block" type="submit" value="Mettre à jour" name="m"/>
             </div>
 </form>
             </div>

@@ -14,7 +14,11 @@
                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
 
-
+<style>
+    label{
+        font-weight: bolder;
+    }
+</style>
             </head>
             <body>
 
@@ -32,8 +36,11 @@
                 </div>
                 
                 <div class="form-group" style=" width: 600px;margin-left: 500px;">
-                    <label style="font-weight: bolder;">Description :</label>
-                    <textarea style="height: 300px; width: 100%;"  name="Description"   class ="form-control" required placeholder="Entrer Description:" disabled>{{$inc->Description}}</textarea>
+                <label style="font-size: 20px;">Dossier :<a style="color: red;">*</a></label>
+            <textarea  name="dossier" class ="form-control" required placeholder="Dossier">{{$inc->dossier}}</textarea>
+            <br>
+                    <label style="font-weight: bolder;">Utilisateurs :</label>
+                    <textarea style="height: 300px; width: 100%;"  name="Utilisateurs"   class ="form-control" required placeholder=" Entrer la liste des utilisateurs:" disabled>{{$inc->Utilisateurs}}</textarea>
                     <span class="Error"></span>
                     @if(Auth::user()->etat=='user')
             @if($inc->etat=='Nouveau')
@@ -46,11 +53,19 @@
              @endif
        
              @if($inc->etat=='Clos')
+             <br>
+                        <label > Date d'échéance : {{$inc->date_echeance}}</label> 
+                        
+                        <br>
              <label style="font-weight: bolder;">Etat :</label>
                     &nbsp;&nbsp;<label style="color: red; text-align: center;font-weight: bolder;font-size: 20px;" >{{$inc->etat}}</label>
              @endif
        
              @if($inc->etat=='En cours')
+             <br>
+                        <label> Date d'échéance : {{$inc->date_echeance}}</label> 
+                        
+                        <br>
              <label style="font-weight: bolder;">Etat :</label>
                     &nbsp;&nbsp;<label style="color: orange; text-align: center;font-weight: bolder;font-size: 20px ">{{$inc->etat}}</label>
              @endif

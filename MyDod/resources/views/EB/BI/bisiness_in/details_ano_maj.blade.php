@@ -14,7 +14,11 @@
                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
 
-
+    <style>
+    label{
+        font-weight: bolder;
+    }
+</style>
             </head>
             <body>
 
@@ -28,19 +32,20 @@
                    <form class="signup" action="/liste_ano_maj/{{$inc->id}}" method="post" enctype="multipart/form-data">
                     
                     <input type="hidden" name="_method" value=PUT>
-                    <br><label style="font-weight: bolder;" >Nom Rapport:<a style="color: red;">*</a>
+                    <br><label style="font-weight: bolder;" >Nom Rapport :
                     <h style="font-size: 13px; font-weight: bolder; margin-left: 280px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
                     <textarea rows="2" cols="100" name="nom_rapport"   class ="form-control" required placeholder="Entrer Nom Rapport:" disabled>{{$inc->nom_rapport}}</textarea>
                     <span class="Error"></span>
                 </div>
                 
                 <div class="form-group" style=" width: 600px;margin-left: 500px;">
-                    <label style="font-weight: bolder;">Description:<a style="color: red;">*</a></label>
+                    <label style="font-weight: bolder;">Description :</label>
                     <textarea style="height: 300px; width: 100%;"  name="description"   class ="form-control" required placeholder="Entrer Description:" disabled>{{$inc->description}} </textarea>
                     <span class="Error"></span>
                    
                     @if(Auth::user()->etat=='user')
             @if($inc->etat=='Nouveau')
+            <br>
                 <label style="font-weight: bolder;">Etat :</label>
                     &nbsp;&nbsp;
            
@@ -50,11 +55,19 @@
              @endif
        
              @if($inc->etat=='Clos')
+             <br>
+                        <label> Date d'échéance : {{$inc->date_echeance}}</label> 
+                        
+                        <br>
              <label style="font-weight: bolder;">Etat :</label>
                     &nbsp;&nbsp;<label style="color: red; text-align: center;font-weight: bolder;font-size: 20px;" >{{$inc->etat}}</label>
              @endif
        
              @if($inc->etat=='En cours')
+             <br>
+                        <label> Date d'échéance : {{$inc->date_echeance}}</label> 
+                        
+                        <br>
              <label style="font-weight: bolder;">Etat :</label>
                     &nbsp;&nbsp;<label style="color: orange; text-align: center;font-weight: bolder;font-size: 20px ">{{$inc->etat}}</label>
              @endif

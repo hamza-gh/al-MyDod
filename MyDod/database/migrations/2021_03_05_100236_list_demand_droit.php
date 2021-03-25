@@ -17,8 +17,8 @@ class ListDemandDroit extends Migration
             $table->increments('id');
             $table->string('email_user')->notnull();
             $table->foreign('email_user')->references('email')->on('users');
-            $table->string('objet');
-            $table->string('Description',1000);
+            $table->string('nom_l');
+            $table->string('utilisateur',1000);
             $table->string('PJ')->nullable();
             $table->timestamps();
         });

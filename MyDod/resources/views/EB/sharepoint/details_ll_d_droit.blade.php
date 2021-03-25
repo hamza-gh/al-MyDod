@@ -34,19 +34,19 @@
                     
                     <input type="hidden" name="_method" value=PUT><br>
                   
-                    <label>Objet:</label>
-                    <h style="font-size: 13px; font-weight: bolder; margin-left: 310px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
+                    <label>Nom de la liste :</label>
+                    <h style="font-size: 13px; font-weight: bolder; margin-left: 210px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
                     <div class="form-group">
             
         
-            <input class="form-control"  type="text" name="objet" disabled required placeholder="Entrer votre Objet" value="{{$inc->objet}}" style="text-align: left;"/>
+            <input class="form-control"  type="text" name="nom_l" disabled required placeholder="Entrer votre Nom de la liste" value="{{$inc->nom_l}}" style="text-align: left;"/>
             <span class="Error"></span>
         </div>
                 </div>
                 
                 <div class="form-group" style=" width: 600px;margin-left: 500px;">
-                    <label style="font-weight: bolder;">Description :</label>
-                    <textarea style="height: 300px; width: 100%;"  name="Description"   class ="form-control" required placeholder="Entrer Description:" disabled>{{$inc->Description}}</textarea>
+                    <label style="font-weight: bolder;">Utilisateurs :</label>
+                    <textarea style="height: 300px; width: 100%;"  name="utilisateur"   class ="form-control" required placeholder="Entrer Utilisateur(s) :" disabled>{{$inc->utilisateur}}</textarea>
                     <span class="Error"></span>
                    
                     @if(Auth::user()->etat=='user')
@@ -60,11 +60,19 @@
              @endif
        
              @if($inc->etat=='Clos')
+             <br>
+                        <label> Date d'échéance : {{$inc->date_echeance}}</label> 
+                        
+                        <br>
              <label style="font-weight: bolder;">Etat :</label>
                     &nbsp;&nbsp;<label style="color: red; text-align: center;font-weight: bolder;font-size: 20px;" >{{$inc->etat}}</label>
              @endif
        
              @if($inc->etat=='En cours')
+             <br>
+                        <label> Date d'échéance : {{$inc->date_echeance}}</label> 
+                        
+                        <br>
              <label style="font-weight: bolder;">Etat :</label>
                     &nbsp;&nbsp;<label style="color: orange; text-align: center;font-weight: bolder;font-size: 20px ">{{$inc->etat}}</label>
              @endif

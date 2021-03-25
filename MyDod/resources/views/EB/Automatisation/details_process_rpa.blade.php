@@ -52,8 +52,8 @@
                 <br><br>
 
                 <label>Fonctionnalités de l'automatisation  :</label>
-                <input class="form-control"  type="text" disabled name="Fonctionnalites" 
-                required placeholder="Entrer Fonctionnalités de l'automatisation " value="{{$i->Fonctionnalites}}"/>
+                <input class="form-control"  type="text" disabled name="gain" 
+                required placeholder="Entrer Fonctionnalités de l'automatisation " value="{{$i->gain}}"/>
                 <span class="Error"></span>
 
                 <label>Planification :</label>
@@ -81,11 +81,19 @@
              @endif
        
              @if($i->etat=='Clos')
+             <br>
+                        <label> Date d'échéance : {{$inc->date_echeance}}</label> 
+                        
+                        <br>
              <label style="font-weight: bolder;">Etat :</label>
                     &nbsp;&nbsp;<label style="color: red; text-align: center;font-weight: bolder;font-size: 20px;" >{{$i->etat}}</label>
              @endif
        
              @if($i->etat=='En cours')
+             <br>
+                        <label> Date d'échéance : {{$inc->date_echeance}}</label> 
+                        
+                        <br>
              <label style="font-weight: bolder;">Etat :</label>
                     &nbsp;&nbsp;<label style="color: orange; text-align: center;font-weight: bolder;font-size: 20px ">{{$i->etat}}</label>
              @endif

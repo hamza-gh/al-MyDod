@@ -40,6 +40,7 @@
       <th scope="col"style="text-align: center;">Nom Rapport</th>
       <th scope="col"style="text-align: center;">Date de Creation</th>
       <th scope="col"  >&nbsp;&nbsp;Etat</th>
+      <th scope="col" style="text-align: center;">Action</th>
 
   </thead>
   <tbody>
@@ -76,7 +77,7 @@
          
             <form action="/liste_ano_maj/{{$i->id}}" method="post" >
                  
-           @if($i->etat=='Clos')
+           @if($i->etat=='Clos' || $i->etat=='En cours')
            
            <a class="btn btn-primary" href="/liste_ano_maj/{{$i->id}}/details_ano_maj">Details</a>
 

@@ -17,7 +17,7 @@ class Demandelist extends Migration
             $table->increments('id');
             $table->string('email_user')->notnull();
             $table->foreign('email_user')->references('email')->on('users');
-            $table->string('Description',1000);
+            $table->string('Utilisateurs',1000);
             $table->timestamps();
         });
     }

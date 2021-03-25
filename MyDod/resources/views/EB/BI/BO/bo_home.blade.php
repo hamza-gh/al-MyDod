@@ -89,15 +89,15 @@
 <body>
 
 <div class="sidenav" style="margin-top: 100px; height: 550px;  margin-left: 120px; width: auto;" >
-<label class= "n" style="text-align: center; "> BO </label>
+<a href="/home_eb" style="text-decoration: none;" ><label class= "n" style="text-align: center; "> BO </label>
 
-    <a href="/home_eb" class="dropdown-btn">Acceuil</a>
-
- 
+    </a>
 
  
-    <a href="/bo_r" class="dropdown-btn " style=" margin-left: 0px;" >Creation d'un Nouveau Rapport</a>
-    <a href="/bo_m_r" class="dropdown-btn "style=" margin-left:0px;">Modification & Replanification</a>
+
+ 
+    <a href="/bo_r" class="dropdown-btn " style=" margin-left: 0px;" > Nouveau Rapport</a>
+    <a href="/bo_m_r" class="dropdown-btn "style=" margin-left:0px;">Modification / Planification</a>
   
   
  

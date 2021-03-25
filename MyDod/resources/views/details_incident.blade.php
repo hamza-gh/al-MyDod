@@ -15,7 +15,7 @@
 </head>
 <body>
 
-            <h1 style=" margin-left: 700px; color: black; font-weight: bold;">Details</h1>
+            <h1 style=" margin-left: 750px; color: black; font-weight: bold;">Détails</h1>
 <div class="container"  style="width: 800px;">
     <div class="col-md-12">
     <div class ="row">
@@ -28,7 +28,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Detail incendit</title>
+    <title>Détail incendit</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
 
@@ -71,25 +71,40 @@
            
                    
             @if(Auth::user()->etat=='user')
-            @if($inc->etat=='Nouveau')
-                <label style="font-weight: bolder;">Etat :</label>
-                    &nbsp;&nbsp;
-           
+                    
+            
+                        @if($inc->etat=='Nouveau')
+                            <label style="font-weight: bolder;">Etat :</label>
+                                &nbsp;&nbsp;
+                            <label style="color: green;text-align: center;font-weight: bolder;font-size: 20px; " >{{$inc->etat}}</label>
+                        @endif
+                
+                        @if($inc->etat=='Clos')
+                        <br>
+                        <label> Date d'échéance : {{$inc->date_echeance}}</label> 
                         
+                        <br>
+                                <label style="font-weight: bolder;">Etat :</label>
+                                &nbsp;&nbsp;<label style="color: red; text-align: center;font-weight: bolder;font-size: 20px;" >{{$inc->etat}}</label>
+                        @endif
+                
+                        @if($inc->etat=='En cours')
+                        <br>
+                        <label> Date d'échéance : {{$inc->date_echeance}}</label> 
+                        <br>
+                                 <label style="font-weight: bolder;">Etat :</label>
+                                &nbsp;&nbsp;<label style="color: orange; text-align: center;font-weight: bolder;font-size: 20px ">{{$inc->etat}}</label>
+                        @endif
+
+
                         
-             <label style="color: green;text-align: center;font-weight: bolder;font-size: 20px; " >{{$inc->etat}}</label>
              @endif
-       
-             @if($inc->etat=='Clos')
-             <label style="font-weight: bolder;">Etat :</label>
-                    &nbsp;&nbsp;<label style="color: red; text-align: center;font-weight: bolder;font-size: 20px;" >{{$inc->etat}}</label>
-             @endif
-       
-             @if($inc->etat=='En cours')
-             <label style="font-weight: bolder;">Etat :</label>
-                    &nbsp;&nbsp;<label style="color: orange; text-align: center;font-weight: bolder;font-size: 20px ">{{$inc->etat}}</label>
-             @endif
-             @endif
+
+        
+
+
+
+
 
                     @if(Auth::user()->etat=='admin')
                     @if($inc->etat=='Nouveau')
@@ -108,7 +123,7 @@
                     <option>afaf.assemar@alten.com</option>
                     
         </select>
-            
+          
     <br><br>
     
     <label>Etat :</label>

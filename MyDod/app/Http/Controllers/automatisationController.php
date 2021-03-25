@@ -45,7 +45,7 @@ class automatisationController extends Controller
        $inc->Objectif = $request->input('Objectif');
        $inc->Processus = $request->input('Processus');
        $inc->Processus_etp = $request->input('Processus_etp');
-       $inc->Fonctionnalites = $request->input('Fonctionnalites');
+       $inc->gain = $request->input('gain');
        $inc->Planification = $request->input('Planification');
        $inc->Canal = $request->input('Canal');
        $inc->Utilisateurs = $request->input('Utilisateurs');
@@ -80,7 +80,7 @@ class automatisationController extends Controller
     $inc->Objectif = $request->input('Objectif');
     $inc->Processus = $request->input('Processus');
     $inc->Processus_etp = $request->input('Processus_etp');
-    $inc->Fonctionnalites = $request->input('Fonctionnalites');
+    $inc->gain = $request->input('gain');
     $inc->Planification = $request->input('Planification');
     $inc->Canal = $request->input('Canal');
     $inc->Utilisateurs = $request->input('Utilisateurs');

@@ -21,6 +21,10 @@
 </head>
 <style>
     
+        label{
+            font-weight: bolder;
+        }
+    
 .topnav {
     padding: 6px 8px 6px 16px;
     
@@ -76,9 +80,7 @@
                 <input class="form-control"  type="text" name="n_rapport" required placeholder="Entrer votre Nom Rapport"/>
                 <span class="Error"></span>
 
-                <label>Chemin d'accès:<a style="color: red;">*</a></label>
-                <input class="form-control"  type="text" name="chemin" required placeholder="Entrer votre Chemin d'accès"/>
-                <span class="Error"></span>
+               
 </div>
                 
                <div class="form-group">
@@ -89,7 +91,7 @@
                 
                 {{ csrf_field() }}
             <div class="form-group" style=" width: 400px;margin-left: 70px;">
-                <input class="btn btn-primary btn-block" type="submit" value="Ajouter une Modification" name="m"/>
+                <input class="btn btn-primary btn-block" type="submit" value="Modifier" name="m"/>
             </div>
 </form>
             </div>
@@ -99,21 +101,19 @@
                 <div class="form-group">
                     
                 <label>Nom Rapport:<a style="color: red;">*</a></label>
-                <input class="form-control"  type="text" name="n_rapport" required placeholder="Entrer votre Nom Rapport"/>
+                <input class="form-control"  type="text" name="n_rapport" required placeholder="Entrer le nom du rapport"/>
                 <span class="Error"></span>
 
-                <label>Chemin d'accès:<a style="color: red;">*</a></label>
-                <input class="form-control"  type="text" name="chemin" required placeholder="Entrer votre Chemin d'accès"/>
-                <span class="Error"></span>
+              
 </div>
                 <div class="form-group">
                     <label>Description:<a style="color: red;">*</a></label>
-                    <textarea rows="2" cols="100" name="description"   class ="form-control" required placeholder="Entrer Description:"></textarea>
+                    <textarea rows="2" cols="100" name="description"   class ="form-control" required placeholder="Entrer description:"></textarea>
                     <span class="Error"></span>
                 </div>
                 {{ csrf_field() }}
             <div class="form-group" style=" width: 400px;margin-left: 70px;">
-                <input class=" btn-primary btn-block" type="submit" value="Ajouter Planification" name="p"/>
+                <input class=" btn-primary btn-block" type="submit" value="Soumettre" name="p"/>
             </div>
 </form>
             </div>

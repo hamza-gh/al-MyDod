@@ -21,6 +21,9 @@
 </head>
 <style>
     
+    label{
+        font-weight: bolder;
+    }
 .topnav {
     padding: 6px 8px 6px 16px;
     
@@ -84,7 +87,7 @@
                 
                 {{ csrf_field() }}
             <div class="form-group" style=" width: 400px;margin-left: 70px;">
-                <input class="btn btn-primary btn-block" type="submit" value="Ajouter une Anomalie RPA" name="a"/>
+                <input class="btn btn-primary btn-block" type="submit" value="Soumettre" name="a"/>
             </div>
             </form>
             </div>
@@ -104,7 +107,7 @@
                 </div>
                 {{ csrf_field() }}
             <div class="form-group" style=" width: 400px;margin-left: 70px;">
-                <input class=" btn-primary btn-block" type="submit" value="Mis à Jour RPA" name="m"/>
+                <input class=" btn-primary btn-block" type="submit" value="Soumettre" name="m"/>
             </div>
             </form>
             </div>

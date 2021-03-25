@@ -15,6 +15,11 @@
     <title>Construction d'un nouveau Rapport</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
  
+    <style>
+        label{
+            font-weight: bolder;
+        }
+    </style>
 </head>
 <body>
 <div style="color: #2B2D3B; font-size: 13px; font-weight: bolder; margin-left: 800px;">Bo > Buisiness Objects > Create Rapport</div>
@@ -37,29 +42,36 @@
                     <span class="Error"></span>
                 </div>
                 
+                <div class="form-group">
                 <label>Univers :  <a style="color: red;">*</a></label>
-                <input class="form-control"  type="text" name="univers" required placeholder="Entrer Univers"/>
+                <textarea rows="2" cols="100" class="form-control"  type="text" name="univers" required placeholder="Entrer Univers"></textarea>
                 <span class="Error"></span>
-
+                </div>
+                
+                <div class="form-group">
                 <label>Champs à extraires :<a style="color: red;">*</a></label>
-                <input class="form-control"  type="text" name="c_extraires" required placeholder="Entrer Champs"/>
+                <textarea rows="2" cols="100" class="form-control"  type="text" name="c_extraires" required placeholder="Entrer Champs"></textarea>
                 <span class="Error"></span>
+                </div>
 
+                <div class="form-group">
                 <label>Filtres à appliquer :<a style="color: red;">*</a></label>
-                <input class="form-control"  type="text" name="filtres" required placeholder=" Filtres à appliquer"/>
+                <textarea rows="2" cols="100" class="form-control"  type="text" name="filtres" required placeholder=" Filtres à appliquer"></textarea>
                 <span class="Error"></span> 
-                 
+                  </div>
+                  
+                <div class="form-group">
                 <label>Liste de diffusion:<a style="color: red;">*</a></label>
-                <input class="form-control"  type="text" name="liste_d" required placeholder="Entrer Liste de diffusion"/>
+                <textarea rows="2" cols="100" class="form-control"  type="text" name="liste_d" required placeholder="Entrer Liste de diffusion"></textarea>
                 <span class="Error"></span>
+                </div>
 
+                <div class="form-group">
                 <label>Planification :<a style="color: red;">*</a></label>
-                <input class="form-control"  type="text" name="planification" required placeholder="Entrer Planification"/>
+                <textarea rows="2" cols="100" class="form-control"  type="text" name="planification" required placeholder="Entrer Planification"></textarea>
                 <span class="Error"></span>
-
-                <label>Serveur d'enregistrement :<a style="color: red;">*</a></label>
-                <input class="form-control"  type="text" name="serveur" required placeholder="Entrer Serveur d'enregistrement"/>
-                <span class="Error"></span>
+                </div>
+              
             </div>
 
           

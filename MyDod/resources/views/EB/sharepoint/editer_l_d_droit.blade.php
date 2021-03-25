@@ -27,11 +27,14 @@
                 <form class="signup" action="/l_d_droit/{{$inc->id}}" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="_method" value=PUT>
 
-                    
-                    <br> <label style="font-weight: bolder;">Description:</label>
+                    <div>
+                    <br> <label style="font-weight: bolder;">Dossier:</label>
                     <h style="font-size: 13px; font-weight: bolder; margin-left: 310px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
-                   
-                    <textarea rows="5" cols="100" name="Description" class ="form-control" required placeholder="Description">{{$inc->Description}}</textarea>
+                    <textarea  name="dossier" class ="form-control" required placeholder="Dossier">{{$inc->dossier}}</textarea>
+                </div>
+            <br>
+                    <label style="font-weight: bolder;">Utilisateurs :</label>
+                    <textarea rows="5" cols="100" name="Utilisateurs" class ="form-control" required placeholder="Utilisateurs">{{$inc->Utilisateurs}}</textarea>
                     <span class="Error"></span>
                 </div>
                 

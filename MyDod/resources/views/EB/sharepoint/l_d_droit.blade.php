@@ -24,7 +24,7 @@
      
         
     <div class="col-md-10" >
-      <h1 style="text-align: center; color: black; font-weight: bolder;"> Liste des Droits</h1>
+      <h1 style="text-align: center; color: black; font-weight: bolder;"> Demandes d'accès</h1>
       
     <div class ="row">
       
@@ -40,8 +40,8 @@
   <thead>
     <tr>
       <th scope="col"></th>
-      
-      <th scope="col">Description</th>
+      <th scope="col">Dossier</th>
+      <th scope="col">Utilisateurs</th>
       <th scope="col">Etat</th>
       <th scope="col" style="text-align: center;">Action</th>
 
@@ -53,8 +53,8 @@
   
     @foreach($ic as $i)
       <th scope="row"></th>
-      
-      <td>{{$i->Description}}</td>
+      <td>{{$i->dossier}}</td>
+      <td>{{$i->Utilisateurs}}</td>
       @if($i->etat=='Nouveau')
       <td style="color: green; " style="text-align: center;">{{$i->etat}}</td>
       @endif

@@ -47,8 +47,8 @@
                 <br><br>
 
                 <label>Fonctionnalités de l'automatisation  :<a style="color: red;">*</a></label>
-                <input class="form-control"  type="text" name="Fonctionnalites" 
-                required placeholder="Entrer Fonctionnalités de l'automatisation " value="{{$i->Fonctionnalites}}"/>
+                <input class="form-control"  type="text" name="gain" 
+                required placeholder="Entrer Fonctionnalités de l'automatisation " value="{{$i->gain}}"/>
                 <span class="Error"></span>
 
                 <label>Planification :<a style="color: red;">*</a></label>

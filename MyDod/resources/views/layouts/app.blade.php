@@ -39,7 +39,7 @@
                     <ul class="navbar-nav ml-auto">
                         
 
-                        <a href="/home" class="dropbtn" style="text-decoration: none;">Home</a>
+                        <a href="/home" class="dropbtn" style="text-decoration: none;">Accueil</a>
                         @auth
                         @if(Auth::user()->etat=='admin')
 

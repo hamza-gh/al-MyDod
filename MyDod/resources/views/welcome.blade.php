@@ -65,7 +65,7 @@
     .effect {
     color: #FFF;
     border: 4px solid #000;
-    box-shadow:0px 0px 0px 1px #000 inset;
+    box-shadow:0px 0px 0px 1px rgb(0, 0, 0) inset;
     background-color: #000;
     overflow: hidden;
     position: relative;
@@ -122,18 +122,27 @@
                 @if (Route::has('login'))
                  <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
                      @auth
-                          @if(Auth::user()->etat=='user')
+                        
+                     
+                     
+                     
+                     @if(Auth::user()->etat=='user')
+                     
                            <!--user part -->
                            <div class="containers" style="display: inline-flex;">
         <a href="/liste_incident" class="btn effect " style="margin-right: 40px;"><span> <br> Incident </span></a>
+        <br>
         <a href="/home_eb" class="btn effect"style="margin-right: 40px;"><span> Faire <br> une <br> Demande  </span></a>
         <a href="/ConsulatationEB" class="btn effect"style="margin-right: 40px;"><span> Consulter mes Demandes </span></a>
         </div>
+        
 
                                    
                          @endif    
 
-                                    @if(Auth::user()->etat=='admin')
+                     
+                     
+                         @if(Auth::user()->etat=='admin')
                                     <!-- admin part -->
                                     <h1 style="text-align: center; font-weight: bolder;"> Admin</h1>
                                     <div class="containers" style="display: inline-flex;">

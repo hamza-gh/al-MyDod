@@ -89,15 +89,15 @@
 <body>
 
 <div class="sidenav" style="margin-top: 100px; height: 550px;  margin-left: 120px; width: 320px;" >
-<label class= "n" style="text-align: center; "> Analyse & Extraction </label>
+<a href="/home_eb" style="text-decoration: none;" ><label class= "n" style="text-align: center; "> Analyse & Extraction </label>
 
-    <a href="/home_eb" class="dropdown-btn">Acceuil</a>
-
- 
+  </a>
 
  
-    <a href="/analyse" class="dropdown-btn " style=" margin-left: 0px;" >Creation d'une Analyse</a>
-    <a href="/extraction" class="dropdown-btn "style=" margin-left:0px;">Creation d'une Extraction</a>
+
+ 
+    <a href="/analyse" class="dropdown-btn " style=" margin-left: 0px;" >Analyse</a>
+    <a href="/extraction" class="dropdown-btn "style=" margin-left:0px;">Extraction de données</a>
   
   
  

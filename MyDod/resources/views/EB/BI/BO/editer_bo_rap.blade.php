@@ -78,9 +78,7 @@
             </div>
          
              
-            <label>Serveur d'enregistrement :</label>
-                <input class="form-control"  type="text" name="serveur" required placeholder="Entrer votre Objet" value="{{$inc->serveur}}" />
-                <span class="Error"></span>
+           
             </div>
          
   

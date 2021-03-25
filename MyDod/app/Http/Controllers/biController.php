@@ -64,7 +64,7 @@ class biController extends Controller
        
        $inc->save();
        
-       session()->flash('aj','Bien Ajouter');
+       session()->flash('aj','Votre expression de besoin a été bien crée, un retour vous sera communiquer dans les plus bref délai.');
        
 
       return redirect('/home');
@@ -96,7 +96,7 @@ class biController extends Controller
     $inc->save();
 
     //flash message
-    session()->flash('update','Bien Modifier');
+    session()->flash('update','La modification est bien à jour, merci.');
 
     return redirect('/liste_bi_rapports');
     
@@ -120,7 +120,7 @@ class biController extends Controller
     $inc->delete();
     
     //flash message
-    session()->flash('sup','Bien Supprimer');
+    session()->flash('sup','Votre demande a été bien ecrasée de la liste.');
 
     return redirect('/liste_bi_rapports');
 
@@ -136,7 +136,7 @@ class biController extends Controller
 // download file of bi rapport
    public function dw()
    {
-     return response()->download('c_bi.xlsx');
+     return response()->download('Cahier_charge_bi.xlsx');
    }
 
 
@@ -169,15 +169,15 @@ class biController extends Controller
            
                 $inc->nom_rapport = $request->input('nom_rapport');
                 $inc->description = $request->input('description');
-                if($request->input('m')=='Mis à Jour')
+                if($request->input('m')=='Mettre à jour')
                 {
                   $inc->titre = 'Mis à jour';
-                  session()->flash('aj','Mis à Jour Bien Ajouter');
+                  session()->flash('aj','Votre MAJ a été bien prise en compte, merci pour votre patience.');
                 }
-                if($request->input('anomalie')=='Ajouter une Anomalie')
+                if($request->input('anomalie')=='Soumettre')
                 {
                   $inc->titre = 'Anomalie';
-                  session()->flash('aj','Anomalie Bien Ajouter');
+                  session()->flash('aj','L anomalie que vous avez remarquer est en cours d études par notre équipe, merci.');
                 } 
                $inc->email_user = $request->user()->email;
            
@@ -213,7 +213,7 @@ class biController extends Controller
         $inc->save();
     
         //flash message
-        session()->flash('update','Bien Modifier');
+        session()->flash('update','La modification est bien à jour, merci.');
     
         return redirect('/liste_ano_maj');
        }
@@ -235,7 +235,7 @@ class biController extends Controller
         $inc->delete();
         
         //flash message
-        session()->flash('sup','Bien Supprimer');
+        session()->flash('sup','Votre demande a été bien ecrasée de la liste.');
     
         return redirect('/liste_ano_maj');
     
@@ -287,13 +287,13 @@ class biController extends Controller
       $inc->filtres = $request->input('filtres');
       $inc->liste_d = $request->input('liste_d');
       $inc->planification = $request->input('planification');
-      $inc->serveur = $request->input('serveur');
+  
       
       $inc->email_user = $request->user()->email;
       
       $inc->save();
       
-      session()->flash('aj','Rapport Bien Ajouter');
+      session()->flash('aj','Votre expression de besoin a été bien crée, un retour vous sera communiquer dans les plus bref délai.');
 
      return redirect('/bo_r');
     
@@ -319,12 +319,12 @@ class biController extends Controller
    $inc->filtres = $request->input('filtres');
    $inc->liste_d = $request->input('liste_d');
    $inc->planification = $request->input('planification');
-   $inc->serveur = $request->input('serveur');
+  
 
    $inc->save();
 
    //flash message
-   session()->flash('update','Bien Modifier');
+   session()->flash('update','La modification est bien à jour, merci.');
 
    return redirect('/liste_bo_rap');
   }
@@ -347,7 +347,7 @@ class biController extends Controller
    $inc->delete();
    
    //flash message
-   session()->flash('sup','Bien Supprimer');
+   session()->flash('sup','Votre demande a été bien ecrasée de la liste.');
 
    return redirect('/liste_bo_rap');
 
@@ -388,25 +388,25 @@ class biController extends Controller
                 
                
                 $inc->n_rapport = $request->input('n_rapport');
-                $inc->chemin = $request->input('chemin');
+                
                 $inc->description = $request->input('description');
                 
-                if($request->input('m')=='Ajouter une Modification')
+                if($request->input('m')=='Modifier')
                 {
                   $inc->titre = 'Mis à jour';
-                  session()->flash('aj','Mis à Jour Bien Ajouter');
+                  session()->flash('aj','Votre expression de besoin a été bien crée, un retour vous sera communiquer dans les plus bref délai.');
                 }
-                if($request->input('p')=='Ajouter Planification')
+                if($request->input('p')=='Soumettre')
                 {
                   $inc->titre = 'Planification';
-                  session()->flash('aj','Anomalie Bien Ajouter');
+                  session()->flash('aj','Votre expression de besoin a été bien crée, un retour vous sera communiquer dans les plus bref délai.');
                 }
                
                $inc->email_user = $request->user()->email;
                
                $inc->save();
                
-               session()->flash('aj','Rapport Bien Ajouter');
+             
          
               return redirect('/bo_m_r');
          
@@ -425,7 +425,7 @@ class biController extends Controller
          if(auth()->user()->etat=='user')
          {
             $inc->n_rapport = $request->input('n_rapport');
-            $inc->chemin = $request->input('chemin');
+          
             $inc->description = $request->input('description');
          
             $inc->save();

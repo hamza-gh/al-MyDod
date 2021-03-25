@@ -89,14 +89,14 @@
 <body>
 
 <div class="sidenav" style="margin-top: 100px; height: 550px;  margin-left: 120px; width: auto;" >
-<label class= "n" style="text-align: center; "> BI </label>
 
-    <a href="/home_eb" class="dropdown-btn">Acceuil</a>
 
- 
+<a href="/home_eb" style="text-decoration: none;" ><label class= "n" style="text-align: center; "> BI </label> </a>
 
  
-    <a href="/nv_rap" class="dropdown-btn " style=" margin-left: 0px;" >Nouveau Rapport Power BI</a>
+
+ 
+    <a href="/nv_rap" class="dropdown-btn " style=" margin-left: 0px;" >Nouveau Rapport &nbsp &nbsp&nbsp &nbsp&nbsp &nbsp</a>
     <a href="/ano_maj" class="dropdown-btn "style=" margin-left:0px;">Anomalie & MAJ</a>
   
   

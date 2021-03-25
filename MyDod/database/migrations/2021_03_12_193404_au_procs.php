@@ -19,7 +19,7 @@ class AuProcs extends Migration
             $table->string('Objectif',1000);
             $table->string('Processus',1000);
             $table->integer('Processus_etp');
-            $table->string('Fonctionnalites',1000);
+            $table->string('gain',1000);
             $table->string('Planification',100);
             $table->string('Canal',50);
             $table->string('Utilisateurs',1000);

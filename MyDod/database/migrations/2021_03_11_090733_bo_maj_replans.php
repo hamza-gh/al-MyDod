@@ -17,7 +17,6 @@ class BoMajReplans extends Migration
             $table->increments('id');
 
             $table->string('n_rapport');
-            $table->string('chemain');
             $table->string('description');
 
 

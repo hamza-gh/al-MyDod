@@ -39,10 +39,11 @@ class SharepointController extends Controller
        
     $inc = new Sh_droit();
         
-    $inc->email_user = $request->user()->email;
-    $inc->Description = $request->input('Description');
-
     
+    $inc->dossier = $request->input('dossier');
+    $inc->Utilisateurs = $request->input('Utilisateurs');
+
+    $inc->email_user = $request->user()->email;
     
     $inc->save();
     
@@ -66,7 +67,8 @@ class SharepointController extends Controller
       
       if(auth()->user()->etat=='user'){
          
-          $inc->Description = $request->input('Description');
+          $inc->dossier = $request->input('dossier');
+          $inc->Utilisateurs = $request->input('Utilisateurs');
           $inc->save();
 
            //flash message
@@ -130,12 +132,12 @@ class SharepointController extends Controller
      $inc = new Sh_l_droit();
             
       $inc->email_user = $request->user()->email;
-      $inc->objet = $request->input('objet');
-      $inc->Description = $request->input('Description');
+      $inc->nom_l = $request->input('nom_l');
+      $inc->utilisateur = $request->input('utilisateur');
 
       if($request->hasfile('pj'))
       {
-        $inc->PJ= $request->pj->store('PJ');
+        $inc->PJ= $request->pj->store('PJ_sharepoint');
       }
       
  
@@ -166,8 +168,8 @@ class SharepointController extends Controller
     if(auth()->user()->etat=='user'){
          
     
-      $inc->objet = $request->input('objet');
-      $inc->Description = $request->input('Description');
+      $inc->nom_l = $request->input('nom_l');
+      $inc->utilisateur = $request->input('utilisateur');
       
           $inc->save();
 

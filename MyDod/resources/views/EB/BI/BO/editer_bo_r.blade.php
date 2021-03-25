@@ -33,14 +33,12 @@
 
             <br>
 
-                <label>Nom Rapport :</label>
+                <label>Nom Rapport :<a style="color: red;">*</a></label>
                 <input class="form-control"  type="text" name="n_rapport" 
                 required placeholder="Entrer votre Objet" value="{{$inc->n_rapport}}"/>
                 <span class="Error"></span>
-                <label>Chemin d'accès :</label>
-                <input class="form-control"  type="text" name="chemin"
-                 required placeholder="Entrer votre Objet" value="{{$inc->chemin}}" style="width: 500px;"/>
-                <span class="Error"></span>
+               
+                
             </div>
            
             

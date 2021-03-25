@@ -82,7 +82,7 @@
     <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-container">
-    <a href="/home_bi" style="font-size: 15px; margin-left: 40px;" >Business Intelligence</a>
+    <a href="/home_bi" style="font-size: 15px; margin-left: 40px;" >Power BI</a>
     <a href="/bo_home" style="font-size: 15px; margin-left:40px;">SAP Buisiness Objects</a>
     <a href="/an_home" style="font-size: 15px; margin-left:40px;">Analyse & Extraction</a>
   </div>
@@ -102,7 +102,7 @@
   </button>
   <div class="dropdown-container">
     <a href="/d_droit" style="font-size: 15px; margin-left: 40px;" >Demande Droit</a>
-    <a href="/dd_droit" style="font-size: 15px; margin-left: 40px;">liste des droits</a>
+    <a href="/dd_droit" style="font-size: 15px; margin-left: 40px;">Créer une liste SP</a>
     
   </div>
   

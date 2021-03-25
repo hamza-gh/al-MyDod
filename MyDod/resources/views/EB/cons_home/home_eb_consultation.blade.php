@@ -165,24 +165,24 @@
 		<li class="active">
 			<div class="content__wrapper">
 				<div class="sub_content__wrapper">
-					<h1> Business Intelligence </h1>
+					<h1> Power BI</h1>
 					<div>
-						<a href="/liste_bi_rapports"> Liste du rapport BI </a> <br>
-						<a href="/liste_ano_maj"> Liste des anomalies & mise à jour BI </a>
+						<a href="/liste_bi_rapports">Rapport BI </a> <br>
+						<a href="/liste_ano_maj"> Anomalies / Mise à jour</a>
 					</div>
 				</div>
 				<div class="sub_content__wrapper">
 					<h1> SAP Buisiness Objects </h1>
 					<div>
-						<a href="/liste_bo_rap"> Liste du rapport BO </a> <br>
-						<a href="/liste_bo_r"> Liste des modifications & replanifications </a>
+						<a href="/liste_bo_rap">Rapport BO </a> <br>
+						<a href="/liste_bo_r">Modifications / Planifications </a>
 					</div>
 				</div>
 				<div class="sub_content__wrapper">
-					<h1> Analyse & Extraction </h1>
+					<h1> Analyse / Extraction </h1>
 					<div>
-						<a href="/liste_analyse"> Liste des analyses </a> <br>
-						<a href="/liste_extraction"> Liste des extractions </a>
+						<a href="/liste_analyse">Analyses </a> <br>
+						<a href="/liste_extraction">Extractions </a>
 					</div>
 				</div>
 			</div>
@@ -192,22 +192,22 @@
 				<div class="sub_content__wrapper">
 					<h1> RPA </h1>
 					<div>
-						<a href="/liste_process_rpa"> liste Process RPA </a> <br>
-						<a href="/liste_au_ano_maj"> liste des Anomalies & MAJs RPA </a>
+						<a href="/liste_process_rpa">Process RPA </a> <br>
+						<a href="/liste_au_ano_maj">Anomalies / MAJ</a>
 					</div>
 				</div>
 				<div class="sub_content__wrapper">
-					<h1> Développement & Design </h1>
+					<h1> Développement / Design </h1>
 				</div>
 			</div>
 		</li>
 		<li>
 			<div class="content__wrapper">
 				<div class="sub_content__wrapper">
-					<h1> Share point </h1>
+					<h1> Share Point </h1>
 					<div>
-						<a href="/l_d_droit"> Liste des demandes de droit </a> <br>
-						<a href="/ll_d_droit"> Liste des droit </a>
+						<a href="/l_d_droit"> Demandes d'accées </a> <br>
+						<a href="/ll_d_droit"> Listes Sharepoint </a>
 					</div>
 				</div>
 			</div>
