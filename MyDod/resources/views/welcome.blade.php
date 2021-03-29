@@ -8,6 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    
+    
 <style>
     .containers {
     position: absolute;
@@ -45,14 +47,14 @@
     cursor: pointer;
     font-size: 25px;
     height: 150px;
-    font-weight: 200px;
+   
     line-height: 35px;
     vertical-align: auto;
-    max-width: 100%;
+    
     position: relative;
     text-decoration: none;
     text-transform: uppercase;
-    width: 100%;
+    width: 400px;
     text-align: center;
 
  
@@ -129,15 +131,42 @@
                      @if(Auth::user()->etat=='user')
                      
                            <!--user part -->
-                           <div class="containers" style="display: inline-flex;">
-        <a href="/liste_incident" class="btn effect " style="margin-right: 40px;"><span> <br> Incident </span></a>
-        <br>
-        <a href="/home_eb" class="btn effect"style="margin-right: 40px;"><span> Faire <br> une <br> Demande  </span></a>
-        <a href="/ConsulatationEB" class="btn effect"style="margin-right: 40px;"><span> Consulter mes Demandes </span></a>
-        </div>
+                           <div class="container" style="margin-top: 200px; margin-left: 320px;">
+                           <div style="display: inline-flex;">
         
+                            <a href="/liste_incident" class="btn effect " style="margin-right: 40px;"><span> <br> Déclarer incident </span></a>
+        
+        <a href="/home_eb" class="btn effect" style="margin-right: 40px;"><span> <br> Faire  une Demande  </span></a>
+        
+        <a href="/ConsulatationEB" class="btn effect" style="margin-right: 40px; width: 460px;"><span><br> Consulter  mes Demandes </span></a>
 
-                                   
+        </div>
+        <br>
+     <div class="container" style="display: inline-flex;" >
+        
+        <div  class="container" style="border: rgba(0, 0, 0, 0) solid 2px; width: 100%;margin-left: -16px;border-radius: 30px;
+         width: 400px; font-size: 18px; font-weight: bold; text-align: left;">
+         
+         <div style="text-align: left; margin-top: 10px; "> <img src="assets/img/in.png"   style="width: 30px;"/></div>   - Problème de chargement d'un rapport.
+           <br>- Rupture d'un processus RPA.
+           
+        </div>
+
+        <div  class="container" style="border: rgba(0, 0, 0, 0) solid 2px; width: 100%;margin-left: -210px;border-radius: 30px;
+        width: 400px; font-size: 18px; font-weight: bold; text-align: left;">
+          <div style="text-align: left; margin-top: 10px; "> <img src="assets/img/in.png"   style="width: 30px;"/></div> - Construire un nouveau KPI <br>
+          - Creation d'un rapport POWER BI <br>
+          - Concevoir un Process RPA <br>
+          - Mettre en oeuvre une liste SP <br>
+          - Demande de droit SP 
+          <br>- Rupture d'un processus RPA. <br><br>
+          
+       </div>
+        
+    </div>
+  
+    
+       
                          @endif    
 
                      
@@ -148,7 +177,7 @@
                                     <div class="containers" style="display: inline-flex;">
                                         <a href="/ms_liste" class="btn effect " style="margin-right: 40px;"><span><br> Mes demande </span></a>
                                         
-                                        <a href="/auth" class="btn effect"style="margin-right: 40px;"><span><br> Creer un user </span></a>
+                                        <a href="/auth" class="btn effect" style="margin-right: 40px; "><span><br> Créer un utilisateur </span></a>
                                         </div>
 
                                     @endif

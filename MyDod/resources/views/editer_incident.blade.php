@@ -28,7 +28,7 @@
         <form class="signup" action="/liste_incident/{{$ic->id}}" method="Post"  >
          <input type="hidden" name="_method" value=PUT>
 
-        <p class="h2 text-center">Modifier l'incidentt</p><br>
+        <p class="h2 text-center">Modifier l'incident</p><br>
         <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a><br><br>
             <div class="form-group">
             

@@ -17,26 +17,26 @@
 
             </head>
             <body>
-
-            <h1 style="text-align: center; color: black; font-weight: bolder;"> Editer</h1>
-            <div class="form-group" style=" width: 600px;margin-left: 500px;" >
+             
+           
+ <div class="container" style=" width: 600px;" >
             <div>
-            
+             <h1 style="text-align: center; color: black; font-weight: bolder;"> Editer</h1>
         <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
        </div>
                 <form class="signup" action="/l_d_droit/{{$inc->id}}" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="_method" value=PUT>
 
                     <div>
-                    <br> <label style="font-weight: bolder;">Dossier:</label>
+                    <br> <label style="font-weight: bolder;">Dossier :<a style="color: red;">*</a></label>
                     <h style="font-size: 13px; font-weight: bolder; margin-left: 310px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
                     <textarea  name="dossier" class ="form-control" required placeholder="Dossier">{{$inc->dossier}}</textarea>
                 </div>
             <br>
-                    <label style="font-weight: bolder;">Utilisateurs :</label>
+                    <label style="font-weight: bolder;">Utilisateurs :<a style="color: red;">*</a></label>
                     <textarea rows="5" cols="100" name="Utilisateurs" class ="form-control" required placeholder="Utilisateurs">{{$inc->Utilisateurs}}</textarea>
                     <span class="Error"></span>
-                </div>
+               
                 
                     
               
@@ -48,11 +48,12 @@
 
                 <br>
                 {{ csrf_field() }}
-            <div class="form-group" style=" width: 400px;margin-left: 550px;">
+            <div class="form-group" style=" width: 400px;margin-left: 50px;">
                 <input class="btn btn-primary btn-block" type="submit" value="Editer" />
+                </div>
             </div>
 </form>
             </div>
-
+        
             </body>
             </html>

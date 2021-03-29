@@ -22,7 +22,7 @@
             </head>
             <body>
 
-            <div class="form-group" style=" width: 600px;margin-left: 500px;" >
+            <div class="container" style=" width: 600px;" >
             <div>
             <p class="h2"style="margin-left: 110px;">Details d'une Extraction </p>
         <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
@@ -34,8 +34,7 @@
        
        
            <div class="form-group">
-           
-                  
+
            <label>Type de données :</label><br>
                 <input class="form-control" disabled type="text" name="Type_d" required placeholder="Entrer Nom Projet" value="{{$inc->Type_d}}"/>
                 <span class="Error"></span>
@@ -63,7 +62,7 @@
              @endif
        
              @if($inc->etat=='Clos')
-             <br>
+            
                         <label> Date d'échéance : {{$inc->date_echeance}}</label> 
                         
                         <br>
@@ -72,7 +71,7 @@
              @endif
        
              @if($inc->etat=='En cours')
-             <br>
+             
                         <label> Date d'échéance : {{$inc->date_echeance}}</label> 
                         
                         <br>
@@ -135,14 +134,14 @@
 
         <br>
         {{ csrf_field() }}
-    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+    <div class="container" style=" width: 400px;">
         <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
             @endif
 
         @if ($inc->etat=='En cours')
         
-        <input type="label" name="affectation" id="" value="{{$inc->affectation}}" style="visibility: hidden; width: 0px;height: 0px;">
+        
         <label>Affectater à :</label>
         <select name="" id="" disabled style="text-align: center; width: auto; height: 35px; background-color: white; font-weight: bolder;
          border: 2px solid black;">
@@ -153,6 +152,7 @@
             <br><br>
             <label>Date d'échéance :</label>
             <input type="date" name="date_echeance"  value="{{$inc->date_echeance}}">
+            <input type="label" name="affectation" id="" value="{{$inc->affectation}}" style="visibility: hidden; width: 0px;height: 0px;">
     <br><br>
     
     <label>Etat :</label>
@@ -190,11 +190,16 @@
 
         <br>
         {{ csrf_field() }}
-    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+    <div class="container" style=" width: 400px;">
         <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
              @endif
-                    
+             @if($inc->etat=='Clos')
+    
+             <label style="font-weight: bolder; ">Etat :</label>
+             &nbsp;&nbsp;<label style="color: red; text-align: center;font-weight: bolder;font-size: 25px;" >{{$inc->etat}}</label>
+         
+         @endif
                 @endif
 
       

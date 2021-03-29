@@ -1,10 +1,11 @@
-@include('layouts.app')
+@extends('layouts.app')
+@section('content')
 <!DOCTYPE html>
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <style>
   body {
     font-family: "Lato", sans-serif;
@@ -88,7 +89,8 @@
 </head>
 <body>
 
-<div class="sidenav" style="margin-top: 100px; height: 550px;  margin-left: 120px; width: auto;" >
+<div class="container">
+<div class="sidenav" style="margin-top: 100px; height: 550px;  margin-left: 235px; width: auto; " >
 
 
 <a href="/home_eb" style="text-decoration: none;" ><label class= "n" style="text-align: center; "> BI </label> </a>
@@ -125,6 +127,8 @@ for (i = 0; i < dropdown.length; i++) {
 </script>
 </body>
 </html> 
+</div>
 
+<div">@yield('bi')</div>
 
-<div style="padding-left: 300px;">@yield('bi')</div>
+@endsection

@@ -15,30 +15,37 @@
     <title>Extraction</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <style>
-        label{
-            font-weight: bolder;
-        }
+         label{
+         font-weight: bolder;
+     }
+     .bib{
+         font-weight: bold;
+         font-size: 15px;
+         color: black;
+     }
     </style>
 </head>
 <body>
 
-    <div class="container" style=" width: 600px;margin-left: 200px;">
-        
+    <div class="container" style=" width: 600px;">
+    <div style="color: #2B2D3B; font-size: 13px; font-weight: bolder; text-align: right;"><a href="" class="bib">BI</a> ><a class="bib">><a class="bib"> Extraction</a></div><br>
+
     <form class="signup" action="{{ url('/extraction')}}" method="post" enctype="multipart/form-data">
        <br>
-       <p class="h2"style="margin-left: 200px;">Extraction </p><br>
+
+       <p class="h2"style="text-align:center;">Extraction </p><br>
        @include('partieflash.flash')
            <div class="form-group">
            
                   
            <label>Type de données :<a style="color: red;">*</a></label><br>
-                <input class="form-control"  type="text" name="Type_d" required placeholder="Entrer Type de données"/>
+                <input class="form-control"  type="text" name="Type_d" required placeholder="Entrer Type de données" style="width: 560px;"/>
                 <span class="Error"></span>
             </div>
 
               
                <label>Source de données :<a style="color: red;">*</a></label>
-               <input class="form-control"  type="text" name="Source_d" required placeholder="Entrer Source de données"/><br><br>
+               <input class="form-control"  type="text" name="Source_d" required placeholder="Entrer Source de données" style="width: 560px;"/><br><br>
                <span class="Error"></span>
 
                <div class="form-group">
@@ -61,7 +68,7 @@
 
            <br>
            {{ csrf_field() }}
-           <div class="form-group" style=" width: 400px;margin-left: 600px;">
+           <div class="container" style=" width: 400px;">
                <input class="btn btn-primary btn-block" type="submit" value="Soumettre"/>
            </div>
        </form>

@@ -1,6 +1,6 @@
 @font-face{
-  font-family: mypolice;
-  src: url('../font/NDLOGOSREGULARITALIC.ttf');
+  font-family: m;
+  src: url('../font/AppleTea-z8R1a.ttf');
 }
 /* BASIC */
 
@@ -15,8 +15,9 @@ body {
 }
 
 .logo{
-  font-family: mypolice;
-    font-size: 30px;
+  font-family: m;
+    font-size: 40px;
+    font-weight: bolder;
     color: #2B2D3B;
     text-decoration: none;
 }

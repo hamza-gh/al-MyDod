@@ -21,59 +21,59 @@
             <form class="signup" action="/liste_bo_rap/{{$inc->id}}" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="_method" value=PUT>
 
-            <div class="form-group" style=" width: 600px;margin-left: 400px;" >
-                <div>
+            <div class="container" style=" width: 600px;" >
+                
                     <h1 style="text-align: center; color: black; font-weight: bolder;"> Edite d'un rapport BO</h1>
                     <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
-                   </div>
-            
                   
+            
+                  <div class="form-group" style=" width: 600px;">
                     <br><label style="font-weight: bolder;" >Objectif du besoin:
-                    <h style="font-size: 12px; font-weight: bolder; margin-left: 280px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
+                    <h style="font-size: 12px; font-weight: bolder; margin-left: 275px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
                     <textarea rows="2" cols="100" name="object"   class ="form-control" 
-                    required placeholder="Entrer Nom Rapport:" >{{$inc->object}}</textarea>
+                    required placeholder="Entrer Objectif du besoin" >{{$inc->object}}</textarea>
                     <span class="Error"></span>
                 </div>
                 
-                <div class="form-group" style="margin-left: 400px;">
+                <div class="form-group" >
                     <label style="font-weight: bolder;">Noms des Rapports Proposés :
                     <textarea rows="3"  name="n_rapport"   class ="form-control" style=" width: 600px;"
-                    required  >{{$inc->n_rapport}} </textarea>
+                    required placeholder="Entrer les Noms des Rapports Proposés" >{{$inc->n_rapport}} </textarea>
                     <span class="Error"></span>
 <br>
                     
-            <div class="form-group" style=" width: 700px;">
+            <div class="form-group" style=" width: 600px;">
             
                 <label>Univers  :</label><br>
-                <input class="form-control"  type="text" name="univers"
-                 required placeholder="Entrer votre Objet" value="{{$inc->univers}}" />
+                <textarea class="form-control"  type="text" name="univers"
+                 required placeholder="Entrer votre Univers" >{{$inc->univers}}</textarea>
                 <span class="Error"></span>
             </div>
 
         
-            <div class="form-group" style=" width: 700px;">
+            <div class="form-group" style=" width: 600px;">
             
                 <label>Champs à extraires :</label><br>
-                <input class="form-control"  type="text" name="c_extraires" required placeholder="Entrer votre Objet" value="{{$inc->c_extraires}}" />
+                <textarea class="form-control"  type="text" name="c_extraires" required placeholder="Entrer votre Champs à éxtraires" >{{$inc->c_extraires}}</textarea>
                 <span class="Error"></span>
             </div>
-            <div class="form-group" style=" width: 700px;">
+            <div class="form-group" style=" width: 600px;">
             
                 <label>Filtres à appliquer :</label>
-                <input class="form-control"  type="text" name="filtres" required placeholder="Entrer votre Objet" value="{{$inc->filtres}}" />
+                <textarea class="form-control"  type="text" name="filtres" required placeholder="Entrer les filtre à appliquer"  >{{$inc->filtres}}</textarea>
                 <span class="Error"></span>
             </div>
-            <div class="form-group" style=" width: 700px;">
+            <div class="form-group" style=" width: 600px;">
             
                 <label>Liste de diffusion :</label>
-                <input class="form-control"  type="text" name="liste_d" required placeholder="Entrer votre Objet" value="{{$inc->liste_d}}" />
+                <textarea class="form-control"  type="text" name="liste_d" required placeholder="Entrer la liste de diffusion">{{$inc->liste_d}}</textarea>
                 <span class="Error"></span>
             </div>
             
-            <div class="form-group" style=" width: 700px;">
+            <div class="form-group" style=" width: 600px;">
             
                 <label>Planification :</label>
-                <input class="form-control"  type="text" name="planification" required placeholder="Entrer votre Objet" value="{{$inc->planification}}" />
+                <textarea class="form-control"  type="text" name="planification" required placeholder="Entrer Planification" >{{$inc->planification}}</textarea>
                 <span class="Error"></span>
             </div>
          
@@ -87,7 +87,7 @@
             <br>
 
             {{ csrf_field() }}
-            <div class="form-group" style=" width: 400px;margin-left: 480px;">
+            <div class="container" style=" width: 400px;">
                 <input class="btn btn-primary btn-block" type="submit" value="Editer" />
             </div>
 </form>

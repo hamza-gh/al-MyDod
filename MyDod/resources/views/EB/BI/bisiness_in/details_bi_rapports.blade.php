@@ -24,21 +24,21 @@
 
             <form class="signup" action="/liste_bi_rapports/{{$inc->id}}" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="_method" value=PUT>
-            <div class="form-group" style=" width: 600px;margin-left: 500px;" >
-                <div>
+            <div class="container" style=" width: 600px;" >
+                
                     <h1 style="text-align: center; color: black; font-weight: bolder;"> Details d'un rapport </h1>
                     <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
-                   </div>
+                 
             
-                  
+                  <div class="form-group">
                     <br><label style="font-weight: bolder;" >Objet:
-                    <h style="font-size: 13px; font-weight: bolder; margin-left: 360px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
+                    <h style="font-size: 13px; font-weight: bolder; margin-left: 310px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
                     <textarea rows="2" cols="100" name="nom_rapport"   class ="form-control" 
                     required placeholder="Entrer Nom Rapport:" disabled>{{$inc->objet}}</textarea>
                     <span class="Error"></span>
                 </div>
                 
-                <div class="form-group" style=" width: 600px;margin-left: 500px;">
+                <div class="form-group" >
                     <label style="font-weight: bolder;">Nom Rapport:
                     <textarea rows="3" cols="100" name="description"   class ="form-control" 
                     required placeholder="Entrer Description:" disabled>{{$inc->nom_rapport}} </textarea>
@@ -163,7 +163,7 @@
 
         <br>
         {{ csrf_field() }}
-    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+    <div class="container" style=" width: 400px;">
         <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
             @endif
@@ -218,7 +218,7 @@
 
         <br>
         {{ csrf_field() }}
-    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+    <div class="container" style=" width: 400px;">
         <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
              @endif

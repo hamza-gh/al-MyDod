@@ -22,12 +22,13 @@
             </head>
             <body>
 
-            <h1 style="text-align: center; color: black; font-weight: bolder;"> {{$inc->titre}}</h1>
-            <div class="form-group" style=" width: 600px;margin-left: 500px;" >
-            <div>
+            
+            <div class="container" style=" width: 600px;" >
+            
+            
             <p class="h2"style="margin-left: 170px;"> Details Analyse </p>
         <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
-       </div>
+       
        <form class="signup" action="/liste_analyse/{{$inc->id}}" method="post" enctype="multipart/form-data">
         <input type="hidden" name="_method" value=PUT>
         <input type="hidden" name="_method" value=PUT>
@@ -54,7 +55,7 @@
                 <textarea rows="5" cols="100" name="Descriptif"  
                 class ="form-control" required placeholder="Entrer Descriptif" disabled>{{$inc->Descriptif}}</textarea>
                 <span class="Error"></span>
-                <br><br>
+                <br>
                 @if(Auth::user()->etat=='user')
             @if($inc->etat=='Nouveau')
                 <label style="font-weight: bolder;">Etat :</label>
@@ -66,7 +67,7 @@
              @endif
        
              @if($inc->etat=='Clos')
-             <br>
+             
                         <label> Date d'échéance : {{$inc->date_echeance}}</label> 
                         
                         <br>
@@ -75,7 +76,7 @@
              @endif
        
              @if($inc->etat=='En cours')
-             <br>
+            
                         <label> Date d'échéance : {{$inc->date_echeance}}</label> 
                         
                         <br>
@@ -138,14 +139,14 @@
 
         <br>
         {{ csrf_field() }}
-    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+    <div class="container" style=" width: 400px;">
         <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
             @endif
 
         @if ($inc->etat=='En cours')
-        
-        <input type="label" name="affectation" id="" value="{{$inc->affectation}}" style="visibility: hidden; width: 0px;height: 0px;">
+        <br>
+       
         <label>Affectater à :</label>
         <select name="" id="" disabled style="text-align: center; width: auto; height: 35px; background-color: white; font-weight: bolder;
          border: 2px solid black;">
@@ -155,7 +156,8 @@
         </select>
             <br><br>
             <label>Date d'échéance :</label>
-            <input type="date" name="date_echeance"  value="{{$inc->date_echeance}}">
+            <input type="date" name="date_echeance"  value="{{$inc->date_echeance}}"> 
+            <input type="label" name="affectation" id="" value="{{$inc->affectation}}" style="visibility: hidden; width: 0px;height: 0px;">
     <br><br>
     
     <label>Etat :</label>
@@ -193,11 +195,17 @@
 
         <br>
         {{ csrf_field() }}
-    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+    <div class="container" style=" width: 400px;">
         <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
              @endif
                     
+             @if($inc->etat=='Clos')
+    
+    <label style="font-weight: bolder; ">Etat :</label>
+    &nbsp;&nbsp;<label style="color: red; text-align: center;font-weight: bolder;font-size: 25px;" >{{$inc->etat}}</label>
+
+@endif
                 @endif
 
       

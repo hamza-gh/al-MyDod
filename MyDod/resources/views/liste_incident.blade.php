@@ -33,12 +33,13 @@
       @include('partieflash.flash')
      
         
-    <div class="col-md-12">
+    <div class="col-md-12" >
     <div class ="row">
     <div>
-      <h1 style="color: black; font-weight: bold; text-align: center;">Liste des Incidents</h1>
+      <h1 style="color: black; font-weight: bold; text-align: center;">Liste des incidents :</h1>
+    
     <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
-        <a href="/c_incident" class="btn btn-success" style=" margin-left: 944px;" >+ Nouveau Incident </a>
+    <a href="/c_incident" class="btn btn-success" style="" >+ Déclarer un incident </a>
          </div>
          
      
@@ -59,23 +60,23 @@
 
    
     @foreach($ic as $i)
-      <th scope="row"></th>
+      <th scope="row" ></th>
       
-      <td>{{$i->objet}}</td>
-      <td>{{$i->criticité}}</td>
-      <td>{{$i->created_at}}</td>
+      <td style="font-weight: bolder;">{{$i->objet}}</td>
+      <td style="font-weight: bolder;">{{$i->criticité}}</td>
+      <td style="font-weight: bolder;">{{$i->created_at}}</td>
 
       
       @if($i->etat=='Nouveau')
-      <td style="color: green; ">{{$i->etat}}</td>
+      <td style="color: green; font-weight: bolder;">{{$i->etat}}</td>
       @endif
 
       @if($i->etat=='Clos')
-      <td style="color: red;">{{$i->etat}}</td>
+      <td style="color: red;font-weight: bolder;">{{$i->etat}}</td>
       @endif
 
       @if($i->etat=='En cours')
-      <td style="color: orange;">{{$i->etat}}</td>
+      <td style="color: orange;font-weight: bolder;">{{$i->etat}}</td>
       @endif
 
       
@@ -94,7 +95,7 @@
            
 
             
-            <button onclick="myFunction()">Suprimmer</button>
+            <button onclick="myFunction()" class="btn btn-danger">Suprimmer</button>
             
 
             <dialog id="myDialog">

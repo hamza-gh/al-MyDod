@@ -55,15 +55,24 @@
 .topnav a.active {
   border-bottom: 3px solid red;
 }
+label{
+         font-weight: bolder;
+     }
+     .bib{
+         font-weight: bold;
+         font-size: 15px;
+         color: black;
+     }
 </style>
 <body>
-<div style="color: #2B2D3B; font-size: 13px; font-weight: bolder; margin-left: 850px;">RPA > ANOMALIE & MAJ</div>
-    <div class="container" style=" width: 600px;margin-left: 200px;">
+  <div class="container" style=" width: 600px;">
         
-        
+    <div style="color: #2B2D3B; font-size: 13px; font-weight: bolder; text-align: right;"> <a href="/home_eb" class="bib">RPA </a>><a class="bib">><a class="bib"> ANOMALIE / MAJ </a></div>
+  
        
-            <br><br><br><br>
+            <br><br>
             @include('partieflash.flash')
+
         <nav class="nav nav-tabs " >
             <a class="nav-item nav-link .active" href="#p0" data-toggle="tab" ></a>
             <a class="nav-item nav-link topnav" href="#p1" data-toggle="tab" style="font-size: xx-large; font-weight: bolder; ">Anomalie RPA</a>
@@ -107,7 +116,7 @@
                 </div>
                 {{ csrf_field() }}
             <div class="form-group" style=" width: 400px;margin-left: 70px;">
-                <input class=" btn-primary btn-block" type="submit" value="Soumettre" name="m"/>
+                <input class=" btn-primary btn-block" type="submit" value="Mettre à jour" name="m"/>
             </div>
             </form>
             </div>

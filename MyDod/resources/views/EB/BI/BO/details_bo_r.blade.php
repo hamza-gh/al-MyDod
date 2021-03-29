@@ -23,28 +23,28 @@
             <body>
 
             <h1 style="text-align: center; color: black; font-weight: bolder;"> {{$inc->titre}}</h1>
-            <div class="form-group" style=" width: 600px;margin-left: 500px;" >
-            <div>
+            <div class="container" style=" width: 600px;" >
+          
         
         <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
-       </div>
+      
        <form class="signup" action="/liste_bo_r/{{$inc->id}}" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="_method" value=PUT>
 
-            <br>
-
+           <div >
+<br>
                 <label>Nom Rapport :</label>
-                <input class="form-control"  type="text" name="n_rapport" 
+                <input class="form-control" style="width: 600px;"   type="text" name="n_rapport" 
                 required placeholder="Entrer votre Objet" value="{{$inc->n_rapport}}" disabled/>
                 <span class="Error"></span>
               
                 
             </div>
-           
+           <br>
             
-            </div>
+           
                 
-                <div class="form-group" style=" width: 600px;margin-left: 500px;">
+                <div class="form-group" style=" width: 600px;">
                     <label style="font-weight: bolder;">Description :</label>
                     <textarea rows="8" cols="100" name="description"   class ="form-control"
                      required placeholder="Entrer Description:" disabled>{{$inc->description}} </textarea>
@@ -133,7 +133,7 @@
 
         <br>
         {{ csrf_field() }}
-    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+    <div class="container" style=" width: 400px;">
         <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
             @endif
@@ -188,11 +188,16 @@
 
         <br>
         {{ csrf_field() }}
-    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+    <div class="container" style=" width: 400px;">
         <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
              @endif
-                    
+             @if($inc->etat=='Clos')
+    
+    <label style="font-weight: bolder; ">Etat :</label>
+    &nbsp;&nbsp;<label style="color: red; text-align: center;font-weight: bolder;font-size: 25px;" >{{$inc->etat}}</label>
+
+@endif
                 @endif
 
       

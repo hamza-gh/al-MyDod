@@ -16,38 +16,50 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
  
     <style>
-        label{
-            font-weight: bolder;
-        }
+      label{
+         font-weight: bolder;
+     }
+     .bib{
+         font-weight: bold;
+         font-size: 15px;
+         color: black;
+     }
     </style>
 </head>
 <body>
-<div style="color: #2B2D3B; font-size: 13px; font-weight: bolder; margin-left: 800px;">Bo > Buisiness Objects > Create Rapport</div>
-    <div class="container" style=" width: 600px;margin-left: 200px;">
+
+    <div class="container" style=" width: 600px">
         
-       
-       
-        <p class="h2"style="margin-left: 150px;">Nouveau Rapport </p><br>
+       <div style="color: #2B2D3B; font-size: 13px; font-weight: bolder; text-align: right;"><a href="/home_eb" class="bib">Bo</a> ><a class="bib"> Buisiness Objects </a>><a class="bib"> Create Rapport</a></div>
+       <br>
+        
         @include('partieflash.flash')
-            <div class="form-group">
+           
+
              <form class="signup" action="{{ url('/bo_r')}}" method="POST" enctype="multipart/form-data">
-                <div class="form-group">
+              <p class="h2" style="text-align: center;">Nouveau Rapport </p><br>
+
+             <div class="form-group">
                     <label>Objectif du besoin:<a style="color: red;">*</a></label>
                     <textarea rows="2" cols="600" name="object"  class ="form-control" required placeholder="Entrer l'Objectif du besoin"></textarea>
                     <span class="Error"></span>
                 </div>
+
+
                 <div class="form-group">
                     <label>Noms des Rapports Proposés:<a style="color: red;">*</a></label>
                     <textarea rows="2" cols="100" name="n_rapport"   class ="form-control" required placeholder="Entrer Nom Rapport:"></textarea>
                     <span class="Error"></span>
                 </div>
                 
+
                 <div class="form-group">
                 <label>Univers :  <a style="color: red;">*</a></label>
                 <textarea rows="2" cols="100" class="form-control"  type="text" name="univers" required placeholder="Entrer Univers"></textarea>
                 <span class="Error"></span>
                 </div>
                 
+
                 <div class="form-group">
                 <label>Champs à extraires :<a style="color: red;">*</a></label>
                 <textarea rows="2" cols="100" class="form-control"  type="text" name="c_extraires" required placeholder="Entrer Champs"></textarea>
@@ -72,21 +84,21 @@
                 <span class="Error"></span>
                 </div>
               
-            </div>
+          
 
           
 
-  </div>
-</div>
+ 
 
 
             <br>
             {{ csrf_field() }}
-            <div class="form-group" style=" width: 400px;margin-left: 550px;">
+            <div class="container" style=" width: 400px;">
                 <input class="btn btn-primary btn-block" type="submit" value="create"/>
             </div>
         </form>
     </div>
+    
   </body>
 </html>
 

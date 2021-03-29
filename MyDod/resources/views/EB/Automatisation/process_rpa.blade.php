@@ -18,12 +18,17 @@
      label{
          font-weight: bolder;
      }
+     .bib{
+         font-weight: bold;
+         font-size: 15px;
+         color: black;
+     }
  </style>
 </head>
 <body>
-<div style="color: #2B2D3B; font-size: 13px; font-weight: bolder; margin-left: 800px;">RPA > Process RPA</div>
-    <div class="container" style=" width: 600px;margin-left: 200px;">
+    <div class="container" style=" width: 600px;">
         
+<div style="color: #2B2D3B; font-size: 13px; font-weight: bolder; text-align: right;"> <a href="/home_eb" class="bib">RPA </a>><a class="bib"> Process RPA </a></div><br>
         <form class="signup" action="{{ url('/process_rpa')}}" method="post" enctype="multipart/form-data">
        
         <p class="h2"style="margin-left: 150px;">Nouveau Process RPA </p><br>
@@ -96,7 +101,7 @@
 
             <br>
             {{ csrf_field() }}
-            <div class="form-group" style=" width: 400px;margin-left: 600px;">
+            <div class="container" style=" width: 400px;">
                 <input class="btn btn-primary btn-block" type="submit" value="Soumettre"/>
             </div>
         </form>

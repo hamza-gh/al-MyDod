@@ -73,11 +73,17 @@
     .sidenav {padding-top: 15px;}
     .sidenav a {font-size: 18px;}
   }
+  .isDisabled {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+}
 </style>
 </head>
 <body>
 
-<div class="sidenav" style="margin-top: 100px; height: 550px;  margin-left: 120px; width: 240px;" >
+<div class="sidenav" style="margin-top: 100px; height: 550px;  margin-left: 235px; width: 240px;" >
   <button class="dropdown-btn">BI 
     <i class="fa fa-caret-down"></i>
   </button>
@@ -91,27 +97,35 @@
     <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-container">
-    <a href="/au_home" style="font-size: 15px; margin-left: 40px;" title="Automatisation des Processus Robotisées" >RPA</a>
-    <a href="/#" style="font-size: 15px; margin-left:40px;">Devéloppement  & Design</a>
+    <a href="#"  class="isDisabled" style="font-size: 15px; margin-left: 40px;" title="Automatisation des Processus Robotisées">RPA</a>
+    <a href="#" class="isDisabled" style="font-size: 15px; margin-left:40px;" >Devéloppement  & Design</a>
     
   </div>
  
  
-  <button class="dropdown-btn">Sharepoint 
+  <button class="dropdown-btn"  >Sharepoint 
     <i class="fa fa-caret-down"></i>
   </button>
   <div class="dropdown-container">
-    <a href="/d_droit" style="font-size: 15px; margin-left: 40px;" >Demande Droit</a>
+    
+    <a href="/d_droit" style="font-size: 15px; margin-left: 40px;" id="sh">Demande Droit</a>
     <a href="/dd_droit" style="font-size: 15px; margin-left: 40px;">Créer une liste SP</a>
     
   </div>
   
 </div>
 
+<div class="container" >
 
+  <img src="{{asset('assets\img\under.png')}}" style="margin-left: 200px; width: 850px;" id="im"/>
+
+</div>
 
 
 <script>
+
+
+
 var dropdown = document.getElementsByClassName("dropdown-btn");
 var i;
 
@@ -131,4 +145,4 @@ for (i = 0; i < dropdown.length; i++) {
 </html> 
 
 
-<div style="padding-left: 300px;">@yield('list')</div>
+<div>@yield('list')</div>

@@ -19,7 +19,7 @@
             <body>
 
             <h1 style="text-align: center; color: black; font-weight: bolder;"> {{$inc->titre}}</h1>
-            <div class="form-group" style=" width: 600px;margin-left: 500px;" >
+            <div class="container" style=" width: 600px;" >
             <div>
         
         <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
@@ -27,14 +27,14 @@
                 <form class="signup" action="/liste_au_ano_maj/{{$inc->id}}" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="_method" value=PUT>
 
-                    
+                    <div style="width: 600px;">
                     <br><label style="font-weight: bolder;">Nom Rapport:<a style="color: red;">*</a>
-                    <h style="font-size: 13px; font-weight: bolder; margin-left: 280px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
-                    <textarea rows="2" cols="100" name="nom_pr"   class ="form-control" required placeholder="Entrer Nom Rapport:">{{$inc->nom_pr}}</textarea>
+                    <h style="font-size: 13px; font-weight: bolder; margin-left: 290px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
+                    <textarea rows="2" cols="100" name="nom_pr"   class ="form-control" required placeholder="Entrer Nom Rapport:" >{{$inc->nom_pr}}</textarea>
                     <span class="Error"></span>
                 </div>
                 
-                <div class="form-group" style=" width: 600px;margin-left: 500px;">
+                <div class="form-group" style=" width: 600px;">
                     <label style="font-weight: bolder;">Description:<a style="color: red;">*</a></label>
                     <textarea rows="8" cols="100" name="Descriptif"   class ="form-control"
                      required placeholder="Entrer Description:">{{$inc->Descriptif}} </textarea>
@@ -48,7 +48,7 @@
 
                 <br>
                 {{ csrf_field() }}
-            <div class="form-group" style=" width: 400px;margin-left: 550px;">
+            <div class="container" style=" width: 400px;">
                 <input class="btn btn-primary btn-block" type="submit" value="Editer" />
             </div>
 </form>

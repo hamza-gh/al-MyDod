@@ -22,8 +22,8 @@
             </head>
             <body>
 
-            <h1 style="text-align: center; color: black; font-weight: bolder;"> {{$inc->titre}}</h1>
-            <div class="form-group" style=" width: 600px;margin-left: 500px;" >
+            
+            <div class="container" style=" width: 600px;" ><h1 style="text-align: center; color: black; font-weight: bolder;"> {{$inc->titre}}</h1>
             <div>
         
         <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
@@ -33,13 +33,13 @@
                     <input type="hidden" name="_method" value=PUT>
                     
                     <br><label style="font-weight: bolder;">Nom Rapport:
-                    <h style="font-size: 13px; font-weight: bolder; margin-left: 280px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
+                    <h style="font-size: 13px; font-weight: bolder; margin-left: 265px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
                     <textarea rows="2" cols="100" disabled name="nom_pr"   class ="form-control"
                      required placeholder="Entrer Nom Rapport:">{{$inc->nom_pr}}</textarea>
                     <span class="Error"></span>
                 </div>
                 
-                <div class="form-group" style=" width: 600px;margin-left: 500px;">
+                <div class="container" style=" width: 600px;">
                     <label style="font-weight: bolder;">Description:</label>
                     <textarea rows="8" cols="100" disabled name="Descriptif"   class ="form-control"
                      required placeholder="Entrer Description:">{{$inc->Descriptif}} </textarea>
@@ -130,14 +130,14 @@
 
         <br>
         {{ csrf_field() }}
-    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+    <div class="container" style=" width: 400px;">
         <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
             @endif
 
         @if ($inc->etat=='En cours')
         
-        <input type="label" name="affectation" id="" value="{{$inc->affectation}}" style="visibility: hidden; width: 0px;height: 0px;">
+       
         <label>Affectater à :</label>
         <select name="" id="" disabled style="text-align: center; width: auto; height: 35px; background-color: white; font-weight: bolder;
          border: 2px solid black;">
@@ -148,6 +148,7 @@
             <br><br>
             <label>Date d'échéance :</label>
             <input type="date" name="date_echeance"  value="{{$inc->date_echeance}}">
+            <input type="label" name="affectation" id="" value="{{$inc->affectation}}" style="visibility: hidden; width: 0px;height: 0px;">
     <br><br>
     
     <label>Etat :</label>
@@ -185,7 +186,7 @@
 
         <br>
         {{ csrf_field() }}
-    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+    <div class="container" style=" width: 400px;">
         <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
              @endif
@@ -203,7 +204,7 @@
         </div>
               
                     
-                
+            
       
 
              

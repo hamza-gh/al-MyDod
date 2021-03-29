@@ -29,7 +29,7 @@ class biController extends Controller
       public function bi_index(Request $request)
       {
           
-                $l =DB::table('bi_rapports')->where('email_user',$request->user()->email)->get();
+                $l =DB::table('bi_rapports')->where('email_user',$request->user()->email)->orderBy('updated_at', 'DESC')->get();
                 
                 return view('EB.BI.bisiness_in.liste_bi_rapports' , ['ic' => $l]);
 
@@ -147,7 +147,7 @@ class biController extends Controller
         public function bi_am_index(Request $request)
         {
              
-                   $l =DB::table('bi_anomalie_majs')->where('email_user',$request->user()->email)->get();
+                   $l =DB::table('bi_anomalie_majs')->where('email_user',$request->user()->email)->orderBy('updated_at', 'DESC')->get();
                   
                    return view('EB.BI.bisiness_in.liste_ano_maj' , ['ic' => $l]);
     
@@ -259,7 +259,7 @@ class biController extends Controller
    public function bo_r_index(Request $request)
    {
         
-              $l =DB::table('bo_rapports')->where('email_user',$request->user()->email)->get();
+              $l =DB::table('bo_rapports')->where('email_user',$request->user()->email)->orderBy('updated_at', 'DESC')->get();
              
               return view('EB.BI.BO.liste_bo_rap' , ['ic' => $l]);
 
@@ -365,7 +365,7 @@ class biController extends Controller
             public function bo_mp_index(Request $request)
             {
                  
-                       $x =DB::table('bo_maj_replans')->where('email_user',$request->user()->email)->get();
+                       $x =DB::table('bo_maj_replans')->where('email_user',$request->user()->email)->orderBy('updated_at', 'DESC')->get();
                       
                        return view('EB.BI.BO.liste_bo_r' , ['ic' => $x]);
                       
@@ -476,7 +476,7 @@ class biController extends Controller
   public function analyse_index(Request $request)
   {
        
-             $l =DB::table('ae_analyses')->where('email_user',$request->user()->email)->get();
+             $l =DB::table('ae_analyses')->where('email_user',$request->user()->email)->orderBy('updated_at', 'DESC')->get();
             
              return view('EB.BI.An_ext.liste_analyse' , ['ic' => $l]);
 
@@ -574,7 +574,7 @@ public function analyse_details($id)
  public function extr_index(Request $request)
  {
       
-            $l =DB::table('ae_extractions')->where('email_user',$request->user()->email)->get();
+            $l =DB::table('ae_extractions')->where('email_user',$request->user()->email)->orderBy('updated_at', 'DESC')->get();
            
             return view('EB.BI.An_ext.liste_extraction' , ['ic' => $l]);
 

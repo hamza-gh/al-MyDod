@@ -22,25 +22,25 @@
             </head>
             <body>
 
-            <h1 style="text-align: center; color: black; font-weight: bolder;"> {{$inc->titre}} </h1>
             
-            <div class="form-group" style=" width: 600px;margin-left: 500px;" >
-                <div>
-        
+            
+            <div class="container" style=" width: 600px;" >
+                
+        <h1 style="text-align: center; color: black; font-weight: bolder;"> {{$inc->titre}} </h1>
                     <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
-                   </div>
+                   
                    <form class="signup" action="/liste_ano_maj/{{$inc->id}}" method="post" enctype="multipart/form-data">
-                    
+                    <div class="form-group" style=" width: 580px;">
                     <input type="hidden" name="_method" value=PUT>
                     <br><label style="font-weight: bolder;" >Nom Rapport :
-                    <h style="font-size: 13px; font-weight: bolder; margin-left: 280px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
+                    <h style="font-size: 13px; font-weight: bolder; margin-left: 260px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
                     <textarea rows="2" cols="100" name="nom_rapport"   class ="form-control" required placeholder="Entrer Nom Rapport:" disabled>{{$inc->nom_rapport}}</textarea>
                     <span class="Error"></span>
-                </div>
+                </div><br>
                 
-                <div class="form-group" style=" width: 600px;margin-left: 500px;">
+                <div class="form-group" style=" width: 580px;">
                     <label style="font-weight: bolder;">Description :</label>
-                    <textarea style="height: 300px; width: 100%;"  name="description"   class ="form-control" required placeholder="Entrer Description:" disabled>{{$inc->description}} </textarea>
+                    <textarea rows="8" cols="100"  name="description"   class ="form-control" required placeholder="Entrer Description:" disabled>{{$inc->description}} </textarea>
                     <span class="Error"></span>
                    
                     @if(Auth::user()->etat=='user')
@@ -127,7 +127,7 @@
 
         <br>
         {{ csrf_field() }}
-    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+    <div class="container" style=" width: 400px;">
         <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
             @endif
@@ -174,6 +174,7 @@
                
                 
     </select>
+  
           </div>
         </div>
 
@@ -182,11 +183,17 @@
 
         <br>
         {{ csrf_field() }}
-    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+    <div class="container" style=" width: 400px;">
         <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
              @endif
-                    
+             <br>
+                      @if($inc->etat=='Clos')
+    
+        <label style="font-weight: bolder; ">Etat :</label>
+        &nbsp;&nbsp;<label style="color: red; text-align: center;font-weight: bolder;font-size: 25px;" >{{$inc->etat}}</label>
+    
+    @endif
                 @endif
 
       

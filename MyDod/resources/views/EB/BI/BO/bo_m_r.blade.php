@@ -56,14 +56,22 @@
 .topnav a.active {
   border-bottom: 3px solid red;
 }
+label{
+         font-weight: bolder;
+     }
+     .bib{
+         font-weight: bold;
+         font-size: 15px;
+         color: black;
+     }
 </style>
 <body>
-<div style="color: #2B2D3B; font-size: 13px; font-weight: bolder; margin-left: 800px;">BI > Business Intelligence > Anomalie ou MAJ</div>
-    <div class="container" style=" width: 600px;margin-left: 200px;">
-        
+
+    <div class="container" style=" width: 600px;">
+        <div style="color: #2B2D3B; font-size: 13px; font-weight: bolder; text-align: right;"><a href="/home_eb" class="bib">Bo</a> ><a class="bib"> Business Intelligence > Anomalie ou MAJ</div>
         
        
-            <br><br><br><br>
+            <br><br><br>
             @include('partieflash.flash')
         <nav class="nav nav-tabs " >
             <a class="nav-item nav-link .active" href="#p0" data-toggle="tab" ></a>
@@ -85,12 +93,12 @@
                 
                <div class="form-group">
                     <label>Description:<a style="color: red;">*</a></label>
-                    <textarea rows="2" cols="100" name="description"   class ="form-control" required placeholder="Entrer Description:"></textarea>
+                    <textarea rows="5" cols="100" name="description"   class ="form-control" required placeholder="Entrer Description:"></textarea>
                     <span class="Error"></span>
                 </div>
                 
                 {{ csrf_field() }}
-            <div class="form-group" style=" width: 400px;margin-left: 70px;">
+            <div class="container" style=" width: 400px;">
                 <input class="btn btn-primary btn-block" type="submit" value="Modifier" name="m"/>
             </div>
 </form>
@@ -108,11 +116,11 @@
 </div>
                 <div class="form-group">
                     <label>Description:<a style="color: red;">*</a></label>
-                    <textarea rows="2" cols="100" name="description"   class ="form-control" required placeholder="Entrer description:"></textarea>
+                    <textarea rows="5" cols="100" name="description"   class ="form-control" required placeholder="Entrer Description:"></textarea>
                     <span class="Error"></span>
                 </div>
                 {{ csrf_field() }}
-            <div class="form-group" style=" width: 400px;margin-left: 70px;">
+            <div class="container" style=" width: 400px;">
                 <input class=" btn-primary btn-block" type="submit" value="Soumettre" name="p"/>
             </div>
 </form>

@@ -1,4 +1,3 @@
-
 @extends('layouts.app')
 @section('content')
 <link rel="stylesheet" href="{{asset('assets\css\bootstrap.min.css')}}">
@@ -22,18 +21,20 @@
 </head>
 <body>
 
-    <div class="container" style=" width: 600px;margin-left: 500px;">
+  
         
    
 
-        <p class="h2"style="margin-left: 150px;">Details d'un Process RPA </p>
-        <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a><br><br>
+      
         <form class="signup" action="/liste_process_rpa/{{$i->id}}" method="post" enctype="multipart/form-data">
             <input type="hidden" name="_method" value=PUT>
-            <div class="form-group">
             
+            <div class="container" style=" width: 600px;"><br>
+            <p class="h2"style="margin-left: 150px;">Details d'un Process RPA </p>
+        <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a><br><br>
                 <div class="form-group">
-                    <label>Objectif de votre Besoin :</label>
+                    <label>Objectif de votre Besoin :</label><h style="font-size: 13px; font-weight: bolder; margin-left: 194px;">Date de Creation : {{$i->created_at->day}}/{{$i->created_at->month}}/{{$i->created_at->year}}</h></label>
+                    
                     <textarea rows="2" cols="600" disabled  name="Objectif"  class ="form-control" 
                     required placeholder="Entrer Objectif de votre Besoin " >{{$i->Objectif}}</textarea>
                     <span class="Error"></span>
@@ -82,7 +83,7 @@
        
              @if($i->etat=='Clos')
              <br>
-                        <label> Date d'échéance : {{$inc->date_echeance}}</label> 
+                        <label> Date d'échéance : {{$i->date_echeance}}</label> 
                         
                         <br>
              <label style="font-weight: bolder;">Etat :</label>
@@ -91,19 +92,19 @@
        
              @if($i->etat=='En cours')
              <br>
-                        <label> Date d'échéance : {{$inc->date_echeance}}</label> 
+                        <label> Date d'échéance : {{$i->date_echeance}}</label> 
                         
                         <br>
              <label style="font-weight: bolder;">Etat :</label>
                     &nbsp;&nbsp;<label style="color: orange; text-align: center;font-weight: bolder;font-size: 20px ">{{$i->etat}}</label>
              @endif
              @endif
-
+<br>
                     @if(Auth::user()->etat=='admin')
                     @if($i->etat=='Nouveau')
                     
               
-                    <br>
+                    
         <label>Affectater à :</label>
         <select name="affectation" id="" style="text-align: center; width: auto; height: 35px; background-color: white; font-weight: bolder;
          border: 2px solid black;">
@@ -153,14 +154,14 @@
 
         <br>
         {{ csrf_field() }}
-    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+    <div class="container" style=" width: 400px;;">
         <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
             @endif
 
         @if ($i->etat=='En cours')
         
-        <input type="label" name="affectation" id="" value="{{$i->affectation}}" style="visibility: hidden; width: 0px;height: 0px;">
+        
         <label>Affectater à :</label>
         <select name="" id="" disabled style="text-align: center; width: auto; height: 35px; background-color: white; font-weight: bolder;
          border: 2px solid black;">
@@ -171,6 +172,7 @@
             <br><br>
             <label>Date d'échéance :</label>
             <input type="date" name="date_echeance"  value="{{$i->date_echeance}}">
+            <input type="label" name="affectation" id="" value="{{$i->affectation}}" style="visibility: hidden; width: 0px;height: 0px;">
     <br><br>
     
     <label>Etat :</label>
@@ -205,14 +207,19 @@
 
       
     
-
+    
         <br>
         {{ csrf_field() }}
-    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+    <div class="container" style=" width: 400px;">
         <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
              @endif
-                    
+             @if($i->etat=='Clos')
+    
+    <label style="font-weight: bolder; ">Etat :</label>
+    &nbsp;&nbsp;<label style="color: red; text-align: center;font-weight: bolder;font-size: 25px;" >{{$i->etat}}</label>
+
+@endif
                 @endif
 
       
@@ -230,7 +237,7 @@
 
 
           
-    </div>
+  
   </body>
 </html>
 

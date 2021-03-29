@@ -17,62 +17,63 @@
 
             </head>
             <body>
-<div>
+
             <form class="signup" action="/liste_bi_rapports/{{$inc->id}}" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="_method" value=PUT>
 
-            <div class="form-group" style=" width: 600px;margin-left: 400px;" >
-                <div>
-                    <h1 style="text-align: center; color: black; font-weight: bolder;"> Details d'un rapport </h1>
+            <div class="container" style=" width: 600px;" >
+                
+                    <h1 style="text-align: center; color: black; font-weight: bolder;"> Éditer un Rapport </h1>
                     <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
-                   </div>
+                   
             
-                  
+                  <div class="form-group" style=" width: 600px;">
                     <br><label style="font-weight: bolder;" >Objet:
                     <h style="font-size: 13px; font-weight: bolder; margin-left: 360px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
                     <textarea rows="2" cols="100" name="objet"   class ="form-control" 
-                    required placeholder="Entrer Nom Rapport:" >{{$inc->objet}}</textarea>
+                    required placeholder="Entrer Nom Rapport:" style="width: 600px;" >{{$inc->objet}}</textarea>
                     <span class="Error"></span>
                 </div>
                 
-                <div class="form-group" style="margin-left: 400px;">
+                <div class="form-group" style=" width: 600px;">
                     <label style="font-weight: bolder;">Nom Rapport:
                     <textarea rows="3"  name="nom_rapport"   class ="form-control" style=" width: 600px;"
                     required placeholder="Entrer Description:" >{{$inc->nom_rapport}} </textarea>
                     <span class="Error"></span>
-<br>
+                    </div>
+
                     
-            <div class="form-group" style=" width: 700px;">
+            <div class="form-group" style=" width: 600px;">
             
                 <label>Technologie :</label>
-                <input class="form-control"  type="text" name="technologie" required placeholder="Entrer votre Objet" value="{{$inc->technologie}}" />
+                <textarea class="form-control"  type="text" name="technologie" required placeholder="Entrer votre Objet">{{$inc->technologie}}</textarea>
                 <span class="Error"></span>
             </div>
 
         
-            <div class="form-group" style=" width: 700px;">
+            <div class="form-group" style=" width: 600px;">
             
                 <label>Catégorie :</label><br>
-                <input class="form-control"  type="text" name="categorie" required placeholder="Entrer votre Objet" value="{{$inc->categorie}}" />
+                <textarea class="form-control"  type="text" name="categorie" required placeholder="Entrer votre Objet" >{{$inc->categorie}}</textarea>
                 <span class="Error"></span>
             </div>
-            <div class="form-group" style=" width: 700px;">
+            <div class="form-group" style=" width: 600px;">
             
                 <label>Cycle de vie :</label>
-                <input class="form-control"  type="text" name="cycle_de_vie" required placeholder="Entrer votre Objet" value="{{$inc->cycle_de_vie}}" />
+                <textarea class="form-control"  type="text" name="cycle_de_vie" required placeholder="Entrer votre Objet" >{{$inc->cycle_de_vie}}</textarea>
                 <span class="Error"></span>
             </div>
-            <div class="form-group" style=" width: 700px;">
+            <div class="form-group" style=" width: 600px;">
             
                 <label>Les utilisateurs :</label>
-                <input class="form-control"  type="text" name="utilisateurs" required placeholder="Entrer votre Objet" value="{{$inc->utilisateurs}}" />
+                <textarea class="form-control"  type="text" name="utilisateurs" required placeholder="Entrer votre Objet" >{{$inc->utilisateurs}}</textarea>
                 <span class="Error"></span>
             </div>
             
-            <div class="form-group" style=" width: 700px;">
+            <div class="form-group" style=" width: 600px;">
             
                 <label>Planification :</label>
-                <input class="form-control"  type="text" name="planification" required placeholder="Entrer votre Objet" value="{{$inc->planification}}" />
+                <textarea class="form-control"  type="text" name="planification" required placeholder="Entrer votre Objet"> {{$inc->planification}}</textarea>
                 <span class="Error"></span>
             </div>
          
@@ -84,7 +85,7 @@
             <br>
 
             {{ csrf_field() }}
-            <div class="form-group" style=" width: 400px;margin-left: 80px;">
+            <div class="container" style=" width: 400px;">
                 <input class="btn btn-primary btn-block" type="submit" value="Editer" />
             </div>
 </form>

@@ -23,11 +23,11 @@
             <body>
 
             <h1 style="text-align: center; color: black; font-weight: bolder;"> {{$inc->titre}}</h1>
-            <div class="form-group" style=" width: 600px;margin-left: 500px;" >
-            <div>
+            <div class="container" style=" width: 600px;" >
+         
             <p class="h2"style="margin-left: 180px;">Editer une Analyse </p>
         <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
-       </div>
+       
        <form class="signup" action="/liste_analyse/{{$inc->id}}" method="post" enctype="multipart/form-data">
         <input type="hidden" name="_method" value=PUT>
        <br>
@@ -66,7 +66,7 @@
 
            <br>
            {{ csrf_field() }}
-           <div class="form-group" style=" width: 400px;margin-left: 600px;">
+           <div class="container" style=" width: 400px;">
                <input class="btn btn-primary btn-block" type="submit" value="Editer"/>
            </div>
        </form>

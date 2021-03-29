@@ -22,11 +22,11 @@
             </head>
             <body>
 
-            <div class="form-group" style=" width: 600px;margin-left: 500px;" >
-            <div>
+            <div class="container" style=" width: 600px;" >
+            <
             <p class="h2"style="margin-left: 140px;">Editer une Extraction </p>
         <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
-       </div>
+       <br>
        <form class="signup" action="/liste_extraction/{{$inc->id}}" method="post" enctype="multipart/form-data">
         <input type="hidden" name="_method" value=PUT>
        <br>
@@ -65,7 +65,7 @@
 
            <br>
            {{ csrf_field() }}
-           <div class="form-group" style=" width: 400px;margin-left: 600px;">
+           <div class="container" style=" width: 400px;">
                <input class="btn btn-primary btn-block" type="submit" value="Editer"/>
            </div>
        </form>

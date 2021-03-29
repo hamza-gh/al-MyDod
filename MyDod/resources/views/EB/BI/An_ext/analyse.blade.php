@@ -15,30 +15,36 @@
     <title>Analyse</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <style>
-        label{
-            font-weight: bolder;
-        }
+         label{
+         font-weight: bolder;
+     }
+     .bib{
+         font-weight: bold;
+         font-size: 15px;
+         color: black;
+     }
     </style>
 </head>
 <body>
 
-    <div class="container" style=" width: 600px;margin-left: 200px;">
-        
+    <div class="container" style=" width: 600px;">
+        <div style="color: #2B2D3B; font-size: 13px; font-weight: bolder; text-align: right;"><a href="" class="bib">BI</a> ><a class="bib"> Analyse</a></div><br>
+
     <form class="signup" action="{{ url('/analyse')}}" method="post" enctype="multipart/form-data">
        <br>
-       <p class="h2"style="margin-left: 240px;">Analyse </p><br>
+       <p class="h2" style="text-align: center;">Analyse </p><br>
        @include('partieflash.flash')
            <div class="form-group">
            
                   
            <label>Projet :<a style="color: red;">*</a></label><br>
-                <input class="form-control"  type="text" name="projet" required placeholder="Entrer Nom Projet"/>
+                <input class="form-control"  type="text" name="projet" required placeholder="Entrer Nom Projet" style="width: 560px;"/>
                 <span class="Error"></span>
             </div>
 
               
                <label>Typologie :<a style="color: red;">*</a></label>
-               <input class="form-control"  type="text" name="typologie" required placeholder="Entrer Typologie"/><br><br>
+               <input class="form-control"  type="text" name="typologie" required placeholder="Entrer Typologie" style="width: 560px;"/><br><br>
                <span class="Error"></span>
 
                <div class="form-group">
@@ -61,7 +67,7 @@
 
            <br>
            {{ csrf_field() }}
-           <div class="form-group" style=" width: 400px;margin-left: 600px;">
+           <div class="container" style=" width: 400px;">
                <input class="btn btn-primary btn-block" type="submit" value="Soumettre"/>
            </div>
        </form>

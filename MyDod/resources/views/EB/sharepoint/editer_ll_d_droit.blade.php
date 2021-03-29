@@ -22,22 +22,23 @@
             </head>
             <body>
 
-            <h1 style="text-align: center; color: black; font-weight: bolder;"> Editer</h1>
-            <div class="form-group" style=" width: 600px;margin-left: 500px;" >
-            <div>
             
+            <div class="container" style=" width: 600px;" >
+            
+            <h1 style="text-align: center; color: black; font-weight: bolder;"> Editer</h1>
         <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a><br><br>
-       </div>
+     
                 <form class="signup" action="/ll_d_droit/{{$inc->id}}" method="post" enctype="multipart/form-data">
                     <input type="hidden" name="_method" value=PUT>
 
-                    
-                       <label>Nom de la liste :</label>
-                    <h style="font-size: 13px; font-weight: bolder; margin-left: 310px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
-                    <div class="form-group">
+                      <div class="form-group" style="width:670px;">
             
+                       <label>Nom de la liste :</label>
+                    <h style="font-size: 13px; font-weight: bolder; margin-left: 260px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
+                  
         
-            <input class="form-control"  type="text" name="nom_l" required placeholder="Entrer votre Nom de la liste" value="{{$inc->nom_l}}" style="text-align: left;"/>
+            <input class="form-control"  type="text" name="nom_l" required placeholder="Entrer votre Nom de la liste" value="{{$inc->nom_l}}" 
+            style="text-align: left;"/>
             <span class="Error"></span>
         </div>
 
@@ -56,7 +57,7 @@
 
                 <br>
                 {{ csrf_field() }}
-            <div class="form-group" style=" width: 400px;margin-left: 550px;">
+            <div class="container" style=" width: 400px;">
                 <input class="btn btn-primary btn-block" type="submit" value="Editer" />
             </div>
 </form>

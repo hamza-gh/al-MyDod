@@ -15,17 +15,22 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
  
+    <style>
+        label{
+            font-weight: bolder;
+        }
+    </style>
 </head>
 <body>
 
-    <div class="container" style=" width: 600px;margin-left: 500px;">
+    <div class="container" style=" width: 600px;">
         
         <form class="signup" action="/liste_process_rpa/{{$i->id}}" method="post" enctype="multipart/form-data">
             <input type="hidden" name="_method" value=PUT>
 
         <p class="h2"style="margin-left: 150px;">Editer Process RPA </p><br>
-        
-            <div class="form-group">
+        <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a><br><br>
+          
             
                 <div class="form-group">
                     <label>Objectif de votre Besoin :<a style="color: red;">*</a></label>
@@ -41,28 +46,28 @@
                 </div>
                 
                 <label>Le Processus Actuel occupe combien d'ETP ?  :<a style="color: red;">*</a></label>
-                <input id="balloons" type="number" name="Processus_etp"  min="1" required style="width: 80px;" value="{{$i->Processus_etp}}">
+                <input id="balloons" type="number" name="Processus_etp"   min="1" required style="width: 80px; height: 40px;" value="{{$i->Processus_etp}}"/>
                 
                 <span class="Error"></span>
                 <br><br>
 
                 <label>Fonctionnalités de l'automatisation  :<a style="color: red;">*</a></label>
-                <input class="form-control"  type="text" name="gain" 
-                required placeholder="Entrer Fonctionnalités de l'automatisation " value="{{$i->gain}}"/>
-                <span class="Error"></span>
+                <textarea class="form-control"  type="text" name="gain" 
+                required placeholder="Entrer Fonctionnalités de l'automatisation " >{{$i->gain}}</textarea>
+                <span class="Error"></span><br>
 
                 <label>Planification :<a style="color: red;">*</a></label>
-                <input class="form-control"  type="text" name="Planification" required placeholder="Planification" value="{{$i->Planification}}"/>
-                <span class="Error"></span> 
+                <textarea class="form-control"  type="text" name="Planification" required placeholder="Planification" >{{$i->Planification}}</textarea>
+                <span class="Error"></span> <br>
                  
                 <label>Canal  d'envoi :<a style="color: red;">*</a></label>
-                <input class="form-control"  type="text" name="Canal" required placeholder="Entrer Canal  d'envoi"
-                 value="{{$i->Canal}}"/>
-                <span class="Error"></span>
+                <textarea class="form-control"  type="text" name="Canal" required placeholder="Entrer Canal  d'envoi"
+                >{{$i->Canal}}</textarea>
+                <span class="Error"></span><br>
 
                 <label>Utilisateurs :<a style="color: red;">*</a></label>
-                <input class="form-control"  type="text" name="Utilisateurs" required placeholder="Entrer les Utilisateurs"
-                 value="{{$i->Utilisateurs}}"/>
+                <textarea class="form-control"  type="text" name="Utilisateurs" required placeholder="Entrer les Utilisateurs"
+                 >{{$i->Utilisateurs}}</textarea>
                 
             </div>
 
@@ -83,7 +88,7 @@
 
             <br>
             {{ csrf_field() }}
-            <div class="form-group" style=" width: 400px;margin-left: 550px;">
+            <div class="container" style=" width: 400px;">
                 <input class="btn btn-primary btn-block" type="submit" value="Editer"/>
             </div>
         </form>

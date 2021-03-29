@@ -23,7 +23,7 @@ class automatisationController extends Controller
     public function rpa_index(Request $request)
     {
          
-               $l =DB::table('au_procs')->where('email_user',$request->user()->email)->get();
+               $l =DB::table('au_procs')->where('email_user',$request->user()->email)->orderBy('updated_at', 'DESC')->get();
               
                return view('EB.Automatisation.liste_process_rpa' , ['ic' => $l]);
 
@@ -131,7 +131,7 @@ class automatisationController extends Controller
    public function rpa_am_index(Request $request)
         {
              
-                   $l =DB::table('au_anomalie_majs')->where('email_user',$request->user()->email)->get();
+                   $l =DB::table('au_anomalie_majs')->where('email_user',$request->user()->email)->orderBy('updated_at', 'DESC')->get();
                   
                    return view('EB.Automatisation.liste_au_ano_maj' , ['ic' => $l]);
     
@@ -153,13 +153,13 @@ class automatisationController extends Controller
            $inc->nom_pr = $request->input('nom_pr');
            $inc->Descriptif = $request->input('Descriptif');
          
-           if($request->input('m')=='Mis à Jour RPA')
+           if($request->input('m')=='Mettre à jour')
            {
              $inc->titre = 'Mis à jour';
              session()->flash('aj','Mis à Jour Bien Ajouter');
            }
            
-           if($request->input('a')=='Ajouter une Anomalie RPA')
+           if($request->input('a')=='Soumettre')
            {
              $inc->titre = 'Anomalie';
              session()->flash('aj','Anomalie(RPA) Bien Ajouter');

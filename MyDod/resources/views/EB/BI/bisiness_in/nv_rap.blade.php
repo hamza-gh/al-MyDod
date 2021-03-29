@@ -1,11 +1,7 @@
 @extends('EB.BI.bisiness_in.home_bi')
 @section('bi')
 
-<link rel="stylesheet" href="{{asset('assets\css\bootstrap.min.css')}}">
 
-<link rel="stylesheet" href="{{asset('assets\css\theme.css')}}">
-    <script src="{{asset('assets\resources\js\bootstrap.min.js')}}"></script>
-    <script src="{{asset('assets\resources\js\jquery-3.5.1.min.js')}}"></script>
 
 
 <!DOCTYPE html>
@@ -18,12 +14,22 @@
      label{
          font-weight: bolder;
      }
+     .bib{
+         font-weight: bold;
+         font-size: 15px;
+         color: black;
+     }
+    
  </style>
 </head>
 <body>
-<div style="color: #2B2D3B; font-size: 13px; font-weight: bolder; margin-left: 800px;">BI > Power BI > Create Rapport</div>
-    <div class="container" style=" width: 600px;margin-left: 200px;">
+  
+
+    <div class="container" style=" width: 600px;">
+  <div style="color: #2B2D3B; font-size: 13px; font-weight: bolder; text-align: right;"><a href="/home_eb" class="bib">BI</a> ><a class="bib"> Power BI </a>><a class="bib"> Create Rapport</a></div><br>
+
     @include('partieflash.flash')
+
         <form class="signup" action="{{ url('/nv_rap')}}" method="post" enctype="multipart/form-data">
        
         <p class="h2"style="margin-left: 150px;">Nouveau Rapport </p><br>
@@ -35,17 +41,22 @@
                     <textarea rows="2" cols="600" name="objet"  class ="form-control" required placeholder="Entrer l'Objectif du besoin"></textarea>
                     <span class="Error"></span>
                 </div>
+
+
                 <div class="form-group">
                     <label>Nom Rapport:<a style="color: red;">*</a></label>
                     <textarea rows="2" cols="100" name="nom_rapport"   class ="form-control" required placeholder="Entrer Nom Rapport:"></textarea>
                     <span class="Error"></span>
                 </div>
+
                 
                 <div class="form-group">
                 <label>Technologie :<a style="color: red;">*</a></label>
                 <textarea rows="2" cols="100" class="form-control"  type="text" name="technologie" required placeholder="Entrer Technologie"></textarea>
                 <span class="Error"></span>
                 </div>
+
+                
 
                 <div class="form-group">
                 <label>Catégorie :<a style="color: red;">*</a></label>
@@ -96,7 +107,7 @@
 
             <br>
             {{ csrf_field() }}
-            <div class="form-group" style=" width: 400px;margin-left: 600px;">
+            <div class="container" style=" width: 400px;">
                 <input class="btn btn-primary btn-block" type="submit" value="Soumettre"/>
             </div>
         </form>

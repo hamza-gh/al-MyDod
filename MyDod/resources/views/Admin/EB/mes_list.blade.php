@@ -59,7 +59,7 @@
                             
                        
                         
-                            <th scope="col" style="text-align: center; font-size: 20px; font-weight: bold; color: blue;" >BI</th>
+                            <th scope="col" style="text-align: center; font-size: 20px; font-weight: bold; color: blue;" >Rapport Power BI</th>
                         <th scope="col" style="text-align: center;" >Nom</th>
                         <th scope="col" style="text-align: center;">Etat</th>
                         <th></th>
@@ -96,7 +96,7 @@
                         <thead>
                         
                         
-                            <th scope="col" style="text-align: center; font-size: 20px; font-weight: bold; color: blue;"  >BI</th>
+                            <th scope="col" style="text-align: center; font-size: 20px; font-weight: bold; color: blue;"  >Mise à jour/Anomalie</th>
                         <th scope="col" style="text-align: center;" >Nom</th>
                         <th scope="col" style="text-align: center;">Etat</th>
                         <th></th>

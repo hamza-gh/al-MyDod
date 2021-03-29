@@ -38,7 +38,7 @@
       
       <th scope="col" style="text-align: center;max-width:10px;" >Titre</th>
       <th scope="col"style="text-align: center;">Nom Rapport</th>
-      <th scope="col"style="text-align: center;">Chemin d'accès</th>
+     
       <th scope="col"style="text-align: center;">Date de Creation</th>
       <th scope="col"  >&nbsp;&nbsp;Etat</th>
       <th scope="col" style="text-align: center;">Action</th>
@@ -57,7 +57,7 @@
       <td style="text-align: center;">Planification BO</td>
       @endif
       <td style="text-align: center;">{{$i->n_rapport}}</td>
-      <td style="text-align: center;">{{$i->chemin}}</td>
+     
       <td style="text-align: center;">{{$i->created_at}}</td>
 
       

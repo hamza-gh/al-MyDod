@@ -22,7 +22,7 @@
 </style>
 </head>
 <body>
-    <div class="container" style="width: 700px; ">
+    <div class="container" style="width: 700px;">
        
         <form class="signup" action="{{ url('/liste_incident')}}" method="post">
      
@@ -31,18 +31,18 @@
 
             <div class="form-group">
             
-                <label>Objet:</label>
-                <input class="form-control"  type="text" name="objet" required placeholder="Entrer votre Objet"/>
+                <label>Objet :</label>
+                <input class="form-control"  type="text" name="objet" required placeholder="Description courte"/>
                 <span class="Error"></span>
             </div><br>
 
             <div class="form-group">
-                <label>Description:</label>
-                <textarea rows="5" cols="100" name="Description" class ="form-control" required placeholder="Description"></textarea>
+                <label>Description :</label>
+                <textarea rows="5" cols="100" name="Description" class ="form-control" required placeholder="Description détaillée"></textarea>
                 <span class="Error"></span>
             </div><br>
             <div class="form-group" style="text-align: center;">
-                <label>Criticité:</label><br/>
+                <label>Criticité :</label><br/>
                 <label><input type="radio" name="criticite" required value="Faible" checked /> Faible</label>&nbsp;&nbsp;&nbsp;&nbsp;
                 <label><input type="radio" name="criticite" required value="Moyen" /> Moyen</label>&nbsp;&nbsp;&nbsp;&nbsp;
                 <label><input type="radio" name="criticite" required value="Urgent" /> élevé</label><br>

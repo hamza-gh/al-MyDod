@@ -22,7 +22,7 @@ class SharepointController extends Controller
     
     public function index(Request $request)
     {
-        $listd_droit =DB::table('sh_droits')->where('email_user',$request->user()->email)->get();
+        $listd_droit =DB::table('sh_droits')->where('email_user',$request->user()->email)->orderBy('updated_at', 'DESC')->get();
               
         return view('EB.sharepoint.l_d_droit' , ['ic' => $listd_droit]);
 
@@ -117,7 +117,7 @@ class SharepointController extends Controller
   {
 
        
-        $listd_droit =DB::table('sh_l_droits')->where('email_user',$request->user()->email)->get();
+        $listd_droit =DB::table('sh_l_droits')->where('email_user',$request->user()->email)->orderBy('updated_at', 'DESC')->get();
               
         return view('EB.sharepoint.ll_d_droit' , ['ic' => $listd_droit]);
   }

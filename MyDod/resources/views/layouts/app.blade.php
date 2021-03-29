@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="{{asset('assets\css\bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets\css\login.css')}}">
     <link rel="stylesheet" href="{{asset('assets\css\nav.css')}}">
-    <link rel="stylesheet" href="{{asset('assets\css\theme.css')}}">
     <script src="{{asset('assets\resources\js\bootstrap.min.js')}}"></script>
     <script src="{{asset('assets\resources\js\jquery-3.5.1.min.js')}}"></script>
 </head>
@@ -23,9 +22,9 @@
     <div id="app" style="left: 200px;">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" >
             <div class="container" >
-              
+            <img src="{{asset('assets\img\al.png')}}" id="icon" alt="User Icon"  style="width: 60px;"/> &nbsp;&nbsp;&nbsp;
                 <a href ="/home" style="text-decoration: none;" class="logo" style="font-size: 80px;" >
-                   My DoD
+                   MyDoD
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -46,10 +45,10 @@
 
                         <div class="dropdown">
                         <button class="dropbtn ">Consultation</button>
-                        <div class="dropdown-content">
-                        <a href="/in_list" style="font-weight: bolder;">Incident</a>
+                        <div class="dropdown-content" style="width: 185px;">
+                        <a href="/in_list" style="font-weight: bolder; font-size: 12px;">Incident</a>
                       <!--  <a href="#">Link 2</a>-->
-                        <a href="/liste_total" style="font-weight: bolder;">Expression de Besoin</a>
+                        <a href="/liste_total" style="font-weight: bolder; font-size: 12px;">Expression de Besoin</a>
                     </div>
                     <div>
             
@@ -78,9 +77,9 @@
                      
                     <button class="dropbtn ">{{ Auth::user()->name }}</button>
                     <div class="dropdown-content">
-                        <a href="#">profil</a>
+                      <!--  <a href="#">profil</a>-->
                          <!--  <a href="#">Link 2</a>-->
-                        <a href="/deconnexion">Deconnexion</a>
+                        <a href="/deconnexion" style="font-size: 12px;">Deconnexion</a>
                     </div>
                     
                     <div>

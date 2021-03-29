@@ -25,67 +25,67 @@
           
              
 
-            <div class="form-group" style=" width: 600px;margin-left: 400px;" >
-                <div>
+            <div class="container" style=" width: 600px;" >
+               
                     <h1 style="text-align: center; color: black; font-weight: bolder;"> Details d'un rapport BO</h1>
                     <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
-                   </div>
+                   
                    <form class="signup" action="/liste_bo_rap/{{$inc->id}}" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="_method" value=PUT>
-                  
-                    <br><label style="font-weight: bolder;" >Objectif du besoin:
+                <input type="hidden" name="_method" value=PUT><br>
+                  <div class="form-group" style="width: 600px;">
+                    <label style="font-weight: bolder;" >Objectif du besoin:
                     <h style="font-size: 12px; font-weight: bolder; margin-left: 280px;">Date de Creation : {{$inc->created_at->day}}/{{$inc->created_at->month}}/{{$inc->created_at->year}}</h></label>
                     <textarea rows="2" cols="100" name="object"   class ="form-control" 
                     required placeholder="Entrer Nom Rapport:"disabled >{{$inc->object}}</textarea>
                     <span class="Error"></span>
                 </div>
                 
-                <div class="form-group" style="margin-left: 400px;">
+                <div class="form-group" >
                     <label style="font-weight: bolder;">Noms des Rapports Proposés :
                     <textarea rows="3"  name="n_rapport"   class ="form-control" style=" width: 600px;"
                     required disabled >{{$inc->n_rapport}} </textarea>
                     <span class="Error"></span>
 <br>
                     
-            <div class="form-group" style=" width: 700px;">
+            <div class="form-group" style=" width: 600px;">
             
                 <label>Univers  :</label><br>
-                <input class="form-control"  type="text" name="univers"
-                 required placeholder="Entrer votre Objet" value="{{$inc->univers}}" disabled/>
+                <textarea class="form-control"  type="text" name="univers"
+                 required placeholder="Entrer votre Objet" disabled>{{$inc->univers}}</textarea>
                 <span class="Error"></span>
             </div>
 
         
-            <div class="form-group" style=" width: 700px;">
+            <div class="form-group" style=" width: 600px;">
             
                 <label>Champs à extraires :</label><br>
-                <input class="form-control"  type="text" name="c_extraires" required placeholder="Entrer votre Objet" 
-                value="{{$inc->c_extraires}}" disabled/>
+                <textarea class="form-control"  type="text" name="c_extraires" required placeholder="Entrer votre Objet" 
+                disabled>{{$inc->c_extraires}}</textarea>
                 <span class="Error"></span>
             </div>
-            <div class="form-group" style=" width: 700px;">
+            <div class="form-group" style=" width: 600px;">
             
                 <label>Filtres à appliquer :</label>
-                <input class="form-control" disabled type="text" name="filtres" required placeholder="Entrer votre Objet" value="{{$inc->filtres}}" />
+                <textarea class="form-control" disabled type="text" name="filtres" required placeholder="Entrer votre Objet" >{{$inc->filtres}}</textarea>
                 <span class="Error"></span>
             </div>
-            <div class="form-group" style=" width: 700px;">
+            <div class="form-group" style=" width: 600px;">
             
                 <label>Liste de diffusion :</label>
-                <input class="form-control" disabled type="text" name="liste_d" required placeholder="Entrer votre Objet" value="{{$inc->liste_d}}" />
+                <textarea class="form-control" disabled type="text" name="liste_d" required placeholder="Entrer votre Objet" >{{$inc->liste_d}}</textarea>
                 <span class="Error"></span>
             </div>
             
-            <div class="form-group" style=" width: 700px;">
+            <div class="form-group" style=" width: 600px;">
             
                 <label>Planification :</label>
-                <input class="form-control" disabled type="text" name="planification" required placeholder="Entrer votre Objet" value="{{$inc->planification}}" />
+                <textarea class="form-control" disabled type="text" name="planification" required placeholder="Entrer votre Objet" >{{$inc->planification}}</textarea>
                 <span class="Error"></span>
             </div>
          
              
        
-                <br><br>
+             
                
                
                 @if(Auth::user()->etat=='user')
@@ -99,7 +99,7 @@
              @endif
        
              @if($inc->etat=='Clos')
-             <br>
+             
                         <label> Date d'échéance : {{$inc->date_echeance}}</label> 
                         
                         <br>
@@ -108,7 +108,7 @@
              @endif
        
              @if($inc->etat=='En cours')
-             <br>
+             
                         <label> Date d'échéance : {{$inc->date_echeance}}</label> 
                         
                         <br>
@@ -171,7 +171,7 @@
 
         <br>
         {{ csrf_field() }}
-    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+    <div class="container" style=" width: 400px;">
         <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
             @endif
@@ -226,7 +226,7 @@
 
         <br>
         {{ csrf_field() }}
-    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+    <div class="container" style=" width: 400px;">
         <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
              @endif

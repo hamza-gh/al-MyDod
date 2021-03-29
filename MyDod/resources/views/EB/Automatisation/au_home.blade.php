@@ -88,7 +88,7 @@
 </head>
 <body>
 
-<div class="sidenav" style="margin-top: 100px; height: 550px;  margin-left: 120px; width: 280px;" >
+<div class="sidenav" style="margin-top: 100px; height: 550px;  margin-left: 235px; width: 280px;" >
 <a href="/home_eb" style="text-decoration: none;" ><label class= "n" style="text-align: center; "  title="Automatisation des Processus Robotisées"> RPA </label>
 </a>
 
@@ -126,4 +126,4 @@ for (i = 0; i < dropdown.length; i++) {
 </html> 
 
 
-<div style="padding-left: 300px;">@yield('au')</div>
+<div >@yield('au')</div>

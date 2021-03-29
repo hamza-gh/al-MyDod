@@ -10,7 +10,7 @@
                 <meta charset="UTF-8">
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Details {{$inc->titre}}</title>
+                
                 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous"/>
 
@@ -22,21 +22,22 @@
             </head>
             <body>
 
-            <h1 style="text-align: center; color: black; font-weight: bolder;"> Details  </h1>
+          
             
-            <div class="form-group" style=" width: 600px;margin-left: 500px;" >
-                <div>
-        
-                    <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a>
-                   </div>
+            
+               
+              
+                  
                    <form class="signup" action="/l_d_droit/{{$inc->id}}" method="post" enctype="multipart/form-data">
                     
                     <input type="hidden" name="_method" value=PUT>
                   
                 </div>
                 
-                <div class="form-group" style=" width: 600px;margin-left: 500px;">
-                <label style="font-size: 20px;">Dossier :<a style="color: red;">*</a></label>
+                <div class="container" style=" width: 600px;">
+                <h1 style="text-align: center; color: black; font-weight: bolder;"> Details  </h1>
+                    <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a><br><br>
+                <label style="font-size: 20px;">Dossier :</label>
             <textarea  name="dossier" class ="form-control" required placeholder="Dossier">{{$inc->dossier}}</textarea>
             <br>
                     <label style="font-weight: bolder;">Utilisateurs :</label>
@@ -125,14 +126,14 @@
 
         <br>
         {{ csrf_field() }}
-    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+    <div class="container" style=" width: 400px;;">
         <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
             @endif
 
         @if ($inc->etat=='En cours')
         
-        <input type="label" name="affectation" id="" value="{{$inc->affectation}}" style="visibility: hidden; width: 0px;height: 0px;">
+      <br>
         <label>Affectater à :</label>
         <select name="" id="" disabled style="text-align: center; width: auto; height: 35px; background-color: white; font-weight: bolder;
          border: 2px solid black;">
@@ -142,7 +143,8 @@
         </select>
             <br><br>
             <label>Date d'échéance :</label>
-            <input type="date" name="date_echeance"  value="{{$inc->date_echeance}}">
+            <input type="date" name="date_echeance"  value="{{$inc->date_echeance}}">  
+            <input type="label" name="affectation" id="" value="{{$inc->affectation}}" style="visibility: hidden; width: 0px;height: 0px;">
     <br><br>
     
     <label>Etat :</label>
@@ -180,11 +182,16 @@
 
         <br>
         {{ csrf_field() }}
-    <div class="form-group" style=" width: 400px;margin-left: 550px;">
+    <div class="container" style=" width: 400px;">
         <input class="btn btn-primary btn-block" type="submit" value="Editer" />
     </div>
              @endif
-                    
+             @if($inc->etat=='Clos')
+    
+    <label style="font-weight: bolder; ">Etat :</label>
+    &nbsp;&nbsp;<label style="color: red; text-align: center;font-weight: bolder;font-size: 25px;" >{{$inc->etat}}</label>
+
+@endif
                 @endif
 
       

@@ -22,7 +22,7 @@ class incidentController extends Controller
     public function index(Request $request)
     {
          
-               $listincident =DB::table('incidents')->where('email_user',$request->user()->email)->get();
+               $listincident =DB::table('incidents')->where('email_user',$request->user()->email)->orderBy('updated_at', 'DESC')->get();
               
                return view('liste_incident' , ['ic' => $listincident]);
 

@@ -15,8 +15,9 @@
 </head>
 <body>
 
-            <h1 style=" margin-left: 750px; color: black; font-weight: bold;">Détails</h1>
+           
 <div class="container"  style="width: 800px;">
+<h1 style="text-align: center; color: black; font-weight: bold;">Détails</h1>
     <div class="col-md-12">
     <div class ="row">
 <style>
@@ -35,7 +36,7 @@
 
 </head>
 <body>
-    <div >
+    <div class="container">
         <a href="javascript:history.go(-1)" class="btn btn-success" style="background-color: black;" > <  </a><br>
         
       <br>

@@ -16,7 +16,7 @@
 }
 
 .text-color {
-  color: #ffffff;
+  color: white;
   transition-duration: 0.5s;
 }
 
@@ -98,7 +98,7 @@
   border-radius: 5px;
   width: 100%;
   padding: 45px 40px 40px 40px;
-  background-color: #4169E1;
+  background-color: rgb(23, 0, 155);
 }
 
 .tab__content > li .content__wrapper .sub_content__wrapper {
@@ -115,7 +115,7 @@
 
 .tab__content > li .content__wrapper .sub_content__wrapper h1 {
   font-size: 20px;
-  color: rgba(220, 220, 220, 0.886);
+  color: rgba(255, 255, 255, 0.886);
 }
 
 .tab__content > li .content__wrapper .sub_content__wrapper a,
@@ -152,7 +152,11 @@
 </head>
 
 <body>
+<div style="height: 80px; text-align: center;">
 
+  <img src="{{asset('assets\img\under-banner.png')}}" style="width: 900px; "/>
+
+</div>
 
 <section class="wrapper">
 	<ul class="tabs">
