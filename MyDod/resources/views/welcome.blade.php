@@ -131,7 +131,7 @@
                      @if(Auth::user()->etat=='user')
                      
                            <!--user part -->
-                           <div class="container" style="margin-top: 200px; margin-left: 320px;">
+                           <div class="container" style="margin-top: 200px; margin-left: 350px;">
                            <div style="display: inline-flex;">
         
                             <a href="/liste_incident" class="btn effect " style="margin-right: 40px;"><span> <br> Déclarer incident </span></a>
@@ -142,26 +142,47 @@
 
         </div>
         <br>
+
      <div class="container" style="display: inline-flex;" >
         
-        <div  class="container" style="border: rgba(0, 0, 0, 0) solid 2px; width: 100%;margin-left: -16px;border-radius: 30px;
+        <div  class="container" style="border: rgba(0, 0, 0, 0) solid 2px; width: 100%;margin-left: -16px;
          width: 400px; font-size: 18px; font-weight: bold; text-align: left;">
          
-         <div style="text-align: left; margin-top: 10px; "> <img src="assets/img/in.png"   style="width: 30px;"/></div>   - Problème de chargement d'un rapport.
+         <div style="text-align: left; margin-top: 10px; "> <img src="assets/img/in.png"   style="width: 30px;"/></div>   
+         - Problème de chargement d'un rapport.
            <br>- Rupture d'un processus RPA.
            
         </div>
 
-        <div  class="container" style="border: rgba(0, 0, 0, 0) solid 2px; width: 100%;margin-left: -210px;border-radius: 30px;
+
+        <div style="display: inline-flex;">
+        <div  class="container" style="border: rgba(0, 0, 0, 0) solid 2px; width: 100%;margin-left: -645px;
         width: 400px; font-size: 18px; font-weight: bold; text-align: left;">
-          <div style="text-align: left; margin-top: 10px; "> <img src="assets/img/in.png"   style="width: 30px;"/></div> - Construire un nouveau KPI <br>
+          <div style="text-align: left; margin-top: 10px; "> 
+          <img src="assets/img/in.png"   style="width: 30px;"/>
+        </div>
+         - Construire un nouveau KPI <br>
           - Creation d'un rapport POWER BI <br>
           - Concevoir un Process RPA <br>
           - Mettre en oeuvre une liste SP <br>
           - Demande de droit SP 
           <br>- Rupture d'un processus RPA. <br><br>
+
+          <div  class="container" style=" width: 100%;margin-left: 425px;margin-top: -220px;
+          width: 400px; font-size: 18px; font-weight: bold; text-align: left;">
+            <div style="text-align: left;"> 
+            <img src="assets/img/in.png"   style="width: 30px;"/>
+             </div>
+
+             <div style="width: 500px;">
+             Vous pouvez consulter vos demandes et les suivre  <br>
+             </div>
           
-       </div>
+          </div>
+        
+      
+
+     
         
     </div>
   

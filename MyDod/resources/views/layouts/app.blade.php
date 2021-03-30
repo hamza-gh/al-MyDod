@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Mydod</title>
+    <link rel="icon" href="{{ URL::asset('f.ico') }}" type="image/x-icon"/><title> MyDod</title>
 
     <link rel="stylesheet" href="{{asset('assets\css\bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets\css\login.css')}}">

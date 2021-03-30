@@ -614,25 +614,29 @@ public function demande_clo()
       where b.email_user=u.email and b.etat=? ORDER BY b.updated_at desc', ['Clos'] );
       
     
-     /* $liste_incident_n_count = DB::select('select count(*),b.etat from incidents b,users u
-      where b.email_user=u.email and b.etat=? group by b.etat', ['Nouveau'] );
+     /*$liste_incident_n_count = DB::select('select b.etat,b.id from incidents b,users u
+      where b.email_user=u.email and b.etat=?', ['Nouveau'] );
      
       $liste_incident_e_count = DB::select('select count(*),b.etat from incidents b,users u
       where b.email_user=u.email and b.etat=? group by b.etat', ['En cours'] );
       
       $liste_incident_c_count = DB::select('select count(*),b.etat from incidents b,users u
-      where b.email_user=u.email and b.etat=? group by b.etat', ['Clos'] );
+      where b.email_user=u.email and b.etat=? group by b.etat', ['Clos'] );*/
              
-        */
+        
    
 
      return view('Admin.a_incident.A_l_incident' ,
      ['liste_incident_n' => $liste_incident_n,
     'liste_incident_e' => $liste_incident_e,
-    'liste_incident_c' => $liste_incident_c,
- 
-  ]
-  );
+    'liste_incident_c' => $liste_incident_c
+   
+    ]);
+
+
+
+
+
     }
 
 

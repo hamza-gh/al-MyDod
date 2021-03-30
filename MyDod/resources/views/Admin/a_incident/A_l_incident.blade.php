@@ -48,9 +48,10 @@
         
         <div class="container">
 
-           <!--<div> <label style="margin-left: 15px; color: green;font-weight: bolder;"> Nouveau : </label>
+          <!-- <div> <label style="margin-left: 15px; color: green;font-weight: bolder;"> Nouveau : </label>
                  <label style="margin-left:  180px; color: orange;font-weight: bolder;" >En cours : </label>  
-                <label style="margin-left: 240px; color: red; font-weight: bolder;">Clos : </label> </div>--> 
+                <label style="margin-left: 240px; color: red; font-weight: bolder;">Clos : </label> </div> -->
+
    
        
 <h1 style="color: black; font-weight: bolder; " >Liste des incidents :</h1>
